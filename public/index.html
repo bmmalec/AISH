@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stakeholder AI Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Stakeholder AI</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li><a href="#" onclick="toggleSidebar()">Toggle Sidebar</a></li>
+                <li><a href="/">Requirements</a></li>
+                <li><a href="/wireframe-viewer">Wireframes</a></li>
+                <li><a href="#" id="download-json">Download JSON</a></li>
+                <li><a href="#" id="download-md">Download Markdown</a></li>
+            </ul>
+        </nav>
+
+        <div id="content" class="container-fluid">
+            <section id="input-section">
+                <h2 class="mt-4">Start or Load Project</h2>
+                <div class="card p-3 mb-3">
+                    <div class="form-group">
+                        <label for="load-existing">Load Existing Project:</label>
+                        <select id="load-existing" class="form-control mb-2"></select>
+                        <button id="start-over" class="btn btn-secondary">Start Over</button>
+                    </div>
+                    <form id="vision-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="project-name">Project Name:</label>
+                            <input type="text" id="project-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vision">Vision:</label>
+                            <textarea id="vision" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="scope">Scope:</label>
+                            <textarea id="scope" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="review-section" style="display: none;">
+                <h2 id="project-title" class="mt-4">Review Project</h2>
+                
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item"><a class="nav-link active" href="#" onclick="openMainTab(event, 'requirements-tab')">Requirements</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" onclick="openMainTab(event, 'epics-tab')">Epics</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div id="requirements-tab" class="maintabcontent" style="display: block;">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs card-header-tabs">
+                                        <li class="nav-item"><a class="nav-link active" href="#" onclick="openTab(event, 'prompt-input')">Prompt Input</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#" onclick="openTab(event, 'prompt-history')">Prompt History</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div id="prompt-input" class="tabcontent" style="display: block;">
+                                        <h5>Submit Prompt for More Requirements</h5>
+                                        <textarea id="new-prompt" class="form-control" rows="4" placeholder="Enter a prompt to generate more requirements..."></textarea>
+                                        <button id="submit-prompt" class="btn btn-primary mt-2">Submit Prompt</button>
+                                    </div>
+                                    <div id="prompt-history" class="tabcontent" style="display: none;">
+                                        <h5>Prompt History</h5>
+                                        <ul id="prompt-list" class="list-group"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion" id="reviewAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReqs">
+                                            Requirements (<span id="req-count">0</span>)
+                                        </button>
+                                    </h2>
+                                    <div id="collapseReqs" class="accordion-collapse collapse show" data-bs-parent="#reviewAccordion">
+                                        <div class="accordion-body">
+                                            <div id="req-filters" class="mb-3">
+                                                <label class="form-label">Filter by Process:</label>
+                                                <button id="filter-req-all-process" class="btn btn-outline-secondary btn-sm">All</button>
+                                                <span id="process-filters"></span>
+                                                <label class="form-label ms-3">Filter by Entity:</label>
+                                                <button id="filter-req-all-entity" class="btn btn-outline-secondary btn-sm">All</button>
+                                                <span id="entity-filters"></span>
+                                            </div>
+                                            <div id="requirements"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQs">
+                                            Questions (<span id="open-q-count">0</span>/<span id="all-q-count">0</span>)
+                                        </button>
+                                    </h2>
+                                    <div id="collapseQs" class="accordion-collapse collapse show" data-bs-parent="#reviewAccordion">
+                                        <div class="accordion-body">
+                                            <div id="filters" class="mb-3">
+                                                <label class="form-label">Filter by To:</label>
+                                                <button id="filter-all" class="btn btn-outline-secondary btn-sm">All</button>
+                                                <span id="to-filters"></span>
+                                                <label class="form-label ms-3">Status:</label>
+                                                <select id="status-filter" class="form-select d-inline-block w-auto">
+                                                    <option value="Open">Open</option>
+                                                    <option value="Resolved">Resolved</option>
+                                                </select>
+                                            </div>
+                                            <div id="questions"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form id="req-prompt-form" class="mt-3" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="req-prompt" class="form-label">Prompt for Requirement Clarification:</label>
+                                    <input type="hidden" id="selected-req-id">
+                                    <textarea id="req-prompt" class="form-control" rows="4" placeholder="Enter a prompt to clarify this requirement..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Requirement Prompt</button>
+                            </form>
+
+                            <form id="answer-form" class="mt-3">
+                                <div class="mb-3">
+                                    <label for="question-select" class="form-label">Select a Question to Answer:</label>
+                                    <select id="question-select" class="form-select" required></select>
+                                </div>
+                                <div id="answer-options" class="mb-3"></div>
+                                <div class="mb-3">
+                                    <textarea id="answer" class="form-control" rows="4" placeholder="Selected options or custom answer will appear here"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                <button type="button" id="stop-questions" class="btn btn-warning">Stop This Line of Questions</button>
+                            </form>
+                        </div>
+
+                        <div id="epics-tab" class="maintabcontent" style="display: none;">
+                            <h5>Create or Edit Epic</h5>
+                            <form id="epic-form" class="mb-3">
+                                <div class="mb-3">
+                                    <label for="epic-name" class="form-label">Epic Name:</label>
+                                    <input type="text" id="epic-name" class="form-control" required>
+                                </div>
+                                <div class="accordion" id="epicAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEpicReqs">
+                                                Requirements (<span id="epic-req-count">0</span>)
+                                            </button>
+                                        </h2>
+                                        <div id="collapseEpicReqs" class="accordion-collapse collapse show" data-bs-parent="#epicAccordion">
+                                            <div class="accordion-body">
+                                                <div id="epic-requirements"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Save Epic</button>
+                            </form>
+                            <div id="epics-list" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
