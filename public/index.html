@@ -31,6 +31,17 @@
                         <select id="load-existing" class="form-control mb-2"></select>
                         <button id="start-over" class="btn btn-secondary">Start Over</button>
                     </div>
+                    <div id="question-model-tab" class="maintabcontent" style="display: none;">
+                        <h5>Ask Questions About Requirements</h5>
+                        <form id="question-model-form" class="mb-3">
+                            <div class="mb-3">
+                                <label for="question-prompt" class="form-label">Enter your question:</label>
+                                <textarea id="question-prompt" class="form-control" rows="4" placeholder="Ask a question about the requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Question</button>
+                        </form>
+                        <div id="question-response" class="mt-3"></div>
+                    </div>
                     <form id="vision-form" style="display: none;">
                         <div class="form-group">
                             <label for="project-name">Project Name:</label>
@@ -57,6 +68,7 @@
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav-item"><a class="nav-link active" href="#" onclick="openMainTab(event, 'requirements-tab')">Requirements</a></li>
                             <li class="nav-item"><a class="nav-link" href="#" onclick="openMainTab(event, 'epics-tab')">Epics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" onclick="openMainTab(event, 'question-model-tab')">Question Model</a></li>
                         </ul>
                     </div>
                     <div class="card-body">
