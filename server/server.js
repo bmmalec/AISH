@@ -109,6 +109,18 @@ app.post('/api/add-epic', async (req, res) => {
     }
 });
 
+app.post('/api/question', async (req, res) => {
+    try {
+        const { question } = req.body;
+        const projectData = await fs.readJson(projectFile);
+        const response = await baAgent.answerQuestion(projectData, question);
+        res.status(200).json({ response });
+    } catch (error) {
+        console.error('Question Error:', error.message);
+        res.status(500).json({ error: 'Failed to process question' });
+    }
+});
+
 app.get('/api/review', async (req, res) => {
     try {
         const projectData = await fs.readJson(projectFile);
