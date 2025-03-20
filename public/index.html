@@ -196,6 +196,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openMainTab(evt, tabName) {
+            var i, maintabcontent, navlinks;
+            maintabcontent = document.getElementsByClassName("maintabcontent");
+            for (i = 0; i < maintabcontent.length; i++) {
+                maintabcontent[i].style.display = "none";
+            }
+            navlinks = document.getElementsByClassName("nav-link");
+            for (i = 0; i < navlinks.length; i++) {
+                navlinks[i].className = navlinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
