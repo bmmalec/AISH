@@ -1,0 +1,180 @@
+{
+  "projectName": "SuperSpouse",
+  "vision": "create a mobile app called SuperSpouse, that allow couples to help and support each other in running a household or a family. System should allow a family member to basically start a family and invite family members to join, this will limit the visibility to who can access the family information. App should support offline use. App should make it easy to either log or request assistance with common household chores. Create an initial list of common household chores",
+  "scope": "Create requirements for becoming a member, creating a family, adding members, logging or requesting chores and assigning, allow for the management of their own custom chore list\n",
+  "requirements": [
+    {
+      "internalId": "928322b9-dc87-426c-a9b3-7163be02c9ed",
+      "id": "R-1",
+      "text": "User Registration: Users must be able to register with an email address, password, and profile name. Attributes include: Email, Password, Profile Name.",
+      "benefit": "Ensures only verified users can join, reducing spam or unauthorized access.",
+      "objective": "Secure user onboarding",
+      "value": "Provides a safe environment for family interactions",
+      "process": "Registration",
+      "entity": "User",
+      "useCase": "A new user wants to create an account to join or form a family group.",
+      "epic": "Orchestrate 1"
+    },
+    {
+      "internalId": "26ab88b4-3659-4342-9920-ebc35887fbc6",
+      "id": "R-2",
+      "text": "Family Creation: After registration, users should be able to create a family group. Attributes include: Family Name, Family ID.",
+      "benefit": "Allows families to maintain privacy and control over who can see family information.",
+      "objective": "Establish family privacy",
+      "value": "Enhances user control over data visibility",
+      "process": "Family Creation",
+      "entity": "Family",
+      "useCase": "A user wants to start a new family group to coordinate household tasks.",
+      "epic": "Orchestrate 1"
+    },
+    {
+      "internalId": "1e763abc-003b-40e3-96ae-5d305257cc97",
+      "id": "R-3",
+      "text": "Invite Members: Family creator or admin can send invites to join the family group via email or in-app link.",
+      "benefit": "Streamlines the process of adding family members, reducing manual entry errors.",
+      "objective": "Simplify family expansion",
+      "value": "Improves family coordination and communication",
+      "process": "Invitation",
+      "entity": "User",
+      "useCase": "A family member wants to add another member to the family group.",
+      "epic": "Orchestrate 1"
+    },
+    {
+      "internalId": "200ae064-0544-4382-8baf-96d534188d5d",
+      "id": "R-4",
+      "text": "Chore Logging: Users should be able to log completed chores. Attributes include: Chore Name, Date, Assigned User, Status.",
+      "benefit": "Provides a clear record of task completion, reducing disputes and oversight.",
+      "objective": "Track task completion",
+      "value": "Encourages accountability and transparency within the family",
+      "process": "Logging",
+      "entity": "Chore",
+      "useCase": "A user wants to log that they have cleaned the kitchen.",
+      "epic": "epic 3"
+    },
+    {
+      "internalId": "c39b6b39-507c-491f-bb8b-ad7523cb88f1",
+      "id": "R-5",
+      "text": "Chore Request: Users should request assistance with chores. Attributes include: Chore Name, Requested By, Priority, Due Date.",
+      "benefit": "Reduces the time spent coordinating tasks manually.",
+      "objective": "Facilitate task delegation",
+      "value": "Enhances family teamwork and chore management",
+      "process": "Requesting",
+      "entity": "Chore",
+      "useCase": "A user needs help with taking out the trash.",
+      "epic": "epic 3"
+    },
+    {
+      "internalId": "78f9cff9-a2d7-4a66-9cbe-3f8501063bc6",
+      "id": "R-6",
+      "text": "Custom Chore List: Users should be able to manage their own list of chores, adding, editing, or removing chores.",
+      "benefit": "Allows personalization to fit the unique needs of each family.",
+      "objective": "Personalize task management",
+      "value": "Increases user engagement and satisfaction",
+      "process": "List Management",
+      "entity": "Chore",
+      "useCase": "A user wants to add 'water the plants' to the family chore list.",
+      "epic": "epic 5"
+    },
+    {
+      "internalId": "09f81bc5-15fa-4c08-9f25-7ad54db3c4d8",
+      "id": "R-7",
+      "text": "Offline Mode: The app should function in offline mode, syncing data when an internet connection is available.",
+      "benefit": "Ensures continuous usability even in areas with poor internet connectivity.",
+      "objective": "Provide seamless user experience",
+      "value": "Enhances user reliability and trust in the app",
+      "process": "Data Sync",
+      "entity": "App",
+      "useCase": "A user is at a cabin with no internet but still wants to log chores.",
+      "epic": "epic 5"
+    }
+  ],
+  "questions": [
+    {
+      "internalId": "a5ad5c13-9c8c-4550-96a7-c8000227046c",
+      "id": "Q-1",
+      "text": "How should the app handle user authentication for security?",
+      "to": "Tech Advisor",
+      "topic": "User Management",
+      "options": [
+        "Two-Factor Authentication",
+        "Single Sign-On with Google/Facebook",
+        "Password Complexity Requirements",
+        "Biometric Authentication",
+        "Email Verification"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "9c0791e8-5b08-44fb-8ddc-a548d74aa887",
+      "id": "Q-2",
+      "text": "What is the process for a user to leave or remove another member from a family group?",
+      "to": "UX Designer",
+      "topic": "User Management",
+      "options": [
+        "Admin Only Can Remove",
+        "Mutual Consent Required",
+        "Self-Removal Option",
+        "Voting System for Removal",
+        "Immediate Removal by Creator"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "36ae1af3-dba0-44f9-b14e-4fb5a257c374",
+      "id": "Q-3",
+      "text": "How should the app handle data when transitioning from offline to online mode?",
+      "to": "Solution Architect",
+      "topic": "Data Handling",
+      "options": [
+        "Automatic Sync on Connection",
+        "Manual Sync Option",
+        "Queue Data for Sync",
+        "Conflict Resolution Protocol",
+        "User Notification on Sync"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "893d04a9-8288-4c20-b0e4-e1c7daf2ae5e",
+      "id": "Q-4",
+      "text": "What are the priority levels for chores and how are they managed?",
+      "to": "Stakeholder",
+      "topic": "Task Management",
+      "options": [
+        "High, Medium, Low",
+        "Urgent, Important, Routine",
+        "No Priority System",
+        "User-Defined Priority",
+        "Priority Adjusted by Frequency"
+      ],
+      "status": "Open"
+    }
+  ],
+  "stoppedTopics": [],
+  "promptHistory": [],
+  "epics": [
+    {
+      "name": "Orchestrate 1",
+      "requirementIds": [
+        "928322b9-dc87-426c-a9b3-7163be02c9ed",
+        "26ab88b4-3659-4342-9920-ebc35887fbc6",
+        "1e763abc-003b-40e3-96ae-5d305257cc97"
+      ],
+      "devOpsId": 294
+    },
+    {
+      "name": "epic 3",
+      "requirementIds": [
+        "200ae064-0544-4382-8baf-96d534188d5d",
+        "c39b6b39-507c-491f-bb8b-ad7523cb88f1"
+      ]
+    },
+    {
+      "name": "epic 5",
+      "requirementIds": [
+        "78f9cff9-a2d7-4a66-9cbe-3f8501063bc6",
+        "09f81bc5-15fa-4c08-9f25-7ad54db3c4d8"
+      ]
+    }
+  ]
+}

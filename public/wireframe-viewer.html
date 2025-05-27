@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Stakeholder AI</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li><a href="#" onclick="toggleSidebar()">Toggle Sidebar</a></li>
+                <li><a href="/">Requirements</a></li>
+                <li><a href="/wireframe-viewer">Wireframes</a></li>
+                <li><a href="#" id="download-json">Download JSON</a></li>
+                <li><a href="#" id="download-md">Download Markdown</a></li>
+            </ul>
+        </nav>
+
+        <div id="content" class="container-fluid">
+            <h2 class="mt-4">Wireframe Viewer</h2>
+            <div class="card p-3 mb-3">
+                <div class="form-group">
+                    <label for="wireframe-name" class="form-label">Wireframe Name:</label>
+                    <input type="text" id="wireframe-name" class="form-control" placeholder="e.g., chore-assignment" required>
+                </div>
+                <div class="form-group">
+                    <label for="requirement-desc" class="form-label">Requirement Description:</label>
+                    <textarea id="requirement-desc" class="form-control" rows="2" placeholder="Enter requirement description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="benefit" class="form-label">Benefit:</label>
+                    <input type="text" id="benefit" class="form-control" placeholder="e.g., Reduces task assignment time by 20%">
+                </div>
+                <div class="form-group">
+                    <label for="objective" class="form-label">Objective:</label>
+                    <input type="text" id="objective" class="form-control" placeholder="e.g., Streamline task delegation">
+                </div>
+                <div class="form-group">
+                    <label for="value" class="form-label">Value:</label>
+                    <input type="text" id="value" class="form-control" placeholder="e.g., Improves family coordination">
+                </div>
+                <div class="form-group">
+                    <label for="version-select" class="form-label">Previous Version (Optional):</label>
+                    <select id="version-select" class="form-select">
+                        <option value="">None</option>
+                    </select>
+                </div>
+                <button id="generate-wireframe" class="btn btn-primary mt-2">Generate Wireframe</button>
+                <div class="form-group mt-3">
+                    <label for="correction-prompt" class="form-label">Correction Prompt:</label>
+                    <textarea id="correction-prompt" class="form-control" rows="2" placeholder="Enter correction prompt (optional)"></textarea>
+                </div>
+                <button id="submit-correction" class="btn btn-secondary mt-2">Submit Correction</button>
+            </div>
+            <div id="wireframe-display" class="mt-3">
+                <h3>Wireframe Preview</h3>
+                <iframe id="wireframe-iframe" style="width: 100%; height: 500px; border: 1px solid #dee2e6;"></iframe>
+                <img id="wireframe-screenshot" src="" alt="Wireframe Screenshot" style="width: 100%; max-height: 500px; display: none;">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('generate-wireframe').addEventListener('click', async () => {
+            const wireframeName = document.getElementById('wireframe-name').value.trim();
+            const requirement = {
+                description: document.getElementById('requirement-desc').value.trim(),
+                benefit: document.getElementById('benefit').value.trim(),
+                objective: document.getElementById('objective').value.trim(),
+                value: document.getElementById('value').value.trim()
+            };
+            const previousVersion = document.getElementById('version-select').value || null;
+
+            if (!wireframeName) {
+                alert('Please enter a wireframe name');
+                return;
+            }
+            if (!requirement.description) {
+                alert('Please enter a requirement description');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/generate-wireframe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ requirement, wireframeName, previousVersion })
+                });
+                if (!response.ok) throw new Error(await response.text());
+                const { filename, screenshotFilename } = await response.json();
+                document.getElementById('wireframe-iframe').src = `/wireframe/${filename}`;
+                document.getElementById('wireframe-screenshot').src = `/wireframe/${screenshotFilename}`;
+                document.getElementById('wireframe-screenshot').style.display = 'block';
+                await loadVersions(wireframeName.toLowerCase().replace(/\s+/g, '-'));
+            } catch (error) {
+                console.error('Wireframe Generation Error:', error);
+                alert('Failed to generate wireframe: ' + error.message);
+            }
+        });
+
+        document.getElementById('submit-correction').addEventListener('click', async () => {
+            const wireframeName = document.getElementById('wireframe-name').value.trim();
+            const correctionPrompt = document.getElementById('correction-prompt').value.trim();
+            const previousVersion = document.getElementById('version-select').value;
+            if (!wireframeName) {
+                alert('Please enter a wireframe name');
+                return;
+            }
+            if (!correctionPrompt || !previousVersion) {
+                alert('Please enter a correction prompt and select a previous version');
+                return;
+            }
+
+            const requirement = {
+                description: correctionPrompt,
+                benefit: document.getElementById('benefit').value.trim(),
+                objective: document.getElementById('objective').value.trim(),
+                value: document.getElementById('value').value.trim()
+            };
+
+            try {
+                const response = await fetch('/api/generate-wireframe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ requirement, wireframeName, previousVersion })
+                });
+                if (!response.ok) throw new Error(await response.text());
+                const { filename, screenshotFilename } = await response.json();
+                document.getElementById('wireframe-iframe').src = `/wireframe/${filename}`;
+                document.getElementById('wireframe-screenshot').src = `/wireframe/${screenshotFilename}`;
+                document.getElementById('wireframe-screenshot').style.display = 'block';
+                await loadVersions(wireframeName.toLowerCase().replace(/\s+/g, '-'));
+            } catch (error) {
+                console.error('Wireframe Correction Error:', error);
+                alert('Failed to correct wireframe: ' + error.message);
+            }
+        });
+
+        async function loadVersions(baseFilename) {
+            try {
+                const response = await fetch(`/api/wireframe-versions?baseFilename=${baseFilename}`);
+                if (!response.ok) throw new Error(await response.text());
+                const versions = await response.json();
+                const select = document.getElementById('version-select');
+                select.innerHTML = '<option value="">None</option>' + versions.map(v => 
+                    `<option value="${v.filename}">${v.filename} (v${v.version})</option>`
+                ).join('');
+            } catch (error) {
+                console.error('Load Versions Error:', error);
+                alert('Failed to load wireframe versions: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

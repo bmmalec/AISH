@@ -1,0 +1,132 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #343a40;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.sidebar.collapsed {
+    margin-left: -250px;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #2c3136;
+}
+
+.sidebar ul.components {
+    padding: 20px 0;
+}
+
+.sidebar ul li a {
+    padding: 10px 20px;
+    display: block;
+    color: #adb5bd;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+    background: #495057;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.accordion-button {
+    background: #e9ecef;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #dee2e6;
+}
+
+.question-item, .req-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.question-item:hover, .req-item:hover {
+    background: #f1f3f5;
+}
+
+.answer-option {
+    padding: 8px;
+    margin: 5px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.answer-option.selected {
+    background: #007bff;
+    color: white;
+}
+
+.answer-option:hover {
+    background: #e9ecef;
+}
+
+#filters .btn-outline-secondary, #req-filters .btn-outline-secondary {
+    margin-right: 5px;
+}
+
+#filters .btn-outline-secondary.active, #req-filters .btn-outline-secondary.active {
+    background: #007bff;
+    color: white;
+}
+
+.req-details {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-left: 20px;
+}
+
+.maintabcontent {
+    display: none;
+}
+
+.epic-req-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.epic-list-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-to-devops-btn {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chore Assignment Wireframe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            height: 60px;
+            box-sizing: border-box;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            font-size: 16px;
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .main {
+            width: 80%;
+            background-color: #f8f9fa;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .form-section {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        .form-section h3 {
+            font-size: 16px;
+            margin-top: 0;
+        }
+        .dropdown {
+            display: inline-block;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            margin-right: 10px;
+            background-color: #fff;
+            font-size: 14px;
+        }
+        .button {
+            display: block;
+            width: 100px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border: none;
+            margin: 10px auto 0;
+            cursor: pointer;
+        }
+        .recent-section {
+            padding: 20px;
+        }
+        .recent-section h3 {
+            font-size: 16px;
+            margin-top: 0;
+        }
+        .recent-section ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .footer {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            height: 40px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Family Chore App</div>
+        <div class="content">
+            <div class="sidebar">
+                <h3>Family Members</h3>
+                <ul>
+                    <li>John</li>
+                    <li>Jane</li>
+                    <li>Tim</li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="form-section">
+                    <h3>Assign a Chore</h3>
+                    <select class="dropdown">
+                        <option>Wash Dishes</option>
+                        <option>Vacuum</option>
+                        <option>Laundry</option>
+                    </select>
+                    <select class="dropdown">
+                        <option>John</option>
+                        <option>Jane</option>
+                        <option>Tim</option>
+                    </select>
+                    <button class="button">Assign</button>
+                </div>
+                <div class="recent-section">
+                    <h3>Recent Assignments</h3>
+                    <ul>
+                        <li>John: Wash Dishes</li>
+                        <li>Jane: Vacuum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">© 2025 Family Chore</div>
+    </div>
+</body>
+</html>
