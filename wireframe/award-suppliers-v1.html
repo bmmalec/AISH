@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Award Supplier Screen - RFP Management</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            background-color: #f4f4f4;
+        }
+        aside {
+            width: 250px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+        aside h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        aside ul li a:hover {
+            color: #3498db;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .rfp-overview {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .rfp-overview h2 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .responses-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .responses-table th, .responses-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .responses-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .responses-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .responses-table button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .responses-table button:hover {
+            background-color: #27ae60;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>Award Supplier Screen - RFP Management</header>
+    <div class="container">
+        <aside>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Active RFPs</a></li>
+                <li><a href="#">Awarded Contracts</a></li>
+                <li><a href="#">Supplier Directory</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+            <h3>RFP Context</h3>
+            <ul>
+                <li>RFP ID: RFP-001</li>
+                <li>Trade: Site Preparation</li>
+                <li>Project: 24-Unit Multi-Family</li>
+            </ul>
+        </aside>
+        <main>
+            <section class="rfp-overview">
+                <h2>RFP Details: RFP-001 - Site Preparation</h2>
+                <p><strong>Project:</strong> 24-Unit Multi-Family Building</p>
+                <p><strong>Scope:</strong> Clear and prepare site for construction, including vegetation removal, excavation for foundation, and grading for drainage.</p>
+                <p><strong>Location:</strong> TBD (urban setting, assume 0.5-acre lot)</p>
+                <p><strong>Schedule:</strong> Start Week 1, Duration 2 weeks</p>
+                <p><strong>Estimated Labor Hours:</strong> 320 hours</p>
+                <p><strong>Estimated Materials Cost:</strong> $6,500</p>
+            </section>
+            <section>
+                <h2>Supplier Responses</h2>
+                <table class="responses-table">
+                    <thead>
+                        <tr>
+                            <th>Supplier Name</th>
+                            <th>Total Bid Price</th>
+                            <th>Labor Rate</th>
+                            <th>Material Cost</th>
+                            <th>Schedule Adherence</th>
+                            <th>Prior Projects</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ABC Earthworks</td>
+                            <td>$18,500</td>
+                            <td>$45/hr (Operator), $30/hr (Laborer)</td>
+                            <td>$6,800</td>
+                            <td>Confirmed</td>
+                            <td>3 similar projects</td>
+                            <td><button>Award Contract</button></td>
+                        </tr>
+                        <tr>
+                            <td>GroundForce Inc.</td>
+                            <td>$17,900</td>
+                            <td>$42/hr (Operator), $28/hr (Laborer)</td>
+                            <td>$6,500</td>
+                            <td>Confirmed</td>
+                            <td>5 similar projects</td>
+                            <td><button>Award Contract</button></td>
+                        </tr>
+                        <tr>
+                            <td>SitePrep Solutions</td>
+                            <td>$19,200</td>
+                            <td>$48/hr (Operator), $32/hr (Laborer)</td>
+                            <td>$7,000</td>
+                            <td>Partial (1-day delay)</td>
+                            <td>2 similar projects</td>
+                            <td><button>Award Contract</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <footer>&copy; 2023 RFP Management System. All rights reserved.</footer>
+</body>
+</html>

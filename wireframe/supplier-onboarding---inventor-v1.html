@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Onboarding - Inventory Capabilities</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            margin: 20px;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #3f546a;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .sidebar li.active {
+            background-color: #4caf50;
+        }
+        .main-content {
+            flex: 1;
+            margin-left: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .benefit-objective-value {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .benefit-objective-value h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>Supplier Onboarding Wizard</header>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>Basic Information</li>
+                <li>Business Information</li>
+                <li>Construction Capabilities</li>
+                <li class="active">Inventory Capabilities</li>
+                <li>Regulatory Capabilities</li>
+                <li>Other Categories</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h2>Inventory Capabilities</h2>
+            <div class="benefit-objective-value">
+                <h3>Benefit:</h3>
+                <p>Ensures suppliers can meet project demands with adequate stock and resources.</p>
+                <h3>Objective:</h3>
+                <p>To assess the supplier's ability to manage and supply inventory for construction projects.</p>
+                <h3>Value:</h3>
+                <p>Reduces project delays by confirming inventory readiness and reliability.</p>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="inventorySize">Total Inventory Capacity (e.g., units or volume):</label>
+                    <input type="text" id="inventorySize" name="inventorySize" placeholder="Enter capacity">
+                </div>
+                <div class="form-group">
+                    <label for="materialTypes">Types of Materials Stocked:</label>
+                    <textarea id="materialTypes" name="materialTypes" rows="4" placeholder="List primary materials (e.g., lumber, steel, concrete)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="replenishmentTime">Average Replenishment Time (days):</label>
+                    <input type="number" id="replenishmentTime" name="replenishmentTime" placeholder="Enter average days">
+                </div>
+                <div class="form-group">
+                    <label for="storageFacilities">Storage Facilities Available:</label>
+                    <select id="storageFacilities" name="storageFacilities">
+                        <option value="">Select option</option>
+                        <option value="owned">Owned Warehouse</option>
+                        <option value="leased">Leased Warehouse</option>
+                        <option value="thirdParty">Third-Party Storage</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inventorySystem">Inventory Management System:</label>
+                    <input type="text" id="inventorySystem" name="inventorySystem" placeholder="Describe system or software used">
+                </div>
+                <div class="form-group">
+                    <label for="emergencySupply">Emergency Supply Capability:</label>
+                    <textarea id="emergencySupply" name="emergencySupply" rows="3" placeholder="Describe ability to provide materials on short notice"></textarea>
+                </div>
+                <button type="button">Save & Continue</button>
+            </form>
+        </div>
+    </div>
+    <footer>&copy; 2023 Supplier Onboarding Platform</footer>
+</body>
+</html>

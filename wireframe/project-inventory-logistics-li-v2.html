@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Site Shipment Map</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            background-color: #f4f4f4;
+        }
+        sidebar {
+            width: 250px;
+            background-color: #e0e0e0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        sidebar li {
+            margin-bottom: 10px;
+        }
+        sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px;
+            background-color: #d0d0d0;
+            border-radius: 5px;
+        }
+        sidebar a:hover {
+            background-color: #c0c0c0;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #map-container {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color: #666;
+        }
+        #shipment-status {
+            height: 150px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .status-item {
+            margin-bottom: 10px;
+        }
+        .completed {
+            color: green;
+        }
+        .delayed {
+            color: amber;
+        }
+        .over-delayed {
+            color: red;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>Construction Site Shipment Tracking - Illinois</header>
+    <div class="container">
+        <sidebar>
+            <ul>
+                <li><a href="#site-prep">RFP-001: Site Preparation</a></li>
+                <li><a href="#foundation">RFP-002: Foundation</a></li>
+                <li><a href="#framing">RFP-003: Structural Framing</a></li>
+                <li><a href="#roofing">RFP-004: Roofing</a></li>
+                <li><a href="#cladding">RFP-005: Exterior Cladding</a></li>
+                <li><a href="#windows">RFP-006: Windows & Doors</a></li>
+                <li><a href="#plumbing">RFP-007: Plumbing</a></li>
+                <li><a href="#electrical">RFP-008: Electrical</a></li>
+                <li><a href="#hvac">RFP-009: HVAC</a></li>
+                <li><a href="#drywall">RFP-010: Drywall</a></li>
+                <li><a href="#flooring">RFP-011: Flooring</a></li>
+                <li><a href="#painting">RFP-012: Painting</a></li>
+                <li><a href="#cabinetry">RFP-013: Cabinetry & Fixtures</a></li>
+                <li><a href="#landscaping">RFP-014: Landscaping</a></li>
+            </ul>
+        </sidebar>
+        <main>
+            <div id="map-container">Interactive Map Placeholder (Illinois Construction Site with Shipment Routes)</div>
+            <div id="shipment-status">
+                <h3>Shipment Status Overview</h3>
+                <div class="status-item completed">Gravel (RFP-001) - Completed (Domestic: Texas to Illinois)</div>
+                <div class="status-item delayed">Concrete (RFP-002) - Delayed (Domestic: Michigan to Illinois, Partial Transit)</div>
+                <div class="status-item over-delayed">Lumber (RFP-003) - Over Delayed (International: Canada to Illinois)</div>
+                <div class="status-item completed">Shingles (RFP-004) - Completed (Domestic: Ohio to Illinois)</div>
+            </div>
+        </main>
+    </div>
+    <footer>&copy; 2025 Construction Logistics Tracker</footer>
+</body>
+</html>

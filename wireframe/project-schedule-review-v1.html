@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Dashboard - 24-Unit Multi-Family Building</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            background-color: #ecf0f1;
+        }
+        sidebar {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        sidebar h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        sidebar ul li {
+            margin-bottom: 10px;
+        }
+        sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        sidebar ul li a:hover {
+            background-color: #2c3e50;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .gantt-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .gantt-chart th, .gantt-chart td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .gantt-chart th {
+            background-color: #7f8c8d;
+            color: white;
+        }
+        .gantt-chart .stage {
+            background-color: #3498db;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .gantt-chart .completed {
+            background-color: #2ecc71;
+        }
+        .gantt-chart .in-progress {
+            background-color: #f39c12;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>Construction Dashboard - 24-Unit Multi-Family Building</header>
+    <div class="container">
+        <sidebar>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#overview">Project Overview</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#stages">Construction Stages</a></li>
+                <li><a href="#reports">Progress Reports</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+            <h3>Project Info</h3>
+            <p>Status: Halfway Complete</p>
+            <p>Total Duration: 42 Weeks</p>
+            <p>Current Week: 21</p>
+        </sidebar>
+        <main>
+            <h2>Construction Timeline - Gantt Chart</h2>
+            <table class="gantt-chart">
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Start Week</th>
+                        <th>Duration</th>
+                        <th>Completion Week</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Site Preparation</td>
+                        <td>1</td>
+                        <td>2 weeks</td>
+                        <td>2</td>
+                        <td><div class="stage completed" style="width: 100%;"></div> Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Foundation (Concrete Work)</td>
+                        <td>3</td>
+                        <td>3 weeks</td>
+                        <td>5</td>
+                        <td><div class="stage completed" style="width: 100%;"></div> Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Structural Framing</td>
+                        <td>9</td>
+                        <td>8 weeks</td>
+                        <td>16</td>
+                        <td><div class="stage completed" style="width: 100%;"></div> Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Roofing</td>
+                        <td>21</td>
+                        <td>2 weeks</td>
+                        <td>22</td>
+                        <td><div class="stage in-progress" style="width: 50%;"></div> In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>Exterior Cladding</td>
+                        <td>23</td>
+                        <td>3 weeks</td>
+                        <td>25</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Windows and Doors</td>
+                        <td>25</td>
+                        <td>2 weeks</td>
+                        <td>26</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Plumbing</td>
+                        <td>25</td>
+                        <td>4 weeks</td>
+                        <td>28</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Electrical</td>
+                        <td>26</td>
+                        <td>4 weeks</td>
+                        <td>29</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>HVAC</td>
+                        <td>26</td>
+                        <td>4 weeks</td>
+                        <td>29</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Drywall</td>
+                        <td>29</td>
+                        <td>3 weeks</td>
+                        <td>31</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Flooring</td>
+                        <td>32</td>
+                        <td>2 weeks</td>
+                        <td>33</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Painting</td>
+                        <td>34</td>
+                        <td>2 weeks</td>
+                        <td>35</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Cabinetry and Fixtures</td>
+                        <td>36</td>
+                        <td>3 weeks</td>
+                        <td>38</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                    <tr>
+                        <td>Landscaping</td>
+                        <td>41</td>
+                        <td>2 weeks</td>
+                        <td>42</td>
+                        <td><div class="stage" style="width: 0%;"></div> Not Started</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <footer>&copy; 2025 Construction Management System. All rights reserved.</footer>
+</body>
+</html>

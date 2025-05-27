@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Site Map - Illinois</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            background-color: #f4f4f4;
+        }
+        aside {
+            width: 250px;
+            background-color: #e0e0e0;
+            padding: 15px;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+        }
+        aside h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        aside ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #map {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        #legend {
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #legend div {
+            margin-bottom: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        .line-sample {
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .green-line {
+            background-color: green;
+        }
+        .amber-line {
+            background-color: #ffbf00;
+        }
+        .red-line {
+            background-color: red;
+        }
+        .dotted-line {
+            background: repeating-linear-gradient(to right, black 0, black 3px, transparent 3px, transparent 6px);
+        }
+    </style>
+</head>
+<body>
+    <header>Construction Site Map - Illinois</header>
+    <div class="container">
+        <aside>
+            <h3>Shipment Status</h3>
+            <ul>
+                <li><a href="#rfp001">RFP-001: Site Preparation</a></li>
+                <li><a href="#rfp002">RFP-002: Foundation</a></li>
+                <li><a href="#rfp003">RFP-003: Structural Framing</a></li>
+                <li><a href="#rfp004">RFP-004: Roofing</a></li>
+                <li><a href="#rfp005">RFP-005: Exterior Cladding</a></li>
+                <li><a href="#rfp006">RFP-006: Windows and Doors</a></li>
+                <li><a href="#rfp007">RFP-007: Plumbing</a></li>
+                <li><a href="#rfp008">RFP-008: Electrical</a></li>
+                <li><a href="#rfp009">RFP-009: HVAC</a></li>
+                <li><a href="#rfp010">RFP-010: Drywall</a></li>
+                <li><a href="#rfp011">RFP-011: Flooring</a></li>
+                <li><a href="#rfp012">RFP-012: Painting</a></li>
+                <li><a href="#rfp013">RFP-013: Cabinetry</a></li>
+                <li><a href="#rfp014">RFP-014: Landscaping</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div id="map">
+                <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #555;">Google Map Placeholder for Illinois Construction Site</p>
+            </div>
+            <div id="legend">
+                <h4>Legend</h4>
+                <div><span class="line-sample dotted-line"></span> Route to Site</div>
+                <div><span class="line-sample green-line"></span> Completed Shipments</div>
+                <div><span class="line-sample amber-line"></span> Delayed (Partial Transit)</div>
+                <div><span class="line-sample red-line"></span> Over Delayed</div>
+            </div>
+        </main>
+    </div>
+    <footer>&copy; 2025 Construction Site Mapping Tool</footer>
+</body>
+</html>

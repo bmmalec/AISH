@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard - 24-Unit Multi-Family Building</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        aside {
+            background-color: #34495e;
+            color: white;
+            width: 250px;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        aside h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        aside ul li a:hover {
+            background-color: #2c3e50;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: white;
+        }
+        main h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .status-high {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-low {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>Inventory Dashboard - 24-Unit Multi-Family Building</header>
+    <div class="container">
+        <aside>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#site-preparation">Site Preparation</a></li>
+                <li><a href="#foundation">Foundation (Concrete)</a></li>
+                <li><a href="#framing">Structural Framing</a></li>
+                <li><a href="#roofing">Roofing</a></li>
+                <li><a href="#cladding">Exterior Cladding</a></li>
+                <li><a href="#windows-doors">Windows & Doors</a></li>
+                <li><a href="#plumbing">Plumbing</a></li>
+                <li><a href="#electrical">Electrical</a></li>
+                <li><a href="#hvac">HVAC</a></li>
+                <li><a href="#drywall">Drywall</a></li>
+                <li><a href="#flooring">Flooring</a></li>
+                <li><a href="#painting">Painting</a></li>
+                <li><a href="#cabinetry">Cabinetry & Fixtures</a></li>
+                <li><a href="#landscaping">Landscaping</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>Inventory Status Overview</h2>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Site Preparation (RFP-001)</h3>
+                    <p>Gravel: <span class="status-high">High (50 tons)</span></p>
+                    <p>Erosion Control: <span class="status-low">Low (As required)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Foundation - Concrete Work (RFP-002)</h3>
+                    <p>Concrete: <span class="status-high">High (150 cubic yards)</span></p>
+                    <p>Rebar: <span class="status-low">Low (As per drawings)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Structural Framing (RFP-003)</h3>
+                    <p>Lumber: <span class="status-high">High (2x4, 2x6)</span></p>
+                    <p>Plywood Sheathing: <span class="status-low">Low (39,360 sq ft)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Roofing (RFP-004)</h3>
+                    <p>Asphalt Shingles: <span class="status-high">High (8,200 sq ft)</span></p>
+                    <p>Gutters: <span class="status-low">Low (400 linear ft)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Exterior Cladding (RFP-005)</h3>
+                    <p>Siding: <span class="status-high">High (14,400 sq ft)</span></p>
+                    <p>Weather Barrier: <span class="status-low">Low (14,400 sq ft)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Windows and Doors (RFP-006)</h3>
+                    <p>Windows: <span class="status-high">High (48 units)</span></p>
+                    <p>Doors: <span class="status-low">Low (24 units)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Plumbing (RFP-007)</h3>
+                    <p>Pipes: <span class="status-high">High (PVC, Copper)</span></p>
+                    <p>Fixtures: <span class="status-low">Low (216 units)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Electrical (RFP-008)</h3>
+                    <p>Wiring: <span class="status-high">High (As required)</span></p>
+                    <p>Panels & Devices: <span class="status-low">Low (24 panels)</span></p>
+                </div>
+                <div class="card">
+                    <h3>HVAC (RFP-009)</h3>
+                    <p>Ductwork: <span class="status-high">High (As required)</span></p>
+                    <p>AC Units: <span class="status-low">Low (24 units)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Drywall (RFP-010)</h3>
+                    <p>Drywall: <span class="status-high">High (39,360 sq ft)</span></p>
+                    <p>Tape & Mud: <span class="status-low">Low (As required)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Flooring (RFP-011)</h3>
+                    <p>Carpet: <span class="status-high">High (16,400 sq ft)</span></p>
+                    <p>Tile & Hardwood: <span class="status-low">Low (8,200 sq ft each)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Painting (RFP-012)</h3>
+                    <p>Paint: <span class="status-high">High (39,360 sq ft)</span></p>
+                    <p>Primer: <span class="status-low">Low (As required)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Cabinetry & Fixtures (RFP-013)</h3>
+                    <p>Cabinets: <span class="status-high">High (24 kitchens, 48 bathrooms)</span></p>
+                    <p>Countertops: <span class="status-low">Low (As required)</span></p>
+                </div>
+                <div class="card">
+                    <h3>Landscaping (RFP-014)</h3>
+                    <p>Plants: <span class="status-high">High (As required)</span></p>
+                    <p>Pavers: <span class="status-low">Low (1,000 sq ft)</span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>&copy; 2025 Project Inventory Dashboard. All rights reserved.</footer>
+</body>
+</html>

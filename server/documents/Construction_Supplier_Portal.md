@@ -1,0 +1,375 @@
+# Project: Construction_Supplier_Portal
+
+## Vision
+To create a supplier portal platform that can be used by General contractors other independent contractors that would be used in the construction of commerical buildings. The portal will establish the rules and regulations to be part of the construction program. It would use a scorecarding system, and evaluation of supplier performance. It will be critical for the suppliers to not only commit for job work, but also any working materials and supplies needed to complete the job. From a construction plan, that can span many years, it would be important for current and future allocation of supplies and resources be tracked and accounted for. From this a live heterogenous warehouse management of inventory would be tracked and reported on. Based on supplier performance, future work can be given to more proven providers.
+
+## Scope
+Create a system that allows for not just tracking the suppliers but also their inventory of supplies needed. The supplier will need an onboarding process, collecting information, certifications, and other related documents and contractual terms. Once onboarded, they will be given visibility to scopes of work, they will have the details to bid on those scopes of work, labor, material type, quantity, and cost. Once they are selected, for the given scopes of work, they will be required to confirm scheduling and material inventory level, so if a work order requires 100 power outlets, the supplier will give details on their supply and planned fulfillment of the supply before beginning. The scope of work should go through planning, detailed estimation, review, and other supporting milestones required for construction, such as permitting and inspections. Create views for supplier status reviews, construction milestone reviews, costing, planning, and forecasting review for entire program. There should also be a risk management and change management processes to handle issues that come up during construction. 
+
+## Requirements
+- R-11: The system shall provide an onboarding module for Suppliers, allowing them to submit information, certifications, contractual terms, and related documents through a guided workflow.
+  - Benefit: Reduces onboarding time by 30% through automated data collection and validation.
+  - Objective: Simplify and standardize the supplier onboarding process.
+  - Value: Ensures compliance with program rules and regulations from the start.
+  - Process: Supplier Onboarding
+  - Entity: Supplier
+  - Use Case: A new supplier registers on the portal and uploads required documents to join the construction program.
+- R-12: The system shall enable Suppliers to view and bid on available Scopes of Work, including details on labor, material type, quantity, and cost.
+  - Benefit: Increases bid submission accuracy by 25% by providing detailed scope information.
+  - Objective: Facilitate competitive and informed bidding for construction projects.
+  - Value: Ensures fair selection of suppliers based on comprehensive bid data.
+  - Process: Bid Submission
+  - Entity: Supplier, Scope of Work
+  - Use Case: A supplier reviews a scope of work for installing electrical systems and submits a bid with cost and timeline estimates.
+- R-13: The system shall require Suppliers to confirm scheduling and material inventory levels for selected Scopes of Work prior to project initiation.
+  - Benefit: Reduces project delays by 20% by ensuring material availability before work begins.
+  - Objective: Ensure readiness of resources for project execution.
+  - Value: Minimizes disruptions in construction timelines due to supply shortages.
+  - Process: Resource Confirmation
+  - Entity: Supplier, Scope of Work
+  - Use Case: A supplier confirms they have 100 power outlets in stock for a work order and schedules delivery before starting work.
+- R-14: The system shall include a Scorecarding System to evaluate Supplier performance based on metrics such as timeliness, quality, and compliance with contractual terms.
+  - Benefit: Improves supplier accountability by providing performance transparency, leading to a 15% improvement in project quality.
+  - Objective: Track and assess supplier performance for future work allocation.
+  - Value: Encourages high-performing suppliers and supports better decision-making for project assignments.
+  - Process: Performance Evaluation
+  - Entity: Supplier
+  - Use Case: A general contractor reviews a supplier’s scorecard to decide on awarding future scopes of work.
+- R-15: The system shall provide a live Heterogeneous Warehouse Management module to track inventory of materials and supplies across multiple suppliers and locations.
+  - Benefit: Reduces inventory discrepancies by 30% through real-time tracking and reporting.
+  - Objective: Enable accurate monitoring of material availability for construction projects.
+  - Value: Optimizes resource allocation and prevents overstocking or shortages.
+  - Process: Inventory Tracking
+  - Entity: Inventory, Supplier
+  - Use Case: A project manager checks real-time inventory levels to ensure enough materials are available for an upcoming milestone.
+- R-16: The system shall support milestone tracking for Scopes of Work, including planning, detailed estimation, review, permitting, and inspections.
+  - Benefit: Improves project oversight by 20% through structured milestone tracking.
+  - Objective: Ensure all construction phases are completed on time and meet regulatory requirements.
+  - Value: Enhances project transparency and accountability for stakeholders.
+  - Process: Milestone Management
+  - Entity: Scope of Work
+  - Use Case: A contractor updates the status of a permitting milestone to reflect completion and triggers the next inspection phase.
+- R-17: The system shall provide dashboard views for Supplier Status Reviews, Construction Milestone Reviews, Costing, Planning, and Forecasting for the entire program.
+  - Benefit: Reduces reporting time by 40% by consolidating key metrics into accessible dashboards.
+  - Objective: Provide stakeholders with a comprehensive overview of program performance.
+  - Value: Supports data-driven decision-making for project and supplier management.
+  - Process: Program Review
+  - Entity: Program, Supplier, Scope of Work
+  - Use Case: A program manager uses the dashboard to review overall project costs and forecast material needs for the next quarter.
+- R-18: The system shall include a Risk Management module to identify, assess, and mitigate risks during construction projects, with notifications for critical issues.
+  - Benefit: Reduces project risk impact by 25% through proactive identification and resolution.
+  - Objective: Minimize disruptions caused by unforeseen issues in construction projects.
+  - Value: Protects project timelines and budgets by addressing risks early.
+  - Process: Risk Assessment
+  - Entity: Risk, Scope of Work
+  - Use Case: A project manager logs a risk of material delay due to weather and assigns mitigation actions to the supplier.
+- R-19: The system shall include a Change Management module to handle modifications to Scopes of Work, including cost adjustments, scheduling changes, and approvals.
+  - Benefit: Improves change handling efficiency by 30% through a structured approval workflow.
+  - Objective: Manage and document changes to project scope effectively.
+  - Value: Ensures alignment among stakeholders on project modifications and their impacts.
+  - Process: Change Request Processing
+  - Entity: Change Request, Scope of Work
+  - Use Case: A supplier submits a change request to adjust material costs due to market price increases, pending approval.
+- R-20: The system shall allow for future allocation of supplies and resources to be planned and tracked over multi-year construction plans.
+  - Benefit: Improves long-term resource planning accuracy by 20% through predictive allocation.
+  - Objective: Ensure availability of resources for future project phases.
+  - Value: Supports uninterrupted progress of large-scale construction programs.
+  - Process: Resource Forecasting
+  - Entity: Inventory, Scope of Work
+  - Use Case: A planner allocates steel supplies for a project phase scheduled two years in advance based on current inventory trends.
+- R-21: The system must support customizable supplier onboarding forms with dynamic fields based on project type, allowing stakeholders to define mandatory supplier information (e.g., contact details, business type) and certifications (e.g., safety, environmental) as attributes tied to specific construction program rules.
+  - Benefit: Reduces compliance violations by at least 20% through tailored data collection.
+  - Objective: Ensure supplier data aligns with project-specific regulatory and program requirements.
+  - Value: Minimizes risk of non-compliance penalties and streamlines onboarding for stakeholders.
+  - Process: Supplier Onboarding Configuration
+  - Entity: Supplier Profile
+  - Use Case: A project manager configures mandatory fields for a high-risk construction project requiring specific safety certifications, ensuring only compliant suppliers are onboarded.
+- R-22: The application must include a validation process to check supplier-submitted information and certifications against predefined compliance rules for the selected project type, flagging incomplete or non-compliant entries before approval.
+  - Benefit: Increases compliance check efficiency by 30% through automated validation.
+  - Objective: Prevent onboarding of non-compliant suppliers by enforcing rule-based checks.
+  - Value: Saves time for stakeholders and reduces manual review errors.
+  - Process: Supplier Data Validation
+  - Entity: Compliance Rule Set
+  - Use Case: During onboarding, the system flags a supplier lacking a required environmental certification for a green building project, prompting corrective action.
+- R-23: The system should maintain a historical log of supplier onboarding data and certification updates as an entity attribute, enabling audit trails for compliance verification tied to specific projects.
+  - Benefit: Reduces audit preparation time by 25% with accessible historical data.
+  - Objective: Support transparency and traceability for compliance audits.
+  - Value: Builds trust with regulatory bodies and protects against legal risks.
+  - Process: Audit Trail Logging
+  - Entity: Supplier Audit Log
+  - Use Case: A regulatory audit requires proof of supplier compliance at onboarding; the system provides a detailed log of certifications submitted for a specific project.
+- R-24: The supplier scorecarding system must include a compliance tracking module to evaluate suppliers based solely on contractual terms, capturing attributes such as delivery timelines, quality standards, and penalty clauses.
+  - Benefit: Improves supplier accountability by ensuring 100% focus on contractual obligations, reducing disputes by at least 20%.
+  - Objective: Ensure supplier performance evaluation aligns strictly with contractual compliance as the sole metric.
+  - Value: Reduces risk of non-compliance and enhances trust in supplier relationships by prioritizing legal and agreed-upon terms.
+  - Process: Supplier Evaluation Process
+  - Entity: Supplier Scorecard
+  - Use Case: During quarterly supplier reviews, the system generates a compliance report highlighting adherence to contract terms for each supplier.
+- R-25: The system shall provide a configurable alert mechanism to notify stakeholders when a supplier's compliance score falls below a predefined threshold, including attributes like alert frequency and escalation levels.
+  - Benefit: Reduces response time to compliance issues by 30% through proactive notifications.
+  - Objective: Enable timely intervention to address supplier non-compliance.
+  - Value: Minimizes operational disruptions and ensures swift corrective actions for non-compliant suppliers.
+  - Process: Compliance Monitoring Process
+  - Entity: Alert Configuration
+  - Use Case: When a supplier misses a delivery deadline, the system sends an automated alert to the procurement manager for immediate action.
+- R-26: Develop a feature in the compliance evaluation system to automatically detect and flag ambiguous contractual terms using predefined linguistic patterns or AI-based natural language processing (NLP) algorithms, tagging them as 'Ambiguous' in the system database.
+  - Benefit: Reduces manual review time by at least 30% for ambiguous terms during compliance evaluations.
+  - Objective: Automate identification of ambiguous terms to streamline legal review processes.
+  - Value: Saves time and resources for the legal team, ensuring faster compliance evaluations and reducing risk of misinterpretation.
+  - Process: Ambiguity Detection Process
+  - Entity: Contractual Terms
+  - Use Case: During automated compliance scanning, the system identifies unclear terms in a contract and flags them for legal review before generating a compliance score.
+- R-27: Implement a notification system to alert the legal team via email or in-app notifications when ambiguous terms are flagged, including a link to the specific contract and term in question within the compliance evaluation module.
+  - Benefit: Ensures 100% of flagged ambiguous terms are communicated to the legal team within 5 minutes of detection.
+  - Objective: Facilitate prompt legal input on ambiguous terms to avoid delays in compliance scoring.
+  - Value: Improves collaboration between compliance and legal teams, ensuring timely resolution of issues and maintaining project timelines.
+  - Process: Notification Dispatch Process
+  - Entity: Legal Team Alerts
+  - Use Case: After flagging an ambiguous term, the system sends an immediate notification to the legal team with details for review.
+- R-28: Create a status tracking attribute for each flagged term in the system, with states such as 'Pending Legal Review', 'Under Review', and 'Resolved', to provide visibility into the resolution process during compliance evaluation.
+  - Benefit: Improves tracking accuracy by providing real-time status updates for at least 95% of flagged terms.
+  - Objective: Enhance transparency and accountability in handling ambiguous terms.
+  - Value: Enables stakeholders to monitor progress on ambiguous terms, reducing uncertainty and supporting SAFe's emphasis on transparency.
+  - Process: Status Update Process
+  - Entity: Flagged Term Status
+  - Use Case: A stakeholder checks the status of a flagged term in a contract to determine if legal review is complete before finalizing compliance scoring.
+- R-29: The Scope of Work (SoW) document must include detailed specifications of deliverables, timelines, and acceptance criteria as mandatory attributes to ensure all supplier bids align with project expectations.
+  - Benefit: Reduces bid evaluation time by 20% through standardized submissions.
+  - Objective: Ensure consistency and clarity in supplier bids.
+  - Value: Minimizes miscommunication and rework, saving costs and time for the business.
+  - Process: Bid Evaluation Process
+  - Entity: Scope of Work Document
+  - Use Case: Suppliers reference the SoW to prepare bids during the procurement phase.
+- R-30: Implement a validation checklist in the bid submission process to enforce 'no flexibility' by rejecting bids that deviate from the predefined SoW attributes.
+  - Benefit: Achieves 100% compliance with SoW requirements in submitted bids.
+  - Objective: Maintain strict adherence to project scope and standards.
+  - Value: Ensures fairness in supplier selection and reduces risk of scope creep for the project team.
+  - Process: Bid Submission Validation
+  - Entity: Bid Submission System
+  - Use Case: System automatically flags non-compliant bids during supplier submission.
+- R-31: Develop a customizable dashboard view feature that allows user roles such as program managers and suppliers to select their preferred level of detail, including high-level summaries or detailed data, with configurable widgets for metrics and reports.
+  - Benefit: Increases user satisfaction by 20% through tailored data presentation as measured by user feedback surveys.
+  - Objective: Enhance user experience by providing role-specific data visibility.
+  - Value: Improves decision-making efficiency for program managers and suppliers by delivering relevant insights without information overload.
+  - Process: Dashboard Configuration Process
+  - Entity: User Role
+  - Use Case: A program manager configures the dashboard to display high-level project status summaries, while a supplier opts for detailed inventory data.
+- R-32: Implement a role-based access control (RBAC) mechanism to ensure that dashboard customization options are restricted based on user roles, protecting sensitive data attributes like financial metrics from unauthorized access.
+  - Benefit: Reduces data exposure risk by 30% through controlled access as tracked by security audit logs.
+  - Objective: Ensure data security and compliance with organizational policies.
+  - Value: Builds trust with users by safeguarding sensitive information while maintaining usability for authorized access.
+  - Process: Access Validation Process
+  - Entity: User Role Permissions
+  - Use Case: A supplier is restricted from viewing financial summaries visible only to program managers.
+- R-33: Implement a dynamic field categorization system in the supplier onboarding module to group mandatory fields by category (e.g., contact, certifications) with visual indicators such as asterisks or color coding for mandatory fields.
+  - Benefit: Reduces onboarding errors by 20% through clearer field identification.
+  - Objective: Enhance user clarity and reduce input errors during supplier onboarding.
+  - Value: Improves user experience and accelerates supplier onboarding process for faster project initiation.
+  - Process: Supplier Onboarding Workflow
+  - Entity: Supplier Profile
+  - Use Case: A new supplier completes mandatory fields during onboarding for a construction project, ensuring all required data is captured efficiently.
+- R-34: Develop a configurable rules engine to prioritize and display mandatory fields based on project type (e.g., construction, IT services) by mapping project attributes to supplier field requirements.
+  - Benefit: Increases onboarding efficiency by 15% by tailoring fields to project needs.
+  - Objective: Ensure relevance of displayed fields to specific project contexts.
+  - Value: Minimizes irrelevant data entry, saving time for suppliers and project managers.
+  - Process: Project Type Configuration
+  - Entity: Project Type
+  - Use Case: A project manager sets up a new IT services project, and only relevant supplier fields (e.g., software certifications) are displayed as mandatory.
+- R-35: Implement detailed tooltips for each compliance metric in the scorecard UI, ensuring the tooltip content includes definitions, data sources, and impact on overall compliance score as key attributes.
+  - Benefit: Reduces stakeholder misinterpretation of compliance data by at least 30% through user feedback surveys.
+  - Objective: Enhance clarity and transparency of compliance metrics for stakeholders.
+  - Value: Improves stakeholder trust and decision-making accuracy by providing contextual information directly within the UI.
+  - Process: Tooltip Rendering Process
+  - Entity: Compliance Metric Tooltip
+  - Use Case: Stakeholder reviews compliance scorecard during quarterly audit meeting and hovers over a metric to understand its significance.
+- R-36: Develop a dynamic update mechanism for tooltip content to reflect real-time changes in compliance metric definitions or data sources, linked to the backend compliance database entity.
+  - Benefit: Ensures 100% accuracy of tooltip information by syncing with the latest compliance data updates.
+  - Objective: Maintain up-to-date educational content within the UI for compliance metrics.
+  - Value: Prevents stakeholder confusion and maintains credibility of the compliance reporting system.
+  - Process: Tooltip Content Sync Process
+  - Entity: Compliance Database
+  - Use Case: System automatically updates tooltip text when a compliance regulation changes in the backend database.
+- R-37: Develop a dedicated dashboard interface for displaying flagged ambiguous terms, including attributes such as term name, context, status, and date flagged, with filtering capabilities for status and priority.
+  - Benefit: Reduces review time by 30% for the legal team by providing a centralized and filterable view of flagged terms.
+  - Objective: Enhance clarity and efficiency in the legal review process.
+  - Value: Improves decision-making speed and accuracy for legal compliance.
+  - Process: Flagged Term Review Process
+  - Entity: Ambiguous Term
+  - Use Case: Legal team reviews and resolves ambiguous terms during contract analysis.
+- R-38: Implement a status tracking mechanism for each flagged ambiguous term, with states such as 'Pending Review', 'Under Review', and 'Resolved', to reflect progress in the review workflow.
+  - Benefit: Increases transparency by providing real-time updates on term review progress, reducing miscommunication by 25%.
+  - Objective: Streamline workflow tracking using SAFe's focus on transparency and alignment.
+  - Value: Ensures all stakeholders are aligned on the status of critical legal terms.
+  - Process: Status Update Process
+  - Entity: Ambiguous Term Status
+  - Use Case: Legal team updates term status after review completion.
+- R-39: Integrate a notification system to alert legal team members when new ambiguous terms are flagged or when status changes occur, including attributes like term ID and urgency level.
+  - Benefit: Decreases response time to newly flagged terms by 20% through timely alerts.
+  - Objective: Support SAFe's principle of fast feedback loops in critical workflows.
+  - Value: Ensures urgent legal issues are addressed promptly, reducing risk.
+  - Process: Notification Delivery Process
+  - Entity: Notification
+  - Use Case: Legal team receives alerts for newly flagged terms requiring immediate attention.
+- R-40: Implement a prominent warning banner on the supplier bid submission portal interface to explicitly state the 'no flexibility' policy, ensuring visibility during the bid submission process with attributes such as color contrast, bold text, and placement at the top of the submission page.
+  - Benefit: Reduces bid rejection rate by at least 15% due to policy non-compliance within the first quarter of implementation.
+  - Objective: Enhance supplier awareness of critical submission policies to prevent errors.
+  - Value: Improves supplier experience by reducing rework and fosters trust in the platform's transparency.
+  - Process: Bid Submission Process
+  - Entity: Supplier Portal Interface
+  - Use Case: Supplier submits a bid and immediately sees the 'no flexibility' policy warning before finalizing submission.
+- R-41: Add a mandatory acknowledgment checkbox linked to the 'no flexibility' policy warning banner in the supplier portal, requiring suppliers to confirm understanding before proceeding with bid submission.
+  - Benefit: Achieves 100% supplier acknowledgment of the policy for all submitted bids, trackable via system logs.
+  - Objective: Ensure active supplier engagement with policy terms during submission.
+  - Value: Minimizes legal or operational disputes by documenting supplier consent, protecting the business.
+  - Process: Policy Acknowledgment Process
+  - Entity: Supplier Portal Interface
+  - Use Case: Supplier must check the acknowledgment box to enable the 'Submit Bid' button.
+- R-42: The Risk Management module must include a feature to track weather risks with real-time data integration from weather APIs, including attributes such as storm warnings, temperature extremes, and precipitation levels.
+  - Benefit: Reduces project delays by up to 20% through proactive weather risk mitigation.
+  - Objective: Enable timely decision-making to protect construction schedules and worker safety.
+  - Value: Minimizes costly downtime and ensures compliance with safety protocols for stakeholders.
+  - Process: Weather Risk Monitoring Process
+  - Entity: Weather Risk
+  - Use Case: Alert project managers of an incoming storm to reschedule outdoor tasks.
+- R-43: The Risk Management module must provide a regulatory compliance tracking entity with attributes like permit status, inspection schedules, and violation alerts, linked to automated notifications for deadlines.
+  - Benefit: Decreases regulatory fines by at least 15% through early identification of compliance issues.
+  - Objective: Ensure adherence to local and federal construction regulations.
+  - Value: Protects the business from legal penalties and reputational damage.
+  - Process: Regulatory Compliance Tracking Process
+  - Entity: Regulatory Risk
+  - Use Case: Notify project leads of an expiring permit to initiate renewal before deadline.
+- R-44: The Risk Management module must implement a financial risk assessment process to monitor budget overruns, with attributes including cost variance, funding delays, and cash flow projections, integrated with financial dashboards.
+  - Benefit: Improves budget adherence by identifying overruns within 5% of threshold limits.
+  - Objective: Support financial stability during construction projects.
+  - Value: Enables project stakeholders to make informed funding decisions and avoid cost escalations.
+  - Process: Financial Risk Assessment Process
+  - Entity: Financial Risk
+  - Use Case: Flag a 10% budget overrun to trigger a review of resource allocation.
+- R-45: The system must implement a Predictive Allocation Engine to analyze multi-year construction plans, identify potential resource conflicts across projects, and suggest optimal allocation schedules based on resource availability, project priority, and timeline constraints. Entities: Resource, Project, Schedule; Attributes: Availability, Priority, Duration; Process: Conflict Prediction and Resolution.
+  - Benefit: Reduces resource conflicts by at least 30% through early detection and automated resolution.
+  - Objective: Ensure efficient resource utilization across multi-year projects.
+  - Value: Minimizes project delays and cost overruns for the business while improving planning accuracy for users.
+  - Process: Conflict Prediction and Resolution
+  - Entity: Resource, Project, Schedule
+  - Use Case: A construction manager uploads a 5-year plan; the system flags overlapping resource demands for two projects in year 2 and suggests reallocation of equipment to avoid delays.
+- R-46: The system shall maintain a Resource Dependency Map to track interdependencies between resources, projects, and timelines, updating dynamically as plans change. Entities: Resource, Project, Timeline; Attributes: Dependency Type, Impact Level; Process: Dependency Mapping.
+  - Benefit: Improves conflict resolution accuracy by 25% through real-time dependency tracking.
+  - Objective: Provide visibility into resource interdependencies for better decision-making.
+  - Value: Enables proactive management of resource allocation, reducing risks for stakeholders.
+  - Process: Dependency Mapping
+  - Entity: Resource, Project, Timeline
+  - Use Case: A project manager adjusts a project timeline; the system updates the dependency map and alerts affected projects about potential resource shortages.
+- R-47: Implement a NoSQL database solution to store customizable supplier onboarding data with dynamic schemas supporting multiple project types, including entities like Supplier, Project, and OnboardingForm, and attributes such as CustomFields and ProjectType.
+  - Benefit: Reduces schema redesign efforts by 30% when new project types or fields are introduced.
+  - Objective: Enable flexible data storage for evolving supplier onboarding requirements.
+  - Value: Improves adaptability for business users by accommodating diverse supplier data without system downtime.
+  - Process: Supplier Onboarding Data Storage
+  - Entity: Supplier, Project, OnboardingForm
+  - Use Case: A new project type requiring unique onboarding fields is added, and the system stores the data without requiring database schema changes.
+- R-48: Design a retrieval process for supplier onboarding data that supports querying across customizable fields and project types, ensuring efficient access to entities like Supplier and Project with attributes like CustomFields and Status.
+  - Benefit: Decreases data retrieval time by 25% for cross-project supplier analysis.
+  - Objective: Ensure fast and accurate access to supplier data for reporting and decision-making.
+  - Value: Enhances user experience for project managers by providing quick insights into supplier onboarding progress.
+  - Process: Supplier Data Retrieval
+  - Entity: Supplier, Project
+  - Use Case: A project manager queries onboarding status for suppliers across multiple project types to assess compliance.
+- R-49: Design a scalable relational database schema to store compliance data, including entities such as Suppliers, Compliance Records, and Audit Logs, with attributes like Supplier ID, Compliance Status, and Audit Timestamp.
+  - Benefit: Reduces data retrieval time by at least 30% through optimized schema design and indexing.
+  - Objective: Ensure efficient data storage and retrieval for compliance processing across multiple suppliers.
+  - Value: Enables the business to handle increasing supplier volumes without performance degradation, ensuring regulatory adherence.
+  - Process: Compliance Data Ingestion
+  - Entity: Suppliers and Compliance Records
+  - Use Case: Processing compliance data uploads from multiple suppliers daily to generate real-time compliance status reports.
+- R-50: Implement a data partitioning strategy in the relational database to separate compliance data by Supplier Region or Supplier Category as a key attribute.
+  - Benefit: Improves query performance by 25% for region-specific or category-specific compliance reports.
+  - Objective: Enhance scalability by logically isolating data subsets during processing.
+  - Value: Supports business expansion into new regions or categories without system overload, maintaining compliance reporting efficiency.
+  - Process: Compliance Report Generation
+  - Entity: Compliance Records
+  - Use Case: Generating monthly compliance reports filtered by supplier region for regulatory submission.
+- R-51: Develop a batch processing mechanism to handle large volumes of compliance data updates, focusing on the process of Data Validation and entities like Compliance Records with attributes such as Validation Status.
+  - Benefit: Processes at least 10,000 records per hour without system downtime.
+  - Objective: Prevent bottlenecks during peak data upload periods from multiple suppliers.
+  - Value: Ensures timely compliance updates, reducing the risk of penalties due to delayed processing.
+  - Process: Data Validation
+  - Entity: Compliance Records
+  - Use Case: Validating and updating compliance data during supplier data submission peaks.
+- R-52: The system must create a separate queue entity to store non-compliant bids that attempt to modify SoW details despite the 'no flexibility' rule, with attributes including bid ID, submission date, reason for non-compliance, and stakeholder approval status.
+  - Benefit: Reduces processing errors by isolating non-compliant bids, achieving a 20% reduction in manual review time.
+  - Objective: Ensure compliance with the 'no flexibility' rule while maintaining auditability of bid submissions.
+  - Value: Protects business integrity by enforcing contract terms and provides transparency for stakeholders.
+  - Process: Non-compliant bid segregation process: Upon submission, the system evaluates bids against SoW flexibility rules and routes non-compliant ones to a separate queue for review.
+  - Entity: Non-compliant bid queue
+  - Use Case: A vendor submits a bid with modified SoW details; the system flags it as non-compliant and moves it to the separate queue for stakeholder review.
+- R-53: The system must implement a notification process to alert stakeholders when a bid is placed in the non-compliant queue, including attributes such as bid ID, vendor name, and a link to the bid details.
+  - Benefit: Decreases stakeholder response time by 30% through automated alerts.
+  - Objective: Facilitate timely review and approval of non-compliant bids.
+  - Value: Improves operational efficiency and ensures stakeholders are promptly informed of exceptions.
+  - Process: Stakeholder notification process: Upon routing a bid to the non-compliant queue, the system triggers an automated email or in-app notification to relevant stakeholders.
+  - Entity: Notification system
+  - Use Case: A stakeholder receives an email alert within 5 minutes of a non-compliant bid being queued, enabling quick review and decision-making.
+
+## Questions
+- Q-7: What specific supplier information and certifications should be mandatory during onboarding to ensure compliance with construction program rules? (To: Stakeholder, Topic: Supplier Onboarding, Resolved, Answer: Customizable fields based on project type, Options: Basic contact information and business license only, Detailed financial records and safety certifications, Insurance documents, safety training records, and past project references, Only contractual agreements and payment terms, Customizable fields based on project type)
+- Q-8: How should the system prioritize or weight different performance metrics in the supplier scorecarding system? (To: Stakeholder, Topic: Supplier Performance Evaluation, Resolved, Answer: Focus solely on compliance with contractual terms, Options: Equal weighting for timeliness, quality, and cost adherence, Higher weight on timeliness to prioritize project schedules, Higher weight on quality to ensure long-term durability, Customizable weights based on project priorities, Focus solely on compliance with contractual terms)
+- Q-9: What level of detail should be included in the Scope of Work for suppliers to bid on, and how much flexibility should they have in modifying bid details? (To: UX Designer, Topic: Bid Management, Resolved, Answer: High detail with no flexibility to ensure consistency, Options: High detail with no flexibility to ensure consistency, Moderate detail with flexibility to adjust labor and material costs, Basic outline with full flexibility for suppliers to define terms, Detailed scope with flexibility only on timelines, Customizable detail level based on project complexity)
+- Q-10: How should the dashboard views balance between high-level summaries and detailed data for different user roles like program managers and suppliers? (To: UX Designer, Topic: Dashboard and Reporting, Resolved, Answer: Customizable views for each user role to select preferred detail level, Options: High-level summaries for managers, detailed data for suppliers, Customizable views for each user role to select preferred detail level, Uniform high-level summaries for all users with drill-down options, Detailed data for managers, summaries for suppliers, Static views with predefined metrics for each role)
+- Q-11: What types of risks should the Risk Management module prioritize for tracking and notifications during construction projects? (To: Solution Architect, Topic: Risk Management, Resolved, Answer: Weather, regulatory, and financial risks as top priorities, Options: Only material supply and labor availability risks, Weather, regulatory, and financial risks as top priorities, All risks equally with customizable notification thresholds, Focus on timeline-related risks only, Prioritize risks based on historical project data)
+- Q-12: How should the system handle conflicts or overlaps in resource allocation for multi-year construction plans? (To: Solution Architect, Topic: Resource Allocation, Resolved, Answer: Predictive allocation to avoid conflicts before they occur, Options: Automated prioritization based on project deadlines, Manual resolution by program managers with system alerts, First-come, first-served allocation with override options, Predictive allocation to avoid conflicts before they occur, Supplier-driven resolution with manager approval)
+- Q-13: How should the system prioritize and display mandatory supplier fields for different project types to ensure ease of use during onboarding? (To: UX Designer, Topic: User Interface Design, Resolved, Answer: Group fields by category (e.g., contact, certifications) with visual indicators for mandatory ones., Options: Group fields by category (e.g., contact, certifications) with visual indicators for mandatory ones., Display all mandatory fields at the top of the form regardless of category., Use a step-by-step wizard guiding users through mandatory fields first., Highlight mandatory fields dynamically as users fill the form., Provide a customizable dashboard to reorder fields based on project type.)
+- Q-14: What scalability considerations should be addressed for storing and retrieving customizable supplier onboarding data across multiple project types? (To: Solution Architect, Topic: System Scalability, Resolved, Answer: Use a NoSQL database to handle flexible schemas for customizable fields., Options: Use a NoSQL database to handle flexible schemas for customizable fields., Implement a relational database with dynamic table structures for each project type., Leverage cloud storage with indexing for fast retrieval of supplier data., Cache frequently accessed project type configurations to reduce load times., Design a microservices architecture to separate onboarding data by project domain.)
+- Q-15: What security measures should be implemented to protect sensitive supplier certification data during onboarding and storage? (To: Tech Advisor, Topic: Data Security, Open, Options: Encrypt data at rest and in transit using industry-standard protocols like AES-256 and TLS 1.3., Implement role-based access control to restrict data access to authorized users only., Use tokenization for sensitive fields like certification numbers to mask data., Regularly audit access logs and flag unauthorized access attempts., Store sensitive data in a separate, isolated database with restricted access.)
+- Q-16: How should the system handle edge cases where contractual terms are ambiguous or subject to interpretation during compliance evaluation? (To: Stakeholder, Topic: Compliance Edge Cases, Resolved, Answer: Flag ambiguous terms for legal team input before scoring., Options: Implement a manual review process for ambiguous terms., Flag ambiguous terms for legal team input before scoring., Exclude ambiguous terms from compliance scoring until clarified., Use predefined default rules for common ambiguities., Allow stakeholders to override system scoring for such cases.)
+- Q-17: What user interface elements are needed to clearly display compliance-focused scorecard results to ensure stakeholder understanding? (To: UX Designer, Topic: UI Design for Scorecard, Resolved, Answer: Provide detailed tooltips explaining each compliance metric., Options: Use color-coded indicators for compliance status., Provide detailed tooltips explaining each compliance metric., Include a summary dashboard with drill-down capabilities., Display only high-level compliance scores with minimal details., Integrate visual graphs tracking compliance trends over time.)
+- Q-18: What technical architecture considerations are required to ensure the system can scale for compliance data processing across multiple suppliers? (To: Solution Architect, Topic: System Scalability, Resolved, Answer: Implement a relational database with optimized indexing., Options: Use a cloud-based microservices architecture for scalability., Implement a relational database with optimized indexing., Leverage batch processing for large compliance data sets., Adopt a distributed computing framework for real-time updates., Limit data retention to reduce processing overhead.)
+- Q-19: What security measures should be implemented to protect sensitive contractual compliance data within the scorecarding system? (To: Tech Advisor, Topic: Data Security, Open, Options: Encrypt all compliance data at rest and in transit., Implement role-based access control for data visibility., Use multi-factor authentication for system access., Regularly audit access logs for unauthorized activity., Store sensitive data in a separate, isolated environment.)
+- Q-20: What criteria or linguistic patterns should the system use to identify ambiguous contractual terms during compliance evaluation? (To: Solution Architect, Topic: Ambiguity Detection Logic, Open, Options: Use predefined keywords and phrases indicating vagueness (e.g., 'may', 'approximately')., Implement an AI-based NLP model trained on legal text to detect ambiguity., Combine keyword matching with contextual analysis for higher accuracy., Allow legal team to manually define ambiguity rules in the system., Use a hybrid approach with AI suggestions and legal team validation.)
+- Q-21: How should the user interface display flagged ambiguous terms to ensure clarity for the legal team during review? (To: UX Designer, Topic: UI Design for Flagged Terms, Resolved, Answer: Provide a separate dashboard listing all flagged terms with filters for status., Options: Highlight ambiguous terms in red within the contract text with a tooltip for details., Provide a separate dashboard listing all flagged terms with filters for status., Show flagged terms in a sidebar alongside the contract with priority indicators., Use pop-up alerts for each flagged term when viewing the contract., Integrate flagged terms into a workflow timeline for legal review tracking.)
+- Q-22: What security measures should be implemented to protect sensitive contract data when notifying the legal team about ambiguous terms? (To: Tech Advisor, Topic: Data Security in Notifications, Open, Options: Encrypt all notifications and contract data during transmission., Restrict access to notifications based on user roles and permissions., Use secure in-app notifications instead of email to minimize exposure., Implement multi-factor authentication for accessing flagged term details., Log all access to flagged terms for audit purposes.)
+- Q-23: How should the system handle bids that attempt to modify SoW details despite the 'no flexibility' rule? (To: Solution Architect, Topic: Bid Submission Handling, Resolved, Answer: Store non-compliant bids in a separate queue for stakeholder approval., Options: Automatically reject non-compliant bids with a detailed rejection reason., Flag non-compliant bids for manual review by the procurement team., Allow minor deviations with a warning notification to the supplier., Store non-compliant bids in a separate queue for stakeholder approval., Provide an appeal mechanism for suppliers to justify modifications.)
+- Q-24: What metrics should be tracked to evaluate the effectiveness of the high-detail SoW in ensuring bid consistency? (To: Stakeholder, Topic: Performance Metrics, Open, Options: Percentage of bids fully compliant with SoW specifications., Average time spent on bid evaluation per supplier., Number of clarification requests raised by suppliers., Rate of project delays caused by scope misunderstandings., Supplier feedback scores on SoW clarity and detail.)
+- Q-25: What user interface elements should be prioritized to communicate the 'no flexibility' policy clearly to suppliers during bid submission? (To: UX Designer, Topic: User Interface Design, Resolved, Answer: Prominent warning banners on the submission portal., Options: Prominent warning banners on the submission portal., Mandatory acknowledgment checkboxes for policy terms., Inline validation messages during form completion., Detailed tooltips explaining SoW requirements., A dedicated help section with policy documentation.)
+- Q-26: What specific metrics or data attributes should be available for customization in the dashboard views for each user role (e.g., program managers vs. suppliers)? (To: Stakeholder, Topic: Data Attributes for Customization, Open, Options: Program managers: project status, budget overview; Suppliers: inventory levels, delivery schedules., Program managers: resource allocation, risk indicators; Suppliers: order status, payment details., Program managers: timeline milestones, team performance; Suppliers: shipment tracking, stock forecasts., Program managers: strategic goals, KPI dashboards; Suppliers: operational metrics, defect rates., Program managers: cross-project summaries, ROI metrics; Suppliers: vendor-specific data, compliance stats.)
+- Q-27: How should the system handle conflicts or performance issues when users customize dashboards with a high volume of detailed data widgets? (To: Solution Architect, Topic: Performance Optimization, Open, Options: Implement data caching to reduce load times for frequently accessed widgets., Set a limit on the number of detailed widgets per dashboard to prevent overload., Use lazy loading to render detailed data only when requested by the user., Optimize backend queries to prioritize high-level summaries over detailed data., Introduce a performance warning for users exceeding recommended widget counts.)
+- Q-28: What user interface patterns or frameworks should be prioritized to ensure intuitive customization of dashboard views across different user roles? (To: UX Designer, Topic: UI Design for Customization, Open, Options: Drag-and-drop widget interface with predefined templates for each role., Layered menu system allowing users to toggle between summary and detail views., Guided onboarding wizard to help users set up dashboards based on role., Collapsible panels for detailed data with summary previews on hover., Role-specific default dashboards with an ‘edit mode’ for advanced customization.)
+- Q-29: How should the system handle conflicts when a supplier field is mandatory for one project type but optional for another within the same onboarding session? (To: Solution Architect, Topic: Field Conflict Resolution, Open, Options: Default to mandatory status if any linked project type requires it., Allow user override with a warning for optional status., Display field as mandatory with a tooltip explaining project-specific rules., Hide the field for project types where it is not mandatory., Create a hybrid status with conditional validation based on project selection.)
+- Q-30: What visual indicators are most effective for distinguishing mandatory supplier fields across diverse user groups and accessibility needs? (To: UX Designer, Topic: Visual Indicator Design, Open, Options: Use red asterisks with text labels for screen readers., Apply color coding (e.g., red borders) with tooltip explanations., Use bold text combined with an icon for mandatory fields., Highlight fields with a background color and ARIA labels., Combine symbols and color contrast with configurable user settings.)
+- Q-31: How can we measure the impact of field categorization on supplier onboarding completion rates across different project types? (To: Stakeholder, Topic: Impact Measurement, Open, Options: Track completion time per project type before and after implementation., Monitor error rates in mandatory field submissions by category., Conduct user surveys on onboarding ease post-categorization., Analyze drop-off rates at mandatory field stages per project type., Compare onboarding success metrics across project types quarterly.)
+- Q-32: How frequently should tooltip content for compliance metrics be reviewed or updated to ensure accuracy? (To: Stakeholder, Topic: Content Update Frequency, Open, Options: Daily, to reflect real-time changes, Weekly, to balance accuracy and workload, Monthly, aligned with reporting cycles, Quarterly, during compliance audits, Only when regulations change)
+- Q-33: What specific compliance metric attributes should be prioritized in tooltip content for maximum stakeholder clarity? (To: UX Designer, Topic: Tooltip Content Prioritization, Open, Options: Definition of the metric only, Definition and data source, Definition, data source, and impact on score, Definition, data source, impact, and historical trend, Definition, data source, impact, trend, and regulatory reference)
+- Q-34: What technical constraints or performance impacts should be considered when implementing dynamic tooltip updates tied to the compliance database? (To: Solution Architect, Topic: Performance Impact of Dynamic Updates, Open, Options: Database query latency affecting UI responsiveness, Increased server load during peak usage times, Caching challenges for real-time data, Bandwidth usage for frequent updates, Security risks with real-time data exposure)
+- Q-35: What specific filters, beyond status, should be included in the dashboard to support the legal team's review process? (To: UX Designer, Topic: Dashboard Filters, Open, Options: Priority level of the term, Date the term was flagged, Contract or document category, Assigned reviewer, Context or department relevance)
+- Q-36: How should the system handle scalability if the number of flagged terms grows significantly over time? (To: Solution Architect, Topic: Scalability, Open, Options: Implement pagination and lazy loading for dashboard data, Use a cloud-based database with auto-scaling capabilities, Archive resolved terms to reduce active data load, Optimize search and filter queries for performance, Limit dashboard display to a fixed number of terms per page)
+- Q-37: What security measures should be in place to ensure only authorized legal team members access the flagged terms dashboard? (To: Tech Advisor, Topic: Security, Open, Options: Implement role-based access control (RBAC), Require multi-factor authentication (MFA) for dashboard access, Encrypt term data both in transit and at rest, Log all access and modification actions for audit trails, Restrict access based on IP whitelisting)
+- Q-38: How frequently does the legal team expect to receive notifications about newly flagged terms or status updates? (To: Stakeholder, Topic: Notification Frequency, Open, Options: Instantly upon flagging or status change, Hourly summary of updates, Daily digest of all changes, Only for high-priority terms instantly, Customizable frequency per user preference)
+- Q-39: How should the system handle cases where a supplier bypasses or ignores the warning banner and acknowledgment checkbox during bid submission? (To: Solution Architect, Topic: System Behavior on Policy Non-Compliance, Open, Options: Automatically reject the bid with an error message linking to the policy., Flag the submission for manual review by the procurement team., Allow submission but log the non-acknowledgment for audit purposes., Redirect the supplier to a policy education page before resubmission., Disable the submit button until acknowledgment is confirmed.)
+- Q-40: What metrics or feedback mechanisms should be implemented to evaluate the effectiveness of the warning banner in communicating the 'no flexibility' policy to suppliers? (To: UX Designer, Topic: User Experience Evaluation, Open, Options: Track the percentage of suppliers who acknowledge the policy on first attempt., Conduct post-submission surveys to gauge supplier understanding of the policy., Monitor bid rejection rates related to policy non-compliance over time., Analyze time spent on the submission page to infer banner visibility impact., Collect qualitative feedback via a portal feedback form on policy clarity.)
+- Q-41: What are the potential risks or downstream impacts of enforcing a strict 'no flexibility' policy through UI elements on supplier relationships or platform adoption? (To: Stakeholder, Topic: Business Impact of Policy Enforcement, Open, Options: Suppliers may perceive the policy as rigid, reducing platform adoption by 10-20%., Risk of losing key suppliers due to frustration with strict submission rules., Potential increase in supplier support queries by 25% regarding policy details., Improved compliance may strengthen trust with compliant suppliers over time., No significant impact expected if communication is clear and supportive.)
+- Q-42: How should the Risk Management module prioritize notification frequency and channels for weather, regulatory, and financial risks to balance urgency and user experience? (To: UX Designer, Topic: Notification Design, Open, Options: Daily email summaries with critical alerts via SMS., Real-time app notifications for all risks with customizable frequency., Weekly dashboard updates with instant email for high-priority risks., SMS for weather risks only, email for regulatory and financial risks., User-configurable channels and frequencies for all risk types.)
+- Q-43: What scalability considerations should be addressed for integrating real-time weather data and regulatory updates into the Risk Management module for large-scale construction projects? (To: Solution Architect, Topic: System Scalability, Open, Options: Use cloud-based APIs with auto-scaling to handle data volume spikes., Implement caching mechanisms to reduce API calls during peak usage., Limit real-time updates to critical risks to minimize system load., Deploy dedicated servers for each project to ensure performance., Batch process updates hourly to balance timeliness and resource use.)
+- Q-44: What security measures are necessary to protect sensitive financial risk data within the Risk Management module while ensuring accessibility for authorized users? (To: Tech Advisor, Topic: Data Security, Open, Options: Implement role-based access control with encryption at rest and in transit., Use multi-factor authentication for all financial data access., Restrict financial data access to VPN-connected users only., Store financial data in a separate, isolated database with audit logging., Allow read-only access for most users, with write access for admins only.)
+- Q-45: How frequently should stakeholders expect updates on risk mitigation strategies for weather, regulatory, and financial risks during active construction phases? (To: Stakeholder, Topic: Reporting Cadence, Open, Options: Daily updates during high-risk periods, weekly otherwise., Weekly updates regardless of risk level., Bi-weekly updates with ad-hoc reports for critical risks., Monthly updates with detailed quarterly reviews., As-needed updates triggered by risk threshold breaches only.)
+- Q-46: How should the system prioritize resources when predictive allocation identifies unavoidable conflicts across multi-year plans? (To: Solution Architect, Topic: Resource Prioritization Logic, Open, Options: Prioritize based on project budget size., Prioritize based on project completion deadlines., Prioritize based on strategic business goals., Prioritize based on resource criticality to project phases., Allow manual prioritization by project managers.)
+- Q-47: What visual indicators or dashboards should be designed to help users quickly understand resource conflict predictions and suggested resolutions? (To: UX Designer, Topic: User Interface for Conflict Visualization, Open, Options: Color-coded timelines highlighting conflict zones., Interactive Gantt charts with conflict alerts., Heatmaps showing resource overload periods., Summary dashboard with conflict severity scores., Detailed conflict resolution suggestion pop-ups.)
+- Q-48: What are the key performance metrics we should track to evaluate the effectiveness of predictive allocation in preventing conflicts? (To: Stakeholder, Topic: Performance Metrics for Predictive Allocation, Open, Options: Percentage reduction in resource conflicts., Average time to resolve identified conflicts., Number of projects delayed due to allocation issues., User satisfaction with allocation suggestions., Cost savings from avoided delays.)
+- Q-49: What scalability challenges might arise when implementing predictive allocation for large-scale construction portfolios with thousands of resources? (To: Tech Advisor, Topic: Scalability of Predictive Allocation, Open, Options: Processing delays due to large data volumes., Storage limitations for historical allocation data., Algorithm performance with complex dependency maps., Real-time update challenges during plan changes., Integration issues with existing project management tools.)
+- Q-50: How should the NoSQL database be indexed to optimize query performance for customizable supplier onboarding data across different project types? (To: Solution Architect, Topic: Database Optimization, Open, Options: Index on frequently queried fields like ProjectType and SupplierID., Use composite indexes for CustomFields and Status., Implement full-text search for unstructured CustomFields., Leverage partitioning by ProjectType for faster access., Avoid indexing CustomFields to maintain write performance.)
+- Q-51: What user interface considerations are needed to display and edit customizable supplier onboarding fields dynamically for different project types? (To: UX Designer, Topic: UI Adaptability, Open, Options: Use a dynamic form builder to render fields based on project type., Hardcode field layouts for each project type for consistency., Provide a static template with optional custom field inputs., Allow users to manually map fields via a configuration screen., Limit editable fields to predefined options only.)
+- Q-52: What are the security implications of storing customizable supplier onboarding data in a NoSQL database, and how can they be mitigated? (To: Tech Advisor, Topic: Data Security, Open, Options: Encrypt sensitive fields at rest and enforce role-based access control., Rely on database vendor security features without customization., Store sensitive data in a separate relational database., Limit access to read-only for all users except admins., Use tokenization for custom fields to mask sensitive data.)
+- Q-53: How will the adoption of a NoSQL database for supplier onboarding data impact long-term maintainability and cost for the business? (To: Stakeholder, Topic: Business Impact, Open, Options: Lower maintenance costs due to schema flexibility but higher initial setup costs., Higher ongoing costs for skilled NoSQL expertise but better scalability., Minimal impact on costs with similar maintainability to relational databases., Increased complexity in maintenance with potential cost overruns., Reduced scalability costs but higher risk of vendor lock-in.)
+- Q-54: How should the relational database indexing strategy prioritize attributes like Supplier ID versus Compliance Status to balance read and write performance? (To: Solution Architect, Topic: Database Optimization, Open, Options: Prioritize Supplier ID for faster lookups in supplier-specific queries., Prioritize Compliance Status for quick filtering in compliance reports., Use composite indexes combining Supplier ID and Compliance Status., Implement dynamic indexing based on query patterns., Focus on write performance by minimizing index overhead.)
+- Q-55: What user interface considerations are needed to display compliance data scalability metrics or alerts for end-users managing multiple suppliers? (To: UX Designer, Topic: User Interface Design, Open, Options: Display real-time scalability metrics like processing time per supplier., Show alerts for processing delays or data volume thresholds., Provide a dashboard summarizing supplier compliance status trends., Include filters to view scalability metrics by region or category., Keep UI minimal with only critical scalability alerts.)
+- Q-56: What are the potential risks of data partitioning by Supplier Region or Category in terms of compliance data integrity and reporting accuracy? (To: Tech Advisor, Topic: Data Partitioning Risks, Open, Options: Risk of cross-partition data inconsistencies during updates., Potential delays in generating global compliance reports., Increased complexity in maintaining data integrity checks., Challenges in re-partitioning data as business needs evolve., Minimal risk if proper validation processes are in place.)
+- Q-57: How can we measure and report on the scalability improvements achieved by the relational database design to justify further investment? (To: Stakeholder, Topic: Scalability Metrics, Open, Options: Track average query response time before and after implementation., Measure maximum concurrent supplier data uploads supported., Report on system uptime during peak compliance processing periods., Compare compliance report generation time across supplier volumes., Survey user satisfaction with system performance under load.)
+- Q-58: What criteria should be used to prioritize non-compliant bids in the separate queue for stakeholder review? (To: Stakeholder, Topic: Bid Prioritization, Open, Options: Prioritize based on submission date (oldest first)., Prioritize based on bid value (highest first)., Prioritize based on vendor rating or history., Prioritize based on the extent of SoW modification., Allow stakeholders to manually set priority on a case-by-case basis.)
+- Q-59: How should the system visually distinguish non-compliant bids in the stakeholder review interface? (To: UX Designer, Topic: User Interface Design, Open, Options: Use a red warning icon next to non-compliant bids., Highlight non-compliant bids in a distinct color (e.g., orange)., Display a 'Non-Compliant' label in bold text., Group non-compliant bids in a separate tab or section., Add a tooltip explaining the reason for non-compliance on hover.)
+- Q-60: What audit logging mechanisms are needed to track stakeholder decisions on non-compliant bids? (To: Solution Architect, Topic: Audit and Compliance, Open, Options: Log only the final approval or rejection decision with timestamp., Log all actions, including views, comments, and decisions with user IDs., Log decisions with a detailed reason field for each action., Log stakeholder interactions with automated email confirmations., Log minimal data to comply with data privacy regulations.)
+
+## Epics
+
+
+## Prompt History
+
+
+## Stopped Topics
+Ambiguity Detection Logic

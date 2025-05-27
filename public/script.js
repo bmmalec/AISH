@@ -519,25 +519,24 @@ function updatePromptHistory() {
     list.innerHTML = promptHistory.map(p => `<li class="list-group-item">${p}</li>`).join('');
 }
 
-document.getElementById('question-model-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.getElementById('submit-question').addEventListener('click', async () => {
     const question = document.getElementById('question-prompt').value.trim();
     if (!question) {
         alert('Please enter a question');
         return;
     }
     try {
-        const response = await fetch('/api/question', {
+        const response = await fetch('/api/ask-question', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ question })
         });
         if (!response.ok) throw new Error(await response.text());
-        const data = await response.json();
-        document.getElementById('response-text').textContent = data.response;
+        const result = await response.json();
+        document.getElementById('question-response').innerHTML = `<p>${result.answer}</p>`;
     } catch (error) {
-        console.error('Question Error:', error);
-        alert('Failed to submit question: ' + error.message);
+        console.error('Ask Question Error:', error);
+        alert('Failed to ask question: ' + error.message);
     }
 });
 

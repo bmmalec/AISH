@@ -1,0 +1,329 @@
+# Project: Amtrak_-_System_Analysis
+
+## Vision
+Amtrak would like to evaluate its WIMS inventory system that is used to manage their 11 Commissaries to support their Food and Beverage operations onboard their train network. The platform is given train route and passenger levels with considerations for meal requirements, i.e. vegan or special events. The trains may run a combination of routes that put them outside of the commissary network, requiring them to ensure they top off inventory to handle the entire route. This platform also communicates with other systems such as pick to light, and potentially voice pick in the future. This system analysis should establish an as-is state, documenting existing capabilities, baselining operations, and capture any future capabilities or challenges. This should also involve processes to review operations at each commissary to collect as-is state, document and validate documentation of operations, and vision and scope of current and potentially future operating and systems procedures.
+
+## Scope
+To establish an inventory and "As-Is" state of systems, processes, and operating procedures used in the execution. This will also include benchmarking existing operational and systems efforts to their overall impact of P&L of Food and Beverage operations from a cost of goods sold perspective. Create project plan to execute and finally report to operations on findings and potential program roadmap.
+
+## Requirements
+- R-1: The system must allow for real-time inventory tracking of all food and beverage items at each commissary.
+  - Benefit: Reduces out-of-stock situations by 30%.
+  - Objective: Ensure continuous availability of inventory.
+  - Value: Minimizes missed sales opportunities and improves customer satisfaction.
+  - Process: Track Inventory
+  - Entity: Inventory
+  - Use Case: A commissary manager checks the real-time inventory levels before loading supplies onto a train.
+- R-2: Integration with train route and passenger data to predict inventory needs for upcoming trips.
+  - Benefit: Decreases food waste by 25% through better demand forecasting.
+  - Objective: Optimize inventory levels for route-specific demands.
+  - Value: Reduces unnecessary inventory costs and enhances operational efficiency.
+  - Process: Forecast Demand
+  - Entity: Route Planner
+  - Use Case: Before a train departs, the system calculates the necessary inventory based on route and passenger information.
+- R-3: Implement a feature for tracking special meal requirements (e.g., vegan, gluten-free).
+  - Benefit: Increases customer satisfaction by 15% by meeting dietary needs.
+  - Objective: Cater to diverse passenger needs.
+  - Value: Improves the passenger experience, potentially increasing repeat customers.
+  - Process: Manage Special Diets
+  - Entity: Passenger Profile
+  - Use Case: A train attendant uses the system to prepare meals for passengers with specific dietary restrictions.
+- R-4: The system should provide an interface for seamless communication with pick-to-light and voice-pick systems.
+  - Benefit: Reduces picking errors by 40%.
+  - Objective: Improve accuracy and efficiency in warehouse operations.
+  - Value: Enhances productivity in the commissary, reducing labor costs.
+  - Process: Integrate Systems
+  - Entity: Commissary Operations
+  - Use Case: Commissary staff uses voice-pick to select items for loading onto trains.
+- R-5: Enable reporting on operational performance, including inventory turnover rates, spoilage, and waste.
+  - Benefit: Enhances decision-making capabilities, potentially reducing costs by 10%.
+  - Objective: Provide actionable insights into operations.
+  - Value: Optimizes resource allocation and operational planning.
+  - Process: Analyze Performance
+  - Entity: Operations Dashboard
+  - Use Case: Operations manager reviews monthly reports to adjust inventory procurement strategies.
+- R-6: Document and validate current operating procedures at each commissary.
+  - Benefit: Ensures consistency and compliance across operations.
+  - Objective: Standardize operations for efficiency and quality.
+  - Value: Reduces operational risks and improves training effectiveness.
+  - Process: Document Operations
+  - Entity: Procedure Manual
+  - Use Case: A new employee is trained using the documented procedures for inventory management.
+- R-7: Create a project plan to execute the analysis of current systems and operations.
+  - Benefit: Clarifies project scope and timeline, reducing project overruns by 20%.
+  - Objective: Systematically review and improve current systems.
+  - Value: Enhances project management and strategic planning.
+  - Process: Plan Execution
+  - Entity: Project Management
+  - Use Case: Project manager outlines tasks, dependencies, and timelines for the system analysis project.
+- R-8: Benchmark existing operations against industry standards and competitors to assess profitability.
+  - Benefit: Identifies areas for cost reduction, potentially improving P&L by 5%.
+  - Objective: Optimize financial performance of Food and Beverage operations.
+  - Value: Provides competitive advantage through better financial management.
+  - Process: Benchmark Operations
+  - Entity: Benchmarking Tool
+  - Use Case: Financial analyst compares Amtrak's inventory turnover rate with industry benchmarks.
+- R-9: Implement real-time inventory updates in the WIMS platform to ensure all 11 commissaries have the most current inventory data.
+  - Benefit: Reduces discrepancies in inventory counts and improves stock management accuracy.
+  - Objective: To enhance the reliability and timeliness of inventory data.
+  - Value: Enables better decision-making regarding stock replenishment and reduces overstocking or stockouts.
+  - Process: Inventory Management
+  - Entity: WIMS Platform
+  - Use Case: A manager at Commissary #3 checks the inventory levels of canned goods to decide on immediate restocking.
+- R-10: Develop a feature for automated inventory alerts when stock levels reach predefined thresholds in each commissary.
+  - Benefit: Decreases the risk of stockouts by alerting staff in advance.
+  - Objective: To prevent inventory shortages and ensure product availability.
+  - Value: Improves customer satisfaction by ensuring product availability and reduces emergency purchasing costs.
+  - Process: Alert Management
+  - Entity: Commissary Inventory
+  - Use Case: An automated alert notifies the manager at Commissary #8 when the stock of a popular item falls below the minimum threshold.
+- R-11: Integrate a mobile application for inventory management that allows staff to update inventory levels on the go.
+  - Benefit: Enhances flexibility and efficiency of inventory management activities.
+  - Objective: To provide staff with tools for real-time inventory updates outside the office.
+  - Value: Increases productivity of inventory staff, allowing for more accurate and timely updates.
+  - Process: Mobile Inventory Management
+  - Entity: Inventory Staff
+  - Use Case: A staff member at Commissary #6 uses the mobile app to scan and update inventory while performing a physical stock check in the storeroom.
+- R-12: Implement a system to track the number of trips a train makes on a specific route to determine when inventory top-offs are necessary.
+  - Benefit: Reduce the frequency of unexpected stops for inventory replenishment by predicting needs.
+  - Objective: Increase operational efficiency and reduce downtime.
+  - Value: Enhances service reliability and reduces operational costs.
+  - Process: Inventory Management
+  - Entity: Train Route
+  - Use Case: A train traveling between Milwaukee and Chicago multiple times per day would have its inventory tracked to schedule top-offs efficiently.
+- R-13: Develop an alert system within the train management software to notify when a train is due for an inventory top-off based on route frequency.
+  - Benefit: Prevents trains from running out of supplies during service, ensuring passenger comfort.
+  - Objective: Ensure passenger satisfaction and operational continuity.
+  - Value: Improves customer experience and reduces emergency stops.
+  - Process: Alert Generation
+  - Entity: Train
+  - Use Case: Alerts are sent to the crew and operations center when a train completes a certain number of trips or reaches a threshold for inventory needs.
+- R-14: Implement a system to capture and document operational procedures as they are performed, including versioning and audit trails.
+  - Benefit: Reduces knowledge loss due to staff attrition, improves operational consistency.
+  - Objective: Preserve and standardize operational knowledge.
+  - Value: Enhances business continuity and operational efficiency.
+  - Process: Knowledge Capture
+  - Entity: Operational Procedure
+  - Use Case: When an employee performs a task, the system prompts for documentation and updates.
+- R-15: Develop an accessible repository for storing, searching, and retrieving operational documentation with user authentication.
+  - Benefit: Streamlines access to documentation, ensuring that all employees can find and use necessary information.
+  - Objective: Centralize and democratize access to operational knowledge.
+  - Value: Improves productivity by reducing time spent searching for information.
+  - Process: Documentation Access
+  - Entity: Documentation Repository
+  - Use Case: Employees can search for procedures related to their current tasks or training needs.
+- R-16: Integrate a review and update mechanism for operational documentation, triggered by changes in processes or technology.
+  - Benefit: Keeps documentation current and relevant, reducing errors from outdated information.
+  - Objective: Maintain the relevance and accuracy of operational procedures.
+  - Value: Minimizes operational errors and supports continuous improvement.
+  - Process: Documentation Review
+  - Entity: Operational Procedure
+  - Use Case: Automatically prompts for review when system changes or process improvements are detected.
+- R-17: Ensure the WIMS platform supports multi-tenant architecture for cloud compatibility.
+  - Benefit: Reduces operational costs and enhances scalability.
+  - Objective: Enable cloud hosting of WIMS
+  - Value: Provides flexibility and scalability for future growth and changes in demand.
+  - Process: Cloud Migration
+  - Entity: WIMS Platform
+  - Use Case: Multi-tenant environment setup in the cloud.
+- R-18: Implement a secure data access and governance model to comply with cloud security standards.
+  - Benefit: Enhances security posture in cloud environments.
+  - Objective: Secure data handling in cloud
+  - Value: Ensures compliance with regulations and reduces the risk of data breaches.
+  - Process: Data Security Implementation
+  - Entity: Data Management
+  - Use Case: Data access control and governance in cloud.
+- R-19: Develop an API-first approach to ensure integration with other systems and microservices.
+  - Benefit: Improves interoperability and future system integrations.
+  - Objective: Ensure system integration
+  - Value: Allows for easier updates, enhancements, and integration with external systems.
+  - Process: System Integration
+  - Entity: API Gateway
+  - Use Case: API integration with external services.
+- R-20: Create a migration strategy for existing data to the new cloud architecture, ensuring data integrity and minimal downtime.
+  - Benefit: Ensures smooth transition with minimal disruption to operations.
+  - Objective: Data Migration
+  - Value: Prevents data loss and maintains business continuity.
+  - Process: Data Transfer
+  - Entity: Data Migration
+  - Use Case: Migration of current WIMS data to cloud.
+- R-21: Establish a continuous integration and deployment (CI/CD) pipeline for regular updates and maintenance.
+  - Benefit: Reduces time-to-market for new features and fixes.
+  - Objective: Modernize development practices
+  - Value: Increases efficiency and responsiveness to changes.
+  - Process: Software Development
+  - Entity: Development Pipeline
+  - Use Case: Automated deployment of updates.
+- R-22: Implement a digital inventory management system that allows real-time updates by staff. This system should include tools for scanning, updating, and tracking inventory levels.
+  - Benefit: Reduces manual errors and time spent on inventory management, increases accuracy and efficiency.
+  - Objective: Automate and streamline inventory management processes.
+  - Value: Enhances operational efficiency, reduces costs associated with manual labor and errors.
+  - Process: Inventory Update Process
+  - Entity: Inventory System
+  - Use Case: Staff updates inventory after receiving new stock or conducting physical counts.
+- R-23: Provide staff training on the new inventory management system to ensure proper usage and data integrity.
+  - Benefit: Minimizes learning curve, ensures system adoption, and maintains data accuracy.
+  - Objective: Ensure staff competency with the new system.
+  - Value: Improves system utilization, reduces support calls, and increases staff satisfaction.
+  - Process: Training Process
+  - Entity: Staff Training Module
+  - Use Case: Staff undergoes training before using the new system for inventory management.
+- R-24: Develop a module to track inventory consumption per trip, categorizing by route and vehicle type.
+  - Benefit: Reduces waste and optimizes inventory management by route-specific insights.
+  - Objective: Improve route efficiency and inventory control.
+  - Value: Enhances cost-effectiveness and operational efficiency.
+  - Process: Track Inventory
+  - Entity: Trip
+  - Use Case: Fleet Management
+- R-25: Implement predictive analytics to forecast inventory needs based on historical consumption patterns by route.
+  - Benefit: Minimizes overstocking or shortages, reducing costs and improving service delivery.
+  - Objective: Ensure optimal inventory levels for each route.
+  - Value: Increases customer satisfaction through reliable service and reduces holding costs.
+  - Process: Predictive Analytics
+  - Entity: Route
+  - Use Case: Inventory Planning
+- R-26: Create a dashboard for stakeholders to view real-time and historical inventory consumption data by route.
+  - Benefit: Provides actionable insights for strategic decision-making.
+  - Objective: Facilitate data-driven route planning and inventory management.
+  - Value: Improves decision-making process and operational transparency.
+  - Process: Data Visualization
+  - Entity: Dashboard
+  - Use Case: Strategic Planning
+- R-29: Implement a documentation system that includes both high-level overviews and detailed technical guides.
+  - Benefit: Reduces onboarding time for new hires and increases productivity for experienced staff.
+  - Objective: Provide comprehensive documentation to all employees.
+  - Value: Improves knowledge transfer, reduces errors, and enhances efficiency in operations.
+  - Process: Documentation Access
+  - Entity: Documentation System
+  - Use Case: A new developer needs to quickly understand the system architecture before diving into code.
+- R-30: Create an interactive tutorial or guide system for new hires to navigate through the documentation.
+  - Benefit: New hires can self-learn at their own pace, reducing the need for extensive training sessions.
+  - Objective: Enhance user experience for onboarding.
+  - Value: Streamlines the onboarding process, making it more engaging and effective.
+  - Process: Onboarding
+  - Entity: Tutorial System
+  - Use Case: A new employee uses the tutorial to learn about the company's software stack.
+- R-31: Ensure documentation includes version control information for tracking changes over time.
+  - Benefit: Provides traceability and accountability for documentation updates.
+  - Objective: Maintain up-to-date and relevant documentation.
+  - Value: Allows for better management of documentation lifecycle, ensuring accuracy and compliance.
+  - Process: Documentation Maintenance
+  - Entity: Version Control
+  - Use Case: An experienced developer checks documentation history to understand why a certain decision was made.
+- R-32: Implement an automated alert system for low stock levels in the inventory management application.
+  - Benefit: Reduces stock-outs by 90%, ensuring continuous availability of products.
+  - Objective: Improve inventory control and reduce downtime due to stock unavailability.
+  - Value: Enhances customer satisfaction and operational efficiency by preventing sales loss due to stock shortages.
+  - Process: Inventory Monitoring
+  - Entity: Product Stock
+  - Use Case: A staff member is alerted when a product's inventory falls below the reorder threshold.
+- R-33: Develop a real-time dashboard for inventory tracking with customizable views for different staff roles.
+  - Benefit: Improves decision-making speed by providing real-time data, reducing time spent on manual checks by 50%.
+  - Objective: Enable staff to make informed decisions quickly.
+  - Value: Streamlines operations, reduces administrative burden, and increases staff productivity.
+  - Process: Dashboard Access
+  - Entity: User Role
+  - Use Case: A manager views the inventory levels across multiple locations to make strategic decisions.
+- R-34: Implement a 'Sales Dashboard' that displays real-time gross sales figures, net sales, and costs associated with resources and materials.
+  - Benefit: Enables stakeholders to monitor financial health in real-time, aiding in quick decision-making.
+  - Objective: To provide transparency and immediate insights into sales performance and cost efficiency.
+  - Value: Reduces time to detect and react to financial discrepancies, potentially increasing profitability.
+  - Process: Data Collection and Visualization
+  - Entity: Sales Dashboard
+  - Use Case: Stakeholders can adjust strategies based on current financial data to maximize profit.
+- R-35: Develop an alert system within the dashboard for when sales figures approach or fall below the breakeven point.
+  - Benefit: Prevents financial losses by alerting stakeholders when intervention is necessary.
+  - Objective: To safeguard against operating at a loss.
+  - Value: Ensures business sustainability by maintaining awareness of financial thresholds.
+  - Process: Data Monitoring and Alert Generation
+  - Entity: Sales Dashboard
+  - Use Case: Immediate notification to stakeholders when sales are not covering costs, prompting strategic adjustments.
+- R-36: The documentation system must be accessible via a traditional Word document format for offline use and editing.
+  - Benefit: Ensures accessibility for users without constant internet access.
+  - Objective: Support offline functionality.
+  - Value: Increases user productivity by allowing work in various environments.
+  - Process: Offline Access
+  - Entity: Documentation
+  - Use Case: Employee reviews documentation while traveling with no internet.
+- R-37: Documentation should also be available on a SharePoint site for collaborative editing and version control.
+  - Benefit: Facilitates real-time collaboration and maintains document integrity.
+  - Objective: Enable team collaboration.
+  - Value: Reduces errors and increases efficiency through collaborative work.
+  - Process: Collaborative Editing
+  - Entity: Documentation
+  - Use Case: Team members update and review documents simultaneously.
+- R-38: Ensure that the SharePoint site integrates with existing enterprise systems for seamless data flow.
+  - Benefit: Minimizes manual data entry and reduces errors.
+  - Objective: System Integration
+  - Value: Streamlines workflows, saving time and reducing operational costs.
+  - Process: Data Integration
+  - Entity: SharePoint Site
+  - Use Case: Automatically populate documentation with data from enterprise systems.
+- R-39: Integrate the existing third-party inventory management system (Aramark SOP) into the application for real-time inventory tracking.
+  - Benefit: Reduces manual data entry errors and increases efficiency in inventory management.
+  - Objective: To automate and streamline inventory tracking processes.
+  - Value: Enhances accuracy, reduces operational costs, and improves inventory turnover.
+  - Process: Inventory Management
+  - Entity: Inventory System
+  - Use Case: Staff can view and manage inventory levels directly from the application.
+- R-40: Develop a feature to log and report discrepancies between physical inventory counts and system records.
+  - Benefit: Improves accuracy in inventory tracking and reduces theft or loss.
+  - Objective: To provide a tool for inventory reconciliation.
+  - Value: Ensures accountability and reduces financial discrepancies.
+  - Process: Inventory Reconciliation
+  - Entity: Discrepancy Report
+  - Use Case: Staff can quickly identify and report issues in inventory counts.
+
+## Questions
+- Q-1: What are the current methods used for tracking inventory at each commissary? (To: Stakeholder, Topic: Inventory Management, Resolved, Answer: The existing WIMS platform is responsible for all inventory at all 11 commissaries., Options: Manual entry, RFID scanning, Barcode scanning, Automated systems, Combination of methods)
+- Q-2: How often do trains run routes that require inventory top-offs? (To: Stakeholder, Topic: Route Planning, Resolved, Answer: Its based on the routes of the trains, some trains will travel multiple times between 2 points, such as Milwaukee to Chicago, where they would top off after a round trip if needed. Because this route is repeated, sometime the timing of the top off can impact if they can do it or not., Options: Daily, Weekly, Monthly, On specific routes only, Not applicable)
+- Q-3: What level of integration is currently in place with pick-to-light systems? (To: Solution Architect, Topic: System Integration, Open, Options: No integration, Partial integration, Full integration, In development, Planned)
+- Q-4: What are the current challenges in meeting special dietary requirements? (To: UX Designer, Topic: Passenger Needs, Open, Options: Lack of awareness, Insufficient options, Inventory management issues, Communication gaps, None)
+- Q-5: What metrics are currently used to measure operational performance? (To: Tech Advisor, Topic: Performance Metrics, Open, Options: Inventory turnover rate, Waste percentage, Cost per meal, Customer satisfaction, None)
+- Q-6: How detailed are the existing documentation of operational procedures? (To: Stakeholder, Topic: Documentation, Resolved, Answer: Very limited, documentation was not strongly created, and knowledge exists in the current staff, however this system is over 15 years old and attrition is impacting this tribal knowledge., Options: Very detailed, Moderately detailed, Basic, Incomplete, None)
+- Q-7: What is the current level of automation in the inventory management process? (To: Solution Architect, Topic: Automation, Open, Options: Highly automated, Moderately automated, Manual with some automation, Mostly manual, Not automated)
+- Q-8: What are the primary goals for the future of the WIMS system? (To: Stakeholder, Topic: Future Vision, Resolved, Answer: The WIMS platform is currently a COTS solution, Amtrak does not have access to the code and changes need to be made by the vendor. The WIMS platform was hosted in the Amtrak datacenter and will be moved to cloud service, however many of the technical architecture is dated and most like does not meet a structure that can be securely hosted in the close. This is being evaluated on a separate track. This process will ultimately support either enhancing WIMS or considering other solutions. This process is to help give a more realistic analysis of the current state and potential identify a roadmap going forward., Options: Cost reduction, Operational efficiency, Customer satisfaction, Scalability, All of the above)
+- Q-9: What are the current limitations of the WIMS platform in terms of real-time data synchronization across multiple commissaries? (To: Solution Architect, Topic: Synchronization, Open, Options: Data transfer speed is too slow., Intermittent network connectivity issues., Lack of robust error handling in data syncing., Incompatibility with different hardware at commissaries., No limitations; system works efficiently.)
+- Q-10: How do staff currently handle inventory updates, and what tools do they use? (To: Stakeholder, Topic: Inventory Management Tools, Resolved, Answer: Not known at this point, this should be captured as a task, Options: Manual updates using paper logs., Spreadsheet software for tracking., A combination of manual and digital tools., Direct updates through WIMS platform interface., Mobile devices with third-party inventory apps.)
+- Q-11: What are the expectations from users regarding the usability and functionality of inventory management features? (To: UX Designer, Topic: User Experience, Open, Options: Ease of use and minimal training required., Real-time data access and updates., Visual representation of inventory levels., Customizable alerts and notifications., Integration with other management systems.)
+- Q-12: What is the average inventory consumption per trip for different routes? (To: Stakeholder, Topic: Inventory Management, Resolved, Answer: Consumption varies widely by route., Options: Consumption varies widely by route., Consumption is relatively stable for short routes., Longer routes have higher consumption rates., Seasonal variations significantly affect consumption., No significant difference noted between routes.)
+- Q-13: What factors influence the timing of inventory top-offs during train routes? (To: Solution Architect, Topic: System Design, Open, Options: Route length and turnaround time., Passenger load and service demands., Weather conditions affecting travel time., Maintenance schedules., Crew availability.)
+- Q-14: How can the user interface facilitate real-time inventory management for train operations? (To: UX Designer, Topic: User Experience, Open, Options: A dashboard showing current inventory levels., Alerts for upcoming top-offs., Historical consumption data for trend analysis., Predictive analytics for future needs., Manual override options for crew.)
+- Q-15: How frequently should operational procedures be reviewed and updated? (To: Tech Advisor, Topic: Documentation Management, Open, Options: Annually, Semi-annually, Quarterly, Upon major system changes, As needed by the team)
+- Q-16: What features are most important for the documentation system to ensure user engagement and usability? (To: UX Designer, Topic: User Experience, Open, Options: Easy search functionality, Visual aids and diagrams, Integration with daily workflows, Real-time collaboration, Mobile access)
+- Q-17: What level of detail should the documentation capture to be useful for both new hires and experienced staff? (To: Stakeholder, Topic: Content Depth, Resolved, Answer: Both overview and detailed guides, Options: High-level overview only, Detailed step-by-step guides, Both overview and detailed guides, Only critical steps, All procedures including minor details)
+- Q-18: What specific cloud services are being considered for hosting WIMS? (To: Solution Architect, Topic: Cloud Hosting Options, Open, Options: AWS, Azure, Google Cloud Platform, Oracle Cloud, IBM Cloud)
+- Q-19: How will the user experience be adapted for a cloud-based solution? (To: UX Designer, Topic: User Experience, Open, Options: Minimal changes, mainly interface optimizations, Complete redesign for cloud usability, Focus on mobile-first design, Leverage cloud for personalized experiences, No changes planned)
+- Q-20: What are the current limitations of the WIMS architecture that might impact cloud hosting? (To: Tech Advisor, Topic: Technical Architecture, Open, Options: Scalability issues, Compatibility with cloud services, Security vulnerabilities, Performance bottlenecks, Vendor lock-in)
+- Q-21: What specific features are staff currently lacking in their inventory management process? (To: Stakeholder, Topic: Inventory Management Tools, Resolved, Answer: This needs to be analyzed and discovered based on As-is process, Options: Real-time data updates, Mobile access, Integration with other systems, Automated alerts for low stock, Physical inventory scanning capabilities)
+- Q-22: How can the user interface be designed to enhance staff efficiency in inventory updates? (To: UX Designer, Topic: User Experience, Open, Options: Simplified navigation, Visual indicators for stock levels, Customizable dashboards, Quick access to frequently used functions, Voice command integration)
+- Q-23: What are the technical requirements for integrating the new inventory system with existing enterprise systems? (To: Solution Architect, Topic: System Integration, Open, Options: API compatibility, Database schema alignment, Real-time data synchronization, Security protocols, Scalability considerations)
+- Q-24: What are the potential technological barriers in implementing real-time inventory updates? (To: Tech Advisor, Topic: Technology Constraints, Open, Options: Network latency, System load capacity, Data consistency across distributed systems, Cost of technology upgrades, Training needs for staff)
+- Q-25: How can we ensure the accuracy of the inventory consumption data? (To: Tech Advisor, Topic: Data Accuracy, Open, Options: Implement real-time tracking systems, Regular manual audits, Use RFID for inventory tracking, Data validation checks, Integrate with existing fleet management systems)
+- Q-26: What are the key metrics that stakeholders would like to see on the dashboard? (To: Stakeholder, Topic: Dashboard Metrics, Resolved, Answer: The greatest concern is the impact of overall sales compared to cost. The staff is on a union contract, so the relative cost is an somewhat known cost level. Based on these resource costs, sales needs to reach at least a level to create at least a breakeven scenario. They will need to track gross and net along with a resource and material cost factor., Options: Total Inventory Consumed, Consumption Rate per Mile, Variance from Expected Consumption, Route Efficiency Index, Inventory Cost Impact)
+- Q-27: What features would enhance the usability of the inventory consumption tracking system? (To: UX Designer, Topic: System Usability, Open, Options: Customizable Alerts, Historical Data Comparison, Route-specific Reports, Interactive Route Maps, Predictive Consumption Widget)
+- Q-31: What platforms should the documentation system be accessible from? (To: Stakeholder, Topic: Accessibility, Resolved, Answer: Traditional Word document and maybe Sharepoint site, Options: Web-based only, Mobile app, Desktop application, API access, All of the above)
+- Q-32: How should we categorize the documentation to ensure it's both comprehensive and easily navigable? (To: UX Designer, Topic: Categorization, Open, Options: By department, By project, By technology, By role, Combination of the above)
+- Q-33: What are the key performance indicators (KPIs) for measuring the effectiveness of the documentation? (To: Tech Advisor, Topic: Effectiveness Measurement, Open, Options: Time to onboard new hires, User engagement metrics, Error rate in documentation-related tasks, Frequency of documentation updates, User feedback scores)
+- Q-34: What are the current manual processes staff use to manage inventory? (To: Stakeholder, Topic: Current Inventory Management, Resolved, Answer: This needs to be discovered, there should be an established SOP from the third party vendor Aramark that handles the procurement, logistics, and inventory management of the physical inventory for the 11 commissaries., Options: Manual counting, Excel spreadsheets, Third-party inventory software, Paper-based tracking, No formal process)
+- Q-35: How can the user experience be improved to make inventory management more intuitive? (To: UX Designer, Topic: User Experience, Open, Options: Simplified navigation, Drag-and-drop functionality, Voice commands, Mobile app integration, Enhanced search capabilities)
+- Q-36: What technology stack would best support real-time inventory updates across multiple locations? (To: Solution Architect, Topic: Technology Stack, Open, Options: Microservices architecture, Event-driven architecture, Cloud-based solutions, Hybrid cloud, Serverless computing)
+- Q-37: What are the potential technical challenges in integrating the inventory management system with existing ERP systems? (To: Tech Advisor, Topic: System Integration, Open, Options: Data format compatibility, API limitations, Real-time data synchronization, Security protocols, Legacy system support)
+- Q-38: What are the preferred methods for stakeholders to receive alerts (e.g., email, push notifications, SMS)? (To: Stakeholder, Topic: Alert Preferences, Open, Options: Email, Push Notifications, SMS, In-App Notifications, A combination of the above)
+- Q-39: How should the dashboard handle data from different sales channels (e.g., online, in-store, wholesale)? (To: Solution Architect, Topic: Data Integration, Open, Options: Unified Dashboard View, Separate Views for Each Channel, Aggregated Data with Drill-Down Capabilities, Real-time Sync Across Channels, Customizable Views by User Role)
+- Q-40: What level of historical data should be available on the dashboard for trend analysis? (To: Tech Advisor, Topic: Data Retention, Open, Options: Last 30 days, Last 3 months, Last 6 months, Last 12 months, Indefinite with customizable range)
+- Q-41: What are the specific user roles and permissions required for accessing and editing the documentation on SharePoint? (To: UX Designer, Topic: Access Control, Open, Options: Read-only access for all employees, edit access for team leads, Role-based access control with varying permissions, Single sign-on integration with enterprise authentication, Dynamic permissions based on project involvement, Full edit access for all users)
+- Q-42: What features should the SharePoint site include to enhance document management? (To: Solution Architect, Topic: Feature Set, Open, Options: Version control and rollback, Automated document review workflows, Integration with Microsoft Office Suite, Custom metadata for document categorization, User notifications for document changes)
+- Q-43: What are the bandwidth requirements for accessing the SharePoint site effectively? (To: Tech Advisor, Topic: Technical Specifications, Open, Options: 1 Mbps for basic access, 5 Mbps for optimal experience, Minimum of 10 Mbps for all users, No specific bandwidth requirement, depends on network quality, 2 Mbps minimum with occasional spikes up to 5 Mbps, Bandwidth requirement varies based on document size and complexity)
+- Q-44: How does the current third-party inventory management system handle integration with external applications? (To: Tech Advisor, Topic: System Integration, Open, Options: API available for integration, Web services provided, Manual data export/import required, No integration capabilities, Integration through middleware)
+- Q-45: What are the specific pain points or inefficiencies in the current manual inventory processes? (To: Stakeholder, Topic: Current Processes, Open, Options: Time-consuming manual counts, Frequent errors in data entry, Difficulty in tracking stock levels, Delay in restocking, Lack of real-time data)
+- Q-46: What are the expectations for the user experience when interacting with inventory data in the new system? (To: UX Designer, Topic: User Experience, Open, Options: Intuitive interface for inventory management, Real-time data visualization, Mobile access for inventory checks, Customizable alerts and notifications, Seamless integration with existing workflows)
+
+## Epics
+
+
+## Prompt History
+
+
+## Stopped Topics
+Alert Preferences

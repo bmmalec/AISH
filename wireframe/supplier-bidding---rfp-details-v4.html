@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFP Response Wizard - Project Costing</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            margin: 20px;
+        }
+        aside {
+            width: 200px;
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-right: 1px solid #ddd;
+        }
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: bold;
+        }
+        aside ul li a:hover {
+            color: #2980b9;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            margin-left: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .cost-table th, .cost-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .cost-table th {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #1c6ea4;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>RFP Response Wizard - Supplier Portal</header>
+    <div class="container">
+        <aside>
+            <ul>
+                <li><a href="#">RFP Details</a></li>
+                <li><a href="#">RFP Questions & Clarifications</a></li>
+                <li><a href="#" style="color: #2980b9;">Project Costing</a></li>
+                <li><a href="#">Project Inventory</a></li>
+                <li><a href="#">Project Timing</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h1>Project Costing for RFP-001: Site Preparation</h1>
+            <div class="form-section">
+                <h2>Labor Costs</h2>
+                <div class="form-group">
+                    <label>Estimated Hours</label>
+                    <input type="number" value="320" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Crew Size</label>
+                    <input type="text" value="4 workers (1 operator, 3 laborers)" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Hourly Rate per Worker ($)</label>
+                    <input type="number" placeholder="Enter hourly rate">
+                </div>
+                <div class="form-group">
+                    <label>Total Labor Cost ($)</label>
+                    <input type="number" placeholder="Calculated total labor cost">
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Material Costs</h2>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Estimated Cost ($)</th>
+                            <th>Supplier Bid Cost ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equipment Rental</td>
+                            <td>1,500</td>
+                            <td><input type="number" placeholder="Enter bid cost"></td>
+                        </tr>
+                        <tr>
+                            <td>Gravel (50 tons)</td>
+                            <td>5,000</td>
+                            <td><input type="number" placeholder="Enter bid cost"></td>
+                        </tr>
+                        <tr>
+                            <td>Total Material Cost</td>
+                            <td>6,500</td>
+                            <td><input type="number" placeholder="Calculated total"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-section">
+                <h2>Additional Costs</h2>
+                <div class="form-group">
+                    <label>Other Costs (e.g., permits, miscellaneous) ($)</label>
+                    <input type="number" placeholder="Enter additional costs if any">
+                </div>
+                <div class="form-group">
+                    <label>Notes on Additional Costs</label>
+                    <textarea placeholder="Provide details on any additional costs"></textarea>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Total Bid Price</h2>
+                <div class="form-group">
+                    <label>Total Cost (Labor + Materials + Additional) ($)</label>
+                    <input type="number" placeholder="Calculated total bid price" readonly>
+                </div>
+            </div>
+            <button>Save & Continue to Project Inventory</button>
+        </main>
+    </div>
+    <footer>&copy; 2025 Supplier Portal - All Rights Reserved</footer>
+</body>
+</html>

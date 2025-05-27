@@ -109,18 +109,6 @@ app.post('/api/add-epic', async (req, res) => {
     }
 });
 
-app.post('/api/question', async (req, res) => {
-    try {
-        const { question } = req.body;
-        const projectData = await fs.readJson(projectFile);
-        const response = await baAgent.answerQuestion(projectData, question);
-        res.status(200).json({ response });
-    } catch (error) {
-        console.error('Question Error:', error.message);
-        res.status(500).json({ error: 'Failed to process question' });
-    }
-});
-
 app.get('/api/review', async (req, res) => {
     try {
         const projectData = await fs.readJson(projectFile);
@@ -311,6 +299,20 @@ app.post('/api/orchestrate', async (req, res) => {
     } catch (error) {
         console.error('Orchestration Error:', error);
         res.status(500).json({ error: 'Failed to orchestrate tasks', details: error.message });
+    }
+});
+
+app.post('/api/ask-question', async (req, res) => {
+    try {
+        const { question } = req.body;
+        const projectData = await fs.readJson(projectFile);
+        const prompt = `Here is the current project data: ${JSON.stringify(projectData)}. The user has asked: "${question}". Please provide a detailed answer based on the project data.`;
+        const response = await baAgent.callGrok(prompt);
+        const answer = response.data.choices[0].message.content.trim();
+        res.status(200).json({ answer });
+    } catch (error) {
+        console.error('Ask Question Error:', error.message);
+        res.status(500).json({ error: 'Failed to process question' });
     }
 });
 
