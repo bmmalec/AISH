@@ -1,0 +1,17 @@
+{
+  "claude": {
+    "totalCalls": 0,
+    "totalTokens": 0,
+    "totalCost": 0
+  },
+  "grok": {
+    "totalCalls": 2,
+    "totalTokens": 3460,
+    "totalCost": 0.00692
+  },
+  "openai": {
+    "totalCalls": 0,
+    "totalTokens": 0,
+    "totalCost": 0
+  }
+}

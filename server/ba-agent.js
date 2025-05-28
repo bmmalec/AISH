@@ -1,13 +1,11 @@
-const axios = require('axios');
 const fs = require('fs-extra');
 const { v4: uuidv4 } = require('uuid');
+const AIProviderService = require('./services/ai-provider');
 require('dotenv').config();
 
 class BusinessAnalystAgent {
     constructor() {
-        this.apiKey = process.env.XAI_API_KEY;
-        this.baseUrl = 'https://api.x.ai/v1';
-        this.model = process.env.GROK_MODEL || 'grok-2-1212';
+        this.aiProvider = new AIProviderService();
         this.requirementCounter = 0;
         this.questionCounter = 0;
         this.stoppedTopics = new Set();
@@ -30,10 +28,10 @@ class BusinessAnalystAgent {
                 - "questions": an array of objects with "text", "to", "topic", and "options" (an array of up to 5 potential answer strings).
                 Ensure "requirements" and "questions" are separate arrays at the root level, and the output is strictly valid JSON with no extra text, Markdown, or comments.
             `;
-            const response = await this.callGrok(prompt);
-            console.log('Grok Response (Vision/Scope):', response.data);
+            const response = await this.aiProvider.callAI(prompt);
+            console.log(`${this.aiProvider.getCurrentProvider().toUpperCase()} Response (Vision/Scope):`, response.data);
 
-            let content = response.data.choices[0].message.content.trim();
+            let content = this.aiProvider.getResponseContent(response);
             console.log('Raw Content (Vision/Scope):', content);
 
             content = content.replace(/```json\s*/, '').replace(/\s*```/, '').trim();
@@ -43,38 +41,52 @@ class BusinessAnalystAgent {
                 console.log('Parsed Data (Vision/Scope):', data);
             } catch (parseError) {
                 console.error('JSON Parse Error (Vision/Scope):', parseError.message);
-                throw new Error('Grok returned invalid JSON');
+                throw new Error(`${this.aiProvider.getCurrentProvider().toUpperCase()} returned invalid JSON`);
             }
 
             if (!data.requirements || !data.questions) {
-                console.warn('Grok returned incomplete data:', data);
-                throw new Error('Grok response missing required elements');
+                console.warn(`${this.aiProvider.getCurrentProvider().toUpperCase()} returned incomplete data:`, data);
+                throw new Error(`${this.aiProvider.getCurrentProvider().toUpperCase()} response missing required elements`);
+            }
+
+            // Map questions to requirements based on topic/content similarity
+            const mappedRequirements = data.requirements.map(r => ({ 
+                internalId: uuidv4(),
+                id: `R-${++this.requirementCounter}`, 
+                text: r.text, 
+                benefit: r.benefit || 'Not specified',
+                objective: r.objective || 'Not specified',
+                value: r.value || 'Not specified',
+                process: r.process || '', 
+                entity: r.entity || '', 
+                useCase: r.useCase || '',
+                questions: []
+            }));
+
+            // Associate questions with requirements
+            if (data.questions && Array.isArray(data.questions)) {
+                data.questions.forEach(q => {
+                    const associatedReq = this.findAssociatedRequirement(q, mappedRequirements);
+                    if (associatedReq) {
+                        const questionId = `Q-${associatedReq.id}-${associatedReq.questions.length + 1}`;
+                        associatedReq.questions.push({
+                            internalId: uuidv4(),
+                            id: questionId,
+                            text: q.text, 
+                            to: q.to, 
+                            topic: q.topic, 
+                            options: Array.isArray(q.options) ? q.options : [], 
+                            status: 'Open'
+                        });
+                    }
+                });
             }
 
             return {
                 projectName,
                 vision,
                 scope,
-                requirements: data.requirements.map(r => ({ 
-                    internalId: uuidv4(),
-                    id: `R-${++this.requirementCounter}`, 
-                    text: r.text, 
-                    benefit: r.benefit || 'Not specified',
-                    objective: r.objective || 'Not specified',
-                    value: r.value || 'Not specified',
-                    process: r.process || '', 
-                    entity: r.entity || '', 
-                    useCase: r.useCase || '' 
-                })),
-                questions: data.questions.map(q => ({ 
-                    internalId: uuidv4(),
-                    id: `Q-${++this.questionCounter}`, 
-                    text: q.text, 
-                    to: q.to, 
-                    topic: q.topic, 
-                    options: Array.isArray(q.options) ? q.options : [], 
-                    status: 'Open' 
-                })),
+                requirements: mappedRequirements,
                 stoppedTopics: [],
                 promptHistory: []
             };
@@ -86,7 +98,21 @@ class BusinessAnalystAgent {
 
     async processAnswer(projectData, questionId, answer) {
         try {
-            const question = projectData.questions.find(q => q.internalId === questionId);
+            // Find question in nested structure
+            let question = null;
+            let parentRequirement = null;
+            
+            for (const req of projectData.requirements) {
+                if (req.questions) {
+                    const foundQuestion = req.questions.find(q => q.internalId === questionId);
+                    if (foundQuestion) {
+                        question = foundQuestion;
+                        parentRequirement = req;
+                        break;
+                    }
+                }
+            }
+            
             if (!question) throw new Error('Question not found');
             question.status = 'Resolved';
             question.answer = answer;
@@ -106,10 +132,10 @@ class BusinessAnalystAgent {
                 - "questions": an array of objects with "text", "to", "topic", and "options" (an array of up to 5 potential answer strings).
                 Ensure "requirements" and "questions" are separate arrays at the root level, and the output is strictly valid JSON with no extra text, Markdown, or comments.
             `;
-            const response = await this.callGrok(prompt);
-            console.log('Grok Answer Response:', response.data);
+            const response = await this.aiProvider.callAI(prompt);
+            console.log(`${this.aiProvider.getCurrentProvider().toUpperCase()} Answer Response:`, response.data);
 
-            let content = response.data.choices[0].message.content.trim();
+            let content = this.aiProvider.getResponseContent(response);
             console.log('Raw Content (Answer):', content);
 
             content = content.replace(/```json\s*/, '').replace(/\s*```/, '').trim();
@@ -119,7 +145,7 @@ class BusinessAnalystAgent {
                 console.log('Parsed newData (Answer):', newData);
             } catch (parseError) {
                 console.error('JSON Parse Error in Answer:', parseError.message);
-                throw new Error('Grok returned invalid JSON for answer');
+                throw new Error(`${this.aiProvider.getCurrentProvider().toUpperCase()} returned invalid JSON for answer`);
             }
 
             const requirements = Array.isArray(newData.requirements) ? newData.requirements : [];
@@ -138,19 +164,28 @@ class BusinessAnalystAgent {
                     value: r.value || 'Not specified',
                     process: r.process || '', 
                     entity: r.entity || '', 
-                    useCase: r.useCase || '' 
+                    useCase: r.useCase || '',
+                    questions: []
                 })));
             }
+            
+            // Add new questions to the parent requirement or find appropriate requirement
             if (questions.length > 0) {
-                projectData.questions.push(...questions.map(q => ({ 
-                    internalId: uuidv4(),
-                    id: `Q-${++this.questionCounter}`, 
-                    text: q.text, 
-                    to: q.to, 
-                    topic: q.topic, 
-                    options: Array.isArray(q.options) ? q.options : [], 
-                    status: 'Open' 
-                })));
+                questions.forEach(q => {
+                    const targetReq = parentRequirement || this.findAssociatedRequirement(q, projectData.requirements);
+                    if (targetReq) {
+                        const questionId = `Q-${targetReq.id}-${targetReq.questions.length + 1}`;
+                        targetReq.questions.push({
+                            internalId: uuidv4(),
+                            id: questionId,
+                            text: q.text, 
+                            to: q.to, 
+                            topic: q.topic, 
+                            options: Array.isArray(q.options) ? q.options : [], 
+                            status: 'Open'
+                        });
+                    }
+                });
             }
             console.log('Updated projectData before Markdown:', projectData);
             return projectData;
@@ -174,10 +209,10 @@ class BusinessAnalystAgent {
                 - "requirements": an array of objects with "text", "benefit", "objective", "value", and optionally "process", "entity", "useCase".
                 Ensure the output is strictly valid JSON with no extra text, Markdown, or comments.
             `;
-            const response = await this.callGrok(prompt);
-            console.log('Grok Prompt Response:', response.data);
+            const response = await this.aiProvider.callAI(prompt);
+            console.log(`${this.aiProvider.getCurrentProvider().toUpperCase()} Prompt Response:`, response.data);
 
-            let content = response.data.choices[0].message.content.trim();
+            let content = this.aiProvider.getResponseContent(response);
             console.log('Raw Content (Prompt):', content);
 
             content = content.replace(/```json\s*/, '').replace(/\s*```/, '').trim();
@@ -187,7 +222,7 @@ class BusinessAnalystAgent {
                 console.log('Parsed newData (Prompt):', newData);
             } catch (parseError) {
                 console.error('JSON Parse Error in Prompt:', parseError.message);
-                throw new Error('Grok returned invalid JSON for prompt');
+                throw new Error(`${this.aiProvider.getCurrentProvider().toUpperCase()} returned invalid JSON for prompt`);
             }
 
             const requirements = Array.isArray(newData.requirements) ? newData.requirements : [];
@@ -228,10 +263,10 @@ class BusinessAnalystAgent {
                 - "requirements": an array of objects with "text", "benefit", "objective", "value", and optionally "process", "entity", "useCase".
                 Ensure the output is strictly valid JSON with no extra text, Markdown, or comments.
             `;
-            const response = await this.callGrok(prompt);
-            console.log('Grok Clarify Response:', response.data);
+            const response = await this.aiProvider.callAI(prompt);
+            console.log(`${this.aiProvider.getCurrentProvider().toUpperCase()} Clarify Response:`, response.data);
 
-            let content = response.data.choices[0].message.content.trim();
+            let content = this.aiProvider.getResponseContent(response);
             console.log('Raw Content (Clarify):', content);
 
             content = content.replace(/```json\s*/, '').replace(/\s*```/, '').trim();
@@ -241,7 +276,7 @@ class BusinessAnalystAgent {
                 console.log('Parsed newData (Clarify):', newData);
             } catch (parseError) {
                 console.error('JSON Parse Error in Clarify:', parseError.message);
-                throw new Error('Grok returned invalid JSON for clarification');
+                throw new Error(`${this.aiProvider.getCurrentProvider().toUpperCase()} returned invalid JSON for clarification`);
             }
 
             const requirements = Array.isArray(newData.requirements) ? newData.requirements : [];
@@ -255,7 +290,8 @@ class BusinessAnalystAgent {
                     value: r.value || 'Not specified',
                     process: r.process || '', 
                     entity: r.entity || '', 
-                    useCase: r.useCase || '' 
+                    useCase: r.useCase || '',
+                    questions: []
                 })));
                 projectData.promptHistory.push(`Clarification for ${requirement.id}: ${promptText}`);
             }
@@ -266,8 +302,59 @@ class BusinessAnalystAgent {
         }
     }
 
+    findAssociatedRequirement(question, requirements) {
+        if (!requirements || !question.topic) return null;
+
+        // Try to find requirement by topic matching
+        const topicMatches = {
+            'user management': ['user', 'account', 'registration', 'member'],
+            'family management': ['family', 'invite', 'member'],
+            'chore management': ['chore', 'task', 'assign', 'priority'],
+            'data handling': ['sync', 'data', 'storage', 'offline'],
+            'common chores': ['chore', 'list', 'household']
+        };
+
+        const topicKeywords = topicMatches[question.topic.toLowerCase()] || [question.topic.toLowerCase()];
+        
+        // Find requirement that contains related keywords
+        for (const req of requirements) {
+            const reqText = req.text.toLowerCase();
+            if (topicKeywords.some(keyword => reqText.includes(keyword))) {
+                return req;
+            }
+        }
+
+        // If no topic match, try to match by question content
+        const questionText = question.text.toLowerCase();
+        for (const req of requirements) {
+            const reqText = req.text.toLowerCase();
+            // Look for common words (excluding common stop words)
+            const questionWords = questionText.split(' ').filter(word => 
+                word.length > 3 && !['should', 'would', 'could', 'what', 'how', 'when', 'where', 'the', 'and', 'for', 'with'].includes(word)
+            );
+            
+            if (questionWords.some(word => reqText.includes(word))) {
+                return req;
+            }
+        }
+
+        // Default to first requirement if no better match
+        return requirements.length > 0 ? requirements[0] : null;
+    }
+
     stopQuestionLine(projectData, questionId) {
-        const question = projectData.questions.find(q => q.internalId === questionId);
+        // Find question in nested structure
+        let question = null;
+        for (const req of projectData.requirements) {
+            if (req.questions) {
+                const foundQuestion = req.questions.find(q => q.internalId === questionId);
+                if (foundQuestion) {
+                    question = foundQuestion;
+                    break;
+                }
+            }
+        }
+        
         if (question) {
             this.stoppedTopics.add(question.topic);
             projectData.stoppedTopics = Array.from(this.stoppedTopics);
@@ -275,33 +362,33 @@ class BusinessAnalystAgent {
         return projectData;
     }
 
-    async callGrok(prompt) {
-        try {
-            const response = await axios.post(`${this.baseUrl}/chat/completions`, {
-                model: this.model,
-                messages: [{ role: 'user', content: prompt }],
-                max_tokens: parseInt(process.env.MAX_TOKENS, 10)
-            }, {
-                headers: { 
-                    'Authorization': `Bearer ${this.apiKey}`, 
-                    'Content-Type': 'application/json' 
-                }
-            });
-            return response;
-        } catch (error) {
-            console.error('Grok API Call Failed:', error.message, error.response?.data);
-            throw error;
-        }
+    async getUsageStats() {
+        return await this.aiProvider.getStats();
+    }
+
+    getCurrentProvider() {
+        return this.aiProvider.getCurrentProvider();
+    }
+
+    setProvider(provider) {
+        this.aiProvider.setProvider(provider);
     }
 
     async updateMarkdown(filePath, projectData) {
         try {
             console.log('Generating Markdown for projectData:', projectData);
-            const mdContent = `# Project: ${projectData.projectName}\n\n## Vision\n${projectData.vision}\n\n## Scope\n${projectData.scope}\n\n## Requirements\n${projectData.requirements.map(r => 
-                `- ${r.id}: ${r.text}${r.epic ? ' [Epic: ' + r.epic + ']' : ''}\n  - Benefit: ${r.benefit}\n  - Objective: ${r.objective}\n  - Value: ${r.value}${r.process ? '\n  - Process: ' + r.process : ''}${r.entity ? '\n  - Entity: ' + r.entity : ''}${r.useCase ? '\n  - Use Case: ' + r.useCase : ''}`
-            ).join('\n')}\n\n## Questions\n${projectData.questions.map(q => {
-                const options = Array.isArray(q.options) ? q.options : [];
-                return `- ${q.id}: ${q.text} (To: ${q.to}, Topic: ${q.topic}, ${q.status}${q.answer ? ', Answer: ' + q.answer : ''}${options.length ? ', Options: ' + options.join(', ') : ''})`;
+            const mdContent = `# Project: ${projectData.projectName}\n\n## Vision\n${projectData.vision}\n\n## Scope\n${projectData.scope}\n\n## Requirements\n${projectData.requirements.map(r => {
+                let reqText = `- ${r.id}: ${r.text}${r.epic ? ' [Epic: ' + r.epic + ']' : ''}\n  - Benefit: ${r.benefit}\n  - Objective: ${r.objective}\n  - Value: ${r.value}${r.process ? '\n  - Process: ' + r.process : ''}${r.entity ? '\n  - Entity: ' + r.entity : ''}${r.useCase ? '\n  - Use Case: ' + r.useCase : ''}`;
+                
+                if (r.questions && r.questions.length > 0) {
+                    reqText += '\n  - Questions:';
+                    r.questions.forEach(q => {
+                        const options = Array.isArray(q.options) ? q.options : [];
+                        reqText += `\n    - ${q.id}: ${q.text} (To: ${q.to}, Topic: ${q.topic}, ${q.status}${q.answer ? ', Answer: ' + q.answer : ''}${options.length ? ', Options: ' + options.join(', ') : ''})`;
+                    });
+                }
+                
+                return reqText;
             }).join('\n')}\n\n## Epics\n${(projectData.epics || []).map(e => `- ${e.name}: ${e.requirementIds.map(id => projectData.requirements.find(r => r.internalId === id)?.id).join(', ')}`).join('\n')}\n\n## Prompt History\n${projectData.promptHistory.join('\n')}\n\n## Stopped Topics\n${projectData.stoppedTopics.join(', ')}`;
             await fs.writeFile(filePath, mdContent);
         } catch (error) {
