@@ -16,8 +16,8 @@ class WireframeGenerator {
             ? `Given the previous wireframe version at "${previousVersion}" and the requirement: "${requirement.description}" (Benefit: ${requirement.benefit}, Objective: ${requirement.objective}, Value: ${requirement.value}), refine the wireframe HTML5 code based on the correction prompt provided in the requirement. Use a simple, standard web design layout with a header, sidebar, main content, and footer. Return only the HTML5 code with inline CSS as a plain string, no extra text or comments.`
             : `Given the requirement: "${requirement.description}" (Benefit: ${requirement.benefit}, Objective: ${requirement.objective}, Value: ${requirement.value}), generate a wireframe HTML5 page for a web application. Use a simple, standard web design layout with a header, sidebar (for navigation or context), main content (for primary interaction), and footer. Include inline CSS for basic styling (e.g., layout, colors). Return only the HTML5 code as a plain string, no extra text or comments.`;
 
-        const response = await this.grok.callGrok(prompt);
-        const htmlContent = response.data.choices[0].message.content.trim();
+        const response = await this.grok.aiProvider.callAI(prompt);
+        const htmlContent = this.grok.aiProvider.getResponseContent(response);
 
         // Sanitize and use wireframeName as base filename
         const baseFilename = wireframeName

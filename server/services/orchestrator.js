@@ -135,8 +135,8 @@ class Orchestrator {
         }
 
         try {
-            const response = await this.grok.callGrok(prompt);
-            const result = response.data.choices[0].message.content.trim().replace(/```json\n|```/g, '');
+            const response = await this.grok.aiProvider.callAI(prompt);
+            const result = this.grok.aiProvider.getResponseContent(response).replace(/```json\n|```/g, '');
 
             // For generate task, save wireframe to file (keeping original behavior)
             if (name.includes('generate')) {

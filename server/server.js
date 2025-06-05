@@ -112,10 +112,26 @@ app.post('/api/add-epic', async (req, res) => {
 app.get('/api/review', async (req, res) => {
     try {
         const projectData = await fs.readJson(projectFile);
+        
+        // Extract questions from nested structure for backward compatibility
+        const allQuestions = [];
+        if (projectData.requirements) {
+            projectData.requirements.forEach(req => {
+                if (req.questions && Array.isArray(req.questions)) {
+                    allQuestions.push(...req.questions);
+                }
+            });
+        }
+        
+        // If old format with separate questions array exists, include those too
+        if (projectData.questions && Array.isArray(projectData.questions)) {
+            allQuestions.push(...projectData.questions);
+        }
+        
         res.json({
             projectName: projectData.projectName,
             requirements: projectData.requirements,
-            questions: projectData.questions,
+            questions: allQuestions,
             epics: projectData.epics || [],
             promptHistory: projectData.promptHistory
         });
@@ -307,8 +323,8 @@ app.post('/api/ask-question', async (req, res) => {
         const { question } = req.body;
         const projectData = await fs.readJson(projectFile);
         const prompt = `Here is the current project data: ${JSON.stringify(projectData)}. The user has asked: "${question}". Please provide a detailed answer based on the project data.`;
-        const response = await baAgent.callGrok(prompt);
-        const answer = response.data.choices[0].message.content.trim();
+        const response = await baAgent.aiProvider.callAI(prompt);
+        const answer = baAgent.aiProvider.getResponseContent(response);
         res.status(200).json({ answer });
     } catch (error) {
         console.error('Ask Question Error:', error.message);
@@ -334,5 +350,31 @@ app.post('/api/create-workitems', async (req, res) => {
 
 app.get('/api/download/json', (req, res) => res.download(projectFile));
 app.get('/api/download/md', (req, res) => res.download(mdFile));
+
+// AI Provider Management Endpoints
+app.get('/api/ai-stats', async (req, res) => {
+    try {
+        const stats = await baAgent.getUsageStats();
+        const currentProvider = baAgent.getCurrentProvider();
+        res.json({ currentProvider, stats });
+    } catch (error) {
+        console.error('AI Stats Error:', error.message);
+        res.status(500).json({ error: 'Failed to get AI stats' });
+    }
+});
+
+app.post('/api/ai-provider', async (req, res) => {
+    try {
+        const { provider } = req.body;
+        if (!provider) {
+            return res.status(400).json({ error: 'Provider is required' });
+        }
+        baAgent.setProvider(provider);
+        res.json({ message: `AI provider switched to ${provider}`, currentProvider: provider });
+    } catch (error) {
+        console.error('Set Provider Error:', error.message);
+        res.status(500).json({ error: error.message });
+    }
+});
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));

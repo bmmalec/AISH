@@ -13,39 +13,7 @@
       "process": "Registration",
       "entity": "User",
       "useCase": "A new user wants to create an account to join or form a family group.",
-      "epic": "Orchestrate 1",
-      "questions": [
-        {
-          "internalId": "a5ad5c13-9c8c-4550-96a7-c8000227046c",
-          "id": "Q-R-1-1",
-          "text": "How should the app handle user authentication for security?",
-          "to": "Tech Advisor",
-          "topic": "User Management",
-          "options": [
-            "Two-Factor Authentication",
-            "Single Sign-On with Google/Facebook",
-            "Password Complexity Requirements",
-            "Biometric Authentication",
-            "Email Verification"
-          ],
-          "status": "Open"
-        },
-        {
-          "internalId": "9c0791e8-5b08-44fb-8ddc-a548d74aa887",
-          "id": "Q-R-1-2",
-          "text": "What is the process for a user to leave or remove another member from a family group?",
-          "to": "UX Designer",
-          "topic": "User Management",
-          "options": [
-            "Admin Only Can Remove",
-            "Mutual Consent Required",
-            "Self-Removal Option",
-            "Voting System for Removal",
-            "Immediate Removal by Creator"
-          ],
-          "status": "Open"
-        }
-      ]
+      "epic": "Orchestrate 1"
     },
     {
       "internalId": "26ab88b4-3659-4342-9920-ebc35887fbc6",
@@ -57,8 +25,7 @@
       "process": "Family Creation",
       "entity": "Family",
       "useCase": "A user wants to start a new family group to coordinate household tasks.",
-      "epic": "Orchestrate 1",
-      "questions": []
+      "epic": "Orchestrate 1"
     },
     {
       "internalId": "1e763abc-003b-40e3-96ae-5d305257cc97",
@@ -70,8 +37,7 @@
       "process": "Invitation",
       "entity": "User",
       "useCase": "A family member wants to add another member to the family group.",
-      "epic": "Orchestrate 1",
-      "questions": []
+      "epic": "Orchestrate 1"
     },
     {
       "internalId": "200ae064-0544-4382-8baf-96d534188d5d",
@@ -83,24 +49,7 @@
       "process": "Logging",
       "entity": "Chore",
       "useCase": "A user wants to log that they have cleaned the kitchen.",
-      "epic": "epic 3",
-      "questions": [
-        {
-          "internalId": "893d04a9-8288-4c20-b0e4-e1c7daf2ae5e",
-          "id": "Q-R-4-1",
-          "text": "What are the priority levels for chores and how are they managed?",
-          "to": "Stakeholder",
-          "topic": "Task Management",
-          "options": [
-            "High, Medium, Low",
-            "Urgent, Important, Routine",
-            "No Priority System",
-            "User-Defined Priority",
-            "Priority Adjusted by Frequency"
-          ],
-          "status": "Open"
-        }
-      ]
+      "epic": "epic 3"
     },
     {
       "internalId": "c39b6b39-507c-491f-bb8b-ad7523cb88f1",
@@ -112,8 +61,7 @@
       "process": "Requesting",
       "entity": "Chore",
       "useCase": "A user needs help with taking out the trash.",
-      "epic": "epic 3",
-      "questions": []
+      "epic": "epic 3"
     },
     {
       "internalId": "78f9cff9-a2d7-4a66-9cbe-3f8501063bc6",
@@ -125,8 +73,7 @@
       "process": "List Management",
       "entity": "Chore",
       "useCase": "A user wants to add 'water the plants' to the family chore list.",
-      "epic": "epic 5",
-      "questions": []
+      "epic": "epic 5"
     },
     {
       "internalId": "09f81bc5-15fa-4c08-9f25-7ad54db3c4d8",
@@ -138,24 +85,69 @@
       "process": "Data Sync",
       "entity": "App",
       "useCase": "A user is at a cabin with no internet but still wants to log chores.",
-      "epic": "epic 5",
-      "questions": [
-        {
-          "internalId": "36ae1af3-dba0-44f9-b14e-4fb5a257c374",
-          "id": "Q-R-7-1",
-          "text": "How should the app handle data when transitioning from offline to online mode?",
-          "to": "Solution Architect",
-          "topic": "Data Handling",
-          "options": [
-            "Automatic Sync on Connection",
-            "Manual Sync Option",
-            "Queue Data for Sync",
-            "Conflict Resolution Protocol",
-            "User Notification on Sync"
-          ],
-          "status": "Open"
-        }
-      ]
+      "epic": "epic 5"
+    }
+  ],
+  "questions": [
+    {
+      "internalId": "a5ad5c13-9c8c-4550-96a7-c8000227046c",
+      "id": "Q-1",
+      "text": "How should the app handle user authentication for security?",
+      "to": "Tech Advisor",
+      "topic": "User Management",
+      "options": [
+        "Two-Factor Authentication",
+        "Single Sign-On with Google/Facebook",
+        "Password Complexity Requirements",
+        "Biometric Authentication",
+        "Email Verification"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "9c0791e8-5b08-44fb-8ddc-a548d74aa887",
+      "id": "Q-2",
+      "text": "What is the process for a user to leave or remove another member from a family group?",
+      "to": "UX Designer",
+      "topic": "User Management",
+      "options": [
+        "Admin Only Can Remove",
+        "Mutual Consent Required",
+        "Self-Removal Option",
+        "Voting System for Removal",
+        "Immediate Removal by Creator"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "36ae1af3-dba0-44f9-b14e-4fb5a257c374",
+      "id": "Q-3",
+      "text": "How should the app handle data when transitioning from offline to online mode?",
+      "to": "Solution Architect",
+      "topic": "Data Handling",
+      "options": [
+        "Automatic Sync on Connection",
+        "Manual Sync Option",
+        "Queue Data for Sync",
+        "Conflict Resolution Protocol",
+        "User Notification on Sync"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "893d04a9-8288-4c20-b0e4-e1c7daf2ae5e",
+      "id": "Q-4",
+      "text": "What are the priority levels for chores and how are they managed?",
+      "to": "Stakeholder",
+      "topic": "Task Management",
+      "options": [
+        "High, Medium, Low",
+        "Urgent, Important, Routine",
+        "No Priority System",
+        "User-Defined Priority",
+        "Priority Adjusted by Frequency"
+      ],
+      "status": "Open"
     }
   ],
   "stoppedTopics": [],

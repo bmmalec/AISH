@@ -1,0 +1,1087 @@
+{
+  "projectName": "Amtrak_-_System_Analysis",
+  "vision": "Amtrak would like to evaluate its WIMS inventory system that is used to manage their 11 Commissaries to support their Food and Beverage operations onboard their train network. The platform is given train route and passenger levels with considerations for meal requirements, i.e. vegan or special events. The trains may run a combination of routes that put them outside of the commissary network, requiring them to ensure they top off inventory to handle the entire route. This platform also communicates with other systems such as pick to light, and potentially voice pick in the future. This system analysis should establish an as-is state, documenting existing capabilities, baselining operations, and capture any future capabilities or challenges. This should also involve processes to review operations at each commissary to collect as-is state, document and validate documentation of operations, and vision and scope of current and potentially future operating and systems procedures.",
+  "scope": "To establish an inventory and \"As-Is\" state of systems, processes, and operating procedures used in the execution. This will also include benchmarking existing operational and systems efforts to their overall impact of P&L of Food and Beverage operations from a cost of goods sold perspective. Create project plan to execute and finally report to operations on findings and potential program roadmap.",
+  "requirements": [
+    {
+      "internalId": "1749206b-b652-45b7-9efb-108325cf8efa",
+      "id": "R-1",
+      "text": "The system must allow for real-time inventory tracking of all food and beverage items at each commissary.",
+      "benefit": "Reduces out-of-stock situations by 30%.",
+      "objective": "Ensure continuous availability of inventory.",
+      "value": "Minimizes missed sales opportunities and improves customer satisfaction.",
+      "process": "Track Inventory",
+      "entity": "Inventory",
+      "useCase": "A commissary manager checks the real-time inventory levels before loading supplies onto a train."
+    },
+    {
+      "internalId": "a379d9ba-3c15-4305-b33b-bdf57f0035dc",
+      "id": "R-2",
+      "text": "Integration with train route and passenger data to predict inventory needs for upcoming trips.",
+      "benefit": "Decreases food waste by 25% through better demand forecasting.",
+      "objective": "Optimize inventory levels for route-specific demands.",
+      "value": "Reduces unnecessary inventory costs and enhances operational efficiency.",
+      "process": "Forecast Demand",
+      "entity": "Route Planner",
+      "useCase": "Before a train departs, the system calculates the necessary inventory based on route and passenger information."
+    },
+    {
+      "internalId": "11f18709-e89d-49be-83c4-82fecb0c82e6",
+      "id": "R-3",
+      "text": "Implement a feature for tracking special meal requirements (e.g., vegan, gluten-free).",
+      "benefit": "Increases customer satisfaction by 15% by meeting dietary needs.",
+      "objective": "Cater to diverse passenger needs.",
+      "value": "Improves the passenger experience, potentially increasing repeat customers.",
+      "process": "Manage Special Diets",
+      "entity": "Passenger Profile",
+      "useCase": "A train attendant uses the system to prepare meals for passengers with specific dietary restrictions."
+    },
+    {
+      "internalId": "a1c344b5-b939-45b6-b2e4-cacb0e838459",
+      "id": "R-4",
+      "text": "The system should provide an interface for seamless communication with pick-to-light and voice-pick systems.",
+      "benefit": "Reduces picking errors by 40%.",
+      "objective": "Improve accuracy and efficiency in warehouse operations.",
+      "value": "Enhances productivity in the commissary, reducing labor costs.",
+      "process": "Integrate Systems",
+      "entity": "Commissary Operations",
+      "useCase": "Commissary staff uses voice-pick to select items for loading onto trains."
+    },
+    {
+      "internalId": "0cdfc895-19b6-40f1-9d80-c139d3347105",
+      "id": "R-5",
+      "text": "Enable reporting on operational performance, including inventory turnover rates, spoilage, and waste.",
+      "benefit": "Enhances decision-making capabilities, potentially reducing costs by 10%.",
+      "objective": "Provide actionable insights into operations.",
+      "value": "Optimizes resource allocation and operational planning.",
+      "process": "Analyze Performance",
+      "entity": "Operations Dashboard",
+      "useCase": "Operations manager reviews monthly reports to adjust inventory procurement strategies."
+    },
+    {
+      "internalId": "f267246f-2a31-4f0b-8d9f-e8850cd6451a",
+      "id": "R-6",
+      "text": "Document and validate current operating procedures at each commissary.",
+      "benefit": "Ensures consistency and compliance across operations.",
+      "objective": "Standardize operations for efficiency and quality.",
+      "value": "Reduces operational risks and improves training effectiveness.",
+      "process": "Document Operations",
+      "entity": "Procedure Manual",
+      "useCase": "A new employee is trained using the documented procedures for inventory management."
+    },
+    {
+      "internalId": "d41e7f92-fd41-4d3b-a8ab-23376b86551a",
+      "id": "R-7",
+      "text": "Create a project plan to execute the analysis of current systems and operations.",
+      "benefit": "Clarifies project scope and timeline, reducing project overruns by 20%.",
+      "objective": "Systematically review and improve current systems.",
+      "value": "Enhances project management and strategic planning.",
+      "process": "Plan Execution",
+      "entity": "Project Management",
+      "useCase": "Project manager outlines tasks, dependencies, and timelines for the system analysis project."
+    },
+    {
+      "internalId": "34f137cd-eae0-4990-9399-e27f15702ad5",
+      "id": "R-8",
+      "text": "Benchmark existing operations against industry standards and competitors to assess profitability.",
+      "benefit": "Identifies areas for cost reduction, potentially improving P&L by 5%.",
+      "objective": "Optimize financial performance of Food and Beverage operations.",
+      "value": "Provides competitive advantage through better financial management.",
+      "process": "Benchmark Operations",
+      "entity": "Benchmarking Tool",
+      "useCase": "Financial analyst compares Amtrak's inventory turnover rate with industry benchmarks."
+    },
+    {
+      "internalId": "7c461eff-6ee3-4fc3-a995-211c6ab827ae",
+      "id": "R-9",
+      "text": "Implement real-time inventory updates in the WIMS platform to ensure all 11 commissaries have the most current inventory data.",
+      "benefit": "Reduces discrepancies in inventory counts and improves stock management accuracy.",
+      "objective": "To enhance the reliability and timeliness of inventory data.",
+      "value": "Enables better decision-making regarding stock replenishment and reduces overstocking or stockouts.",
+      "process": "Inventory Management",
+      "entity": "WIMS Platform",
+      "useCase": "A manager at Commissary #3 checks the inventory levels of canned goods to decide on immediate restocking."
+    },
+    {
+      "internalId": "f1341dd3-6b50-4e25-bae8-ec858c7faaeb",
+      "id": "R-10",
+      "text": "Develop a feature for automated inventory alerts when stock levels reach predefined thresholds in each commissary.",
+      "benefit": "Decreases the risk of stockouts by alerting staff in advance.",
+      "objective": "To prevent inventory shortages and ensure product availability.",
+      "value": "Improves customer satisfaction by ensuring product availability and reduces emergency purchasing costs.",
+      "process": "Alert Management",
+      "entity": "Commissary Inventory",
+      "useCase": "An automated alert notifies the manager at Commissary #8 when the stock of a popular item falls below the minimum threshold."
+    },
+    {
+      "internalId": "e177e564-aac1-4644-980d-7cfe306b04db",
+      "id": "R-11",
+      "text": "Integrate a mobile application for inventory management that allows staff to update inventory levels on the go.",
+      "benefit": "Enhances flexibility and efficiency of inventory management activities.",
+      "objective": "To provide staff with tools for real-time inventory updates outside the office.",
+      "value": "Increases productivity of inventory staff, allowing for more accurate and timely updates.",
+      "process": "Mobile Inventory Management",
+      "entity": "Inventory Staff",
+      "useCase": "A staff member at Commissary #6 uses the mobile app to scan and update inventory while performing a physical stock check in the storeroom."
+    },
+    {
+      "internalId": "0677f368-1628-46cf-98c7-72cea5d2a80a",
+      "id": "R-12",
+      "text": "Implement a system to track the number of trips a train makes on a specific route to determine when inventory top-offs are necessary.",
+      "benefit": "Reduce the frequency of unexpected stops for inventory replenishment by predicting needs.",
+      "objective": "Increase operational efficiency and reduce downtime.",
+      "value": "Enhances service reliability and reduces operational costs.",
+      "process": "Inventory Management",
+      "entity": "Train Route",
+      "useCase": "A train traveling between Milwaukee and Chicago multiple times per day would have its inventory tracked to schedule top-offs efficiently."
+    },
+    {
+      "internalId": "92e009ff-2a66-40f6-bd48-ba6ad25a7c0f",
+      "id": "R-13",
+      "text": "Develop an alert system within the train management software to notify when a train is due for an inventory top-off based on route frequency.",
+      "benefit": "Prevents trains from running out of supplies during service, ensuring passenger comfort.",
+      "objective": "Ensure passenger satisfaction and operational continuity.",
+      "value": "Improves customer experience and reduces emergency stops.",
+      "process": "Alert Generation",
+      "entity": "Train",
+      "useCase": "Alerts are sent to the crew and operations center when a train completes a certain number of trips or reaches a threshold for inventory needs."
+    },
+    {
+      "internalId": "8bde172f-bb09-4a17-8d65-55b5e9140186",
+      "id": "R-14",
+      "text": "Implement a system to capture and document operational procedures as they are performed, including versioning and audit trails.",
+      "benefit": "Reduces knowledge loss due to staff attrition, improves operational consistency.",
+      "objective": "Preserve and standardize operational knowledge.",
+      "value": "Enhances business continuity and operational efficiency.",
+      "process": "Knowledge Capture",
+      "entity": "Operational Procedure",
+      "useCase": "When an employee performs a task, the system prompts for documentation and updates."
+    },
+    {
+      "internalId": "18a254db-fcd6-4974-a95b-9c4b0d61ec32",
+      "id": "R-15",
+      "text": "Develop an accessible repository for storing, searching, and retrieving operational documentation with user authentication.",
+      "benefit": "Streamlines access to documentation, ensuring that all employees can find and use necessary information.",
+      "objective": "Centralize and democratize access to operational knowledge.",
+      "value": "Improves productivity by reducing time spent searching for information.",
+      "process": "Documentation Access",
+      "entity": "Documentation Repository",
+      "useCase": "Employees can search for procedures related to their current tasks or training needs."
+    },
+    {
+      "internalId": "98a0a325-57ef-4d76-a002-a52b6028c701",
+      "id": "R-16",
+      "text": "Integrate a review and update mechanism for operational documentation, triggered by changes in processes or technology.",
+      "benefit": "Keeps documentation current and relevant, reducing errors from outdated information.",
+      "objective": "Maintain the relevance and accuracy of operational procedures.",
+      "value": "Minimizes operational errors and supports continuous improvement.",
+      "process": "Documentation Review",
+      "entity": "Operational Procedure",
+      "useCase": "Automatically prompts for review when system changes or process improvements are detected."
+    },
+    {
+      "internalId": "ed9bd36f-aa0d-40bc-ab0d-7519c01ef13f",
+      "id": "R-17",
+      "text": "Ensure the WIMS platform supports multi-tenant architecture for cloud compatibility.",
+      "benefit": "Reduces operational costs and enhances scalability.",
+      "objective": "Enable cloud hosting of WIMS",
+      "value": "Provides flexibility and scalability for future growth and changes in demand.",
+      "process": "Cloud Migration",
+      "entity": "WIMS Platform",
+      "useCase": "Multi-tenant environment setup in the cloud."
+    },
+    {
+      "internalId": "4d14cac3-3b84-4a25-ae2e-3349724b6521",
+      "id": "R-18",
+      "text": "Implement a secure data access and governance model to comply with cloud security standards.",
+      "benefit": "Enhances security posture in cloud environments.",
+      "objective": "Secure data handling in cloud",
+      "value": "Ensures compliance with regulations and reduces the risk of data breaches.",
+      "process": "Data Security Implementation",
+      "entity": "Data Management",
+      "useCase": "Data access control and governance in cloud."
+    },
+    {
+      "internalId": "4ffa28b8-1e15-4a67-af49-37fd5fdc5db6",
+      "id": "R-19",
+      "text": "Develop an API-first approach to ensure integration with other systems and microservices.",
+      "benefit": "Improves interoperability and future system integrations.",
+      "objective": "Ensure system integration",
+      "value": "Allows for easier updates, enhancements, and integration with external systems.",
+      "process": "System Integration",
+      "entity": "API Gateway",
+      "useCase": "API integration with external services."
+    },
+    {
+      "internalId": "653bf190-24d2-4832-81d8-8f6747cfd22b",
+      "id": "R-20",
+      "text": "Create a migration strategy for existing data to the new cloud architecture, ensuring data integrity and minimal downtime.",
+      "benefit": "Ensures smooth transition with minimal disruption to operations.",
+      "objective": "Data Migration",
+      "value": "Prevents data loss and maintains business continuity.",
+      "process": "Data Transfer",
+      "entity": "Data Migration",
+      "useCase": "Migration of current WIMS data to cloud."
+    },
+    {
+      "internalId": "a5cb0e59-b6f9-4cfb-93c0-bd87c61eb6bc",
+      "id": "R-21",
+      "text": "Establish a continuous integration and deployment (CI/CD) pipeline for regular updates and maintenance.",
+      "benefit": "Reduces time-to-market for new features and fixes.",
+      "objective": "Modernize development practices",
+      "value": "Increases efficiency and responsiveness to changes.",
+      "process": "Software Development",
+      "entity": "Development Pipeline",
+      "useCase": "Automated deployment of updates."
+    },
+    {
+      "internalId": "621f11bd-87b7-4b4f-aa1a-6c416ffe91bf",
+      "id": "R-22",
+      "text": "Implement a digital inventory management system that allows real-time updates by staff. This system should include tools for scanning, updating, and tracking inventory levels.",
+      "benefit": "Reduces manual errors and time spent on inventory management, increases accuracy and efficiency.",
+      "objective": "Automate and streamline inventory management processes.",
+      "value": "Enhances operational efficiency, reduces costs associated with manual labor and errors.",
+      "process": "Inventory Update Process",
+      "entity": "Inventory System",
+      "useCase": "Staff updates inventory after receiving new stock or conducting physical counts."
+    },
+    {
+      "internalId": "8dccd23d-a973-4007-9f4f-baf7fa8b6808",
+      "id": "R-23",
+      "text": "Provide staff training on the new inventory management system to ensure proper usage and data integrity.",
+      "benefit": "Minimizes learning curve, ensures system adoption, and maintains data accuracy.",
+      "objective": "Ensure staff competency with the new system.",
+      "value": "Improves system utilization, reduces support calls, and increases staff satisfaction.",
+      "process": "Training Process",
+      "entity": "Staff Training Module",
+      "useCase": "Staff undergoes training before using the new system for inventory management."
+    },
+    {
+      "internalId": "fff028e4-ed20-40ac-adf6-3ffa28c85bb4",
+      "id": "R-24",
+      "text": "Develop a module to track inventory consumption per trip, categorizing by route and vehicle type.",
+      "benefit": "Reduces waste and optimizes inventory management by route-specific insights.",
+      "objective": "Improve route efficiency and inventory control.",
+      "value": "Enhances cost-effectiveness and operational efficiency.",
+      "process": "Track Inventory",
+      "entity": "Trip",
+      "useCase": "Fleet Management"
+    },
+    {
+      "internalId": "601503b5-7721-4dec-ad9c-79011a79effa",
+      "id": "R-25",
+      "text": "Implement predictive analytics to forecast inventory needs based on historical consumption patterns by route.",
+      "benefit": "Minimizes overstocking or shortages, reducing costs and improving service delivery.",
+      "objective": "Ensure optimal inventory levels for each route.",
+      "value": "Increases customer satisfaction through reliable service and reduces holding costs.",
+      "process": "Predictive Analytics",
+      "entity": "Route",
+      "useCase": "Inventory Planning"
+    },
+    {
+      "internalId": "3b58ba39-9654-496c-8c98-2352932daa07",
+      "id": "R-26",
+      "text": "Create a dashboard for stakeholders to view real-time and historical inventory consumption data by route.",
+      "benefit": "Provides actionable insights for strategic decision-making.",
+      "objective": "Facilitate data-driven route planning and inventory management.",
+      "value": "Improves decision-making process and operational transparency.",
+      "process": "Data Visualization",
+      "entity": "Dashboard",
+      "useCase": "Strategic Planning"
+    },
+    {
+      "internalId": "e36c826e-0ae3-46b4-a3e9-b6fc27743e34",
+      "id": "R-29",
+      "text": "Implement a documentation system that includes both high-level overviews and detailed technical guides.",
+      "benefit": "Reduces onboarding time for new hires and increases productivity for experienced staff.",
+      "objective": "Provide comprehensive documentation to all employees.",
+      "value": "Improves knowledge transfer, reduces errors, and enhances efficiency in operations.",
+      "process": "Documentation Access",
+      "entity": "Documentation System",
+      "useCase": "A new developer needs to quickly understand the system architecture before diving into code."
+    },
+    {
+      "internalId": "a1e15e5f-a900-4f56-8c7b-440417b902b5",
+      "id": "R-30",
+      "text": "Create an interactive tutorial or guide system for new hires to navigate through the documentation.",
+      "benefit": "New hires can self-learn at their own pace, reducing the need for extensive training sessions.",
+      "objective": "Enhance user experience for onboarding.",
+      "value": "Streamlines the onboarding process, making it more engaging and effective.",
+      "process": "Onboarding",
+      "entity": "Tutorial System",
+      "useCase": "A new employee uses the tutorial to learn about the company's software stack."
+    },
+    {
+      "internalId": "23bbde4c-03b5-42f2-9550-6dbbbff84113",
+      "id": "R-31",
+      "text": "Ensure documentation includes version control information for tracking changes over time.",
+      "benefit": "Provides traceability and accountability for documentation updates.",
+      "objective": "Maintain up-to-date and relevant documentation.",
+      "value": "Allows for better management of documentation lifecycle, ensuring accuracy and compliance.",
+      "process": "Documentation Maintenance",
+      "entity": "Version Control",
+      "useCase": "An experienced developer checks documentation history to understand why a certain decision was made."
+    },
+    {
+      "internalId": "f2364f48-3510-4fd9-abd4-c274165a92ea",
+      "id": "R-32",
+      "text": "Implement an automated alert system for low stock levels in the inventory management application.",
+      "benefit": "Reduces stock-outs by 90%, ensuring continuous availability of products.",
+      "objective": "Improve inventory control and reduce downtime due to stock unavailability.",
+      "value": "Enhances customer satisfaction and operational efficiency by preventing sales loss due to stock shortages.",
+      "process": "Inventory Monitoring",
+      "entity": "Product Stock",
+      "useCase": "A staff member is alerted when a product's inventory falls below the reorder threshold."
+    },
+    {
+      "internalId": "1ce94607-a7ea-4481-b72d-339d1fd77333",
+      "id": "R-33",
+      "text": "Develop a real-time dashboard for inventory tracking with customizable views for different staff roles.",
+      "benefit": "Improves decision-making speed by providing real-time data, reducing time spent on manual checks by 50%.",
+      "objective": "Enable staff to make informed decisions quickly.",
+      "value": "Streamlines operations, reduces administrative burden, and increases staff productivity.",
+      "process": "Dashboard Access",
+      "entity": "User Role",
+      "useCase": "A manager views the inventory levels across multiple locations to make strategic decisions."
+    },
+    {
+      "internalId": "9dd977ba-e95e-4907-a138-5e20ae0b26c0",
+      "id": "R-34",
+      "text": "Implement a 'Sales Dashboard' that displays real-time gross sales figures, net sales, and costs associated with resources and materials.",
+      "benefit": "Enables stakeholders to monitor financial health in real-time, aiding in quick decision-making.",
+      "objective": "To provide transparency and immediate insights into sales performance and cost efficiency.",
+      "value": "Reduces time to detect and react to financial discrepancies, potentially increasing profitability.",
+      "process": "Data Collection and Visualization",
+      "entity": "Sales Dashboard",
+      "useCase": "Stakeholders can adjust strategies based on current financial data to maximize profit."
+    },
+    {
+      "internalId": "83c06443-14de-402d-85f2-b5ff069fd985",
+      "id": "R-35",
+      "text": "Develop an alert system within the dashboard for when sales figures approach or fall below the breakeven point.",
+      "benefit": "Prevents financial losses by alerting stakeholders when intervention is necessary.",
+      "objective": "To safeguard against operating at a loss.",
+      "value": "Ensures business sustainability by maintaining awareness of financial thresholds.",
+      "process": "Data Monitoring and Alert Generation",
+      "entity": "Sales Dashboard",
+      "useCase": "Immediate notification to stakeholders when sales are not covering costs, prompting strategic adjustments."
+    },
+    {
+      "internalId": "379982c8-8730-4ec1-a42f-527324e7554d",
+      "id": "R-36",
+      "text": "The documentation system must be accessible via a traditional Word document format for offline use and editing.",
+      "benefit": "Ensures accessibility for users without constant internet access.",
+      "objective": "Support offline functionality.",
+      "value": "Increases user productivity by allowing work in various environments.",
+      "process": "Offline Access",
+      "entity": "Documentation",
+      "useCase": "Employee reviews documentation while traveling with no internet."
+    },
+    {
+      "internalId": "99e5339f-83d4-4106-90ca-a07044a7aa57",
+      "id": "R-37",
+      "text": "Documentation should also be available on a SharePoint site for collaborative editing and version control.",
+      "benefit": "Facilitates real-time collaboration and maintains document integrity.",
+      "objective": "Enable team collaboration.",
+      "value": "Reduces errors and increases efficiency through collaborative work.",
+      "process": "Collaborative Editing",
+      "entity": "Documentation",
+      "useCase": "Team members update and review documents simultaneously."
+    },
+    {
+      "internalId": "191c9f70-3963-4b28-accf-3249e229d1e3",
+      "id": "R-38",
+      "text": "Ensure that the SharePoint site integrates with existing enterprise systems for seamless data flow.",
+      "benefit": "Minimizes manual data entry and reduces errors.",
+      "objective": "System Integration",
+      "value": "Streamlines workflows, saving time and reducing operational costs.",
+      "process": "Data Integration",
+      "entity": "SharePoint Site",
+      "useCase": "Automatically populate documentation with data from enterprise systems."
+    },
+    {
+      "internalId": "55789d70-e7ed-44e4-a1d5-82458bac6658",
+      "id": "R-39",
+      "text": "Integrate the existing third-party inventory management system (Aramark SOP) into the application for real-time inventory tracking.",
+      "benefit": "Reduces manual data entry errors and increases efficiency in inventory management.",
+      "objective": "To automate and streamline inventory tracking processes.",
+      "value": "Enhances accuracy, reduces operational costs, and improves inventory turnover.",
+      "process": "Inventory Management",
+      "entity": "Inventory System",
+      "useCase": "Staff can view and manage inventory levels directly from the application."
+    },
+    {
+      "internalId": "27ecc732-824c-448f-9c52-515182bef40c",
+      "id": "R-40",
+      "text": "Develop a feature to log and report discrepancies between physical inventory counts and system records.",
+      "benefit": "Improves accuracy in inventory tracking and reduces theft or loss.",
+      "objective": "To provide a tool for inventory reconciliation.",
+      "value": "Ensures accountability and reduces financial discrepancies.",
+      "process": "Inventory Reconciliation",
+      "entity": "Discrepancy Report",
+      "useCase": "Staff can quickly identify and report issues in inventory counts."
+    }
+  ],
+  "questions": [
+    {
+      "internalId": "e13c44cc-5990-4281-8801-cf39ed742c12",
+      "id": "Q-1",
+      "text": "What are the current methods used for tracking inventory at each commissary?",
+      "to": "Stakeholder",
+      "topic": "Inventory Management",
+      "options": [
+        "Manual entry",
+        "RFID scanning",
+        "Barcode scanning",
+        "Automated systems",
+        "Combination of methods"
+      ],
+      "status": "Resolved",
+      "answer": "The existing WIMS platform is responsible for all inventory at all 11 commissaries."
+    },
+    {
+      "internalId": "aad037e3-c4a5-4d18-8cf5-e340276b1902",
+      "id": "Q-2",
+      "text": "How often do trains run routes that require inventory top-offs?",
+      "to": "Stakeholder",
+      "topic": "Route Planning",
+      "options": [
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "On specific routes only",
+        "Not applicable"
+      ],
+      "status": "Resolved",
+      "answer": "Its based on the routes of the trains, some trains will travel multiple times between 2 points, such as Milwaukee to Chicago, where they would top off after a round trip if needed. Because this route is repeated, sometime the timing of the top off can impact if they can do it or not."
+    },
+    {
+      "internalId": "a04ac2eb-a978-441d-9c01-88b8a55cea5a",
+      "id": "Q-3",
+      "text": "What level of integration is currently in place with pick-to-light systems?",
+      "to": "Solution Architect",
+      "topic": "System Integration",
+      "options": [
+        "No integration",
+        "Partial integration",
+        "Full integration",
+        "In development",
+        "Planned"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "a0e729cb-3c2b-478c-9cde-e25097c78d0a",
+      "id": "Q-4",
+      "text": "What are the current challenges in meeting special dietary requirements?",
+      "to": "UX Designer",
+      "topic": "Passenger Needs",
+      "options": [
+        "Lack of awareness",
+        "Insufficient options",
+        "Inventory management issues",
+        "Communication gaps",
+        "None"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "c671c6c4-4e73-44b1-8fa2-300e941d0253",
+      "id": "Q-5",
+      "text": "What metrics are currently used to measure operational performance?",
+      "to": "Tech Advisor",
+      "topic": "Performance Metrics",
+      "options": [
+        "Inventory turnover rate",
+        "Waste percentage",
+        "Cost per meal",
+        "Customer satisfaction",
+        "None"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "1db65b5b-8b99-4bab-ad0e-07c7e1d04884",
+      "id": "Q-6",
+      "text": "How detailed are the existing documentation of operational procedures?",
+      "to": "Stakeholder",
+      "topic": "Documentation",
+      "options": [
+        "Very detailed",
+        "Moderately detailed",
+        "Basic",
+        "Incomplete",
+        "None"
+      ],
+      "status": "Resolved",
+      "answer": "Very limited, documentation was not strongly created, and knowledge exists in the current staff, however this system is over 15 years old and attrition is impacting this tribal knowledge."
+    },
+    {
+      "internalId": "61aa1b8b-c786-4225-b014-08e931cef72c",
+      "id": "Q-7",
+      "text": "What is the current level of automation in the inventory management process?",
+      "to": "Solution Architect",
+      "topic": "Automation",
+      "options": [
+        "Highly automated",
+        "Moderately automated",
+        "Manual with some automation",
+        "Mostly manual",
+        "Not automated"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "49bcb357-55c8-436a-80fe-64293c396f6a",
+      "id": "Q-8",
+      "text": "What are the primary goals for the future of the WIMS system?",
+      "to": "Stakeholder",
+      "topic": "Future Vision",
+      "options": [
+        "Cost reduction",
+        "Operational efficiency",
+        "Customer satisfaction",
+        "Scalability",
+        "All of the above"
+      ],
+      "status": "Resolved",
+      "answer": "The WIMS platform is currently a COTS solution, Amtrak does not have access to the code and changes need to be made by the vendor. The WIMS platform was hosted in the Amtrak datacenter and will be moved to cloud service, however many of the technical architecture is dated and most like does not meet a structure that can be securely hosted in the close. This is being evaluated on a separate track. This process will ultimately support either enhancing WIMS or considering other solutions. This process is to help give a more realistic analysis of the current state and potential identify a roadmap going forward."
+    },
+    {
+      "internalId": "6ca5ad99-613e-45b9-91df-127328311a33",
+      "id": "Q-9",
+      "text": "What are the current limitations of the WIMS platform in terms of real-time data synchronization across multiple commissaries?",
+      "to": "Solution Architect",
+      "topic": "Synchronization",
+      "options": [
+        "Data transfer speed is too slow.",
+        "Intermittent network connectivity issues.",
+        "Lack of robust error handling in data syncing.",
+        "Incompatibility with different hardware at commissaries.",
+        "No limitations; system works efficiently."
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "30f431f6-7dfd-4796-94db-450c2a77cca4",
+      "id": "Q-10",
+      "text": "How do staff currently handle inventory updates, and what tools do they use?",
+      "to": "Stakeholder",
+      "topic": "Inventory Management Tools",
+      "options": [
+        "Manual updates using paper logs.",
+        "Spreadsheet software for tracking.",
+        "A combination of manual and digital tools.",
+        "Direct updates through WIMS platform interface.",
+        "Mobile devices with third-party inventory apps."
+      ],
+      "status": "Resolved",
+      "answer": "Not known at this point, this should be captured as a task"
+    },
+    {
+      "internalId": "53b7a4df-fd4a-42e0-99e0-6bc12482ba21",
+      "id": "Q-11",
+      "text": "What are the expectations from users regarding the usability and functionality of inventory management features?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Ease of use and minimal training required.",
+        "Real-time data access and updates.",
+        "Visual representation of inventory levels.",
+        "Customizable alerts and notifications.",
+        "Integration with other management systems."
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "6941e455-9be5-4425-959d-2b046fb0329a",
+      "id": "Q-12",
+      "text": "What is the average inventory consumption per trip for different routes?",
+      "to": "Stakeholder",
+      "topic": "Inventory Management",
+      "options": [
+        "Consumption varies widely by route.",
+        "Consumption is relatively stable for short routes.",
+        "Longer routes have higher consumption rates.",
+        "Seasonal variations significantly affect consumption.",
+        "No significant difference noted between routes."
+      ],
+      "status": "Resolved",
+      "answer": "Consumption varies widely by route."
+    },
+    {
+      "internalId": "c98b184f-47e9-4272-905a-231bf98a210d",
+      "id": "Q-13",
+      "text": "What factors influence the timing of inventory top-offs during train routes?",
+      "to": "Solution Architect",
+      "topic": "System Design",
+      "options": [
+        "Route length and turnaround time.",
+        "Passenger load and service demands.",
+        "Weather conditions affecting travel time.",
+        "Maintenance schedules.",
+        "Crew availability."
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "4c8f0684-e227-4cde-acd5-3484dc82c634",
+      "id": "Q-14",
+      "text": "How can the user interface facilitate real-time inventory management for train operations?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "A dashboard showing current inventory levels.",
+        "Alerts for upcoming top-offs.",
+        "Historical consumption data for trend analysis.",
+        "Predictive analytics for future needs.",
+        "Manual override options for crew."
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "a44da35d-0dff-458e-9d68-d2689b622660",
+      "id": "Q-15",
+      "text": "How frequently should operational procedures be reviewed and updated?",
+      "to": "Tech Advisor",
+      "topic": "Documentation Management",
+      "options": [
+        "Annually",
+        "Semi-annually",
+        "Quarterly",
+        "Upon major system changes",
+        "As needed by the team"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "4d9b07e4-bd86-42de-bdca-a5d3f9ee6a72",
+      "id": "Q-16",
+      "text": "What features are most important for the documentation system to ensure user engagement and usability?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Easy search functionality",
+        "Visual aids and diagrams",
+        "Integration with daily workflows",
+        "Real-time collaboration",
+        "Mobile access"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "1d5d7c51-41d5-44df-b96a-5b820e998eab",
+      "id": "Q-17",
+      "text": "What level of detail should the documentation capture to be useful for both new hires and experienced staff?",
+      "to": "Stakeholder",
+      "topic": "Content Depth",
+      "options": [
+        "High-level overview only",
+        "Detailed step-by-step guides",
+        "Both overview and detailed guides",
+        "Only critical steps",
+        "All procedures including minor details"
+      ],
+      "status": "Resolved",
+      "answer": "Both overview and detailed guides"
+    },
+    {
+      "internalId": "aab7ef24-f89d-467d-9bd1-5303b1aad7bb",
+      "id": "Q-18",
+      "text": "What specific cloud services are being considered for hosting WIMS?",
+      "to": "Solution Architect",
+      "topic": "Cloud Hosting Options",
+      "options": [
+        "AWS",
+        "Azure",
+        "Google Cloud Platform",
+        "Oracle Cloud",
+        "IBM Cloud"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "89c54c8d-be96-4fbf-998e-82cfb10fce13",
+      "id": "Q-19",
+      "text": "How will the user experience be adapted for a cloud-based solution?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Minimal changes, mainly interface optimizations",
+        "Complete redesign for cloud usability",
+        "Focus on mobile-first design",
+        "Leverage cloud for personalized experiences",
+        "No changes planned"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "1033107b-cd9c-4a38-833f-2c3d4ba5e6ce",
+      "id": "Q-20",
+      "text": "What are the current limitations of the WIMS architecture that might impact cloud hosting?",
+      "to": "Tech Advisor",
+      "topic": "Technical Architecture",
+      "options": [
+        "Scalability issues",
+        "Compatibility with cloud services",
+        "Security vulnerabilities",
+        "Performance bottlenecks",
+        "Vendor lock-in"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "3b760528-2976-4a03-a307-76fa917ce58f",
+      "id": "Q-21",
+      "text": "What specific features are staff currently lacking in their inventory management process?",
+      "to": "Stakeholder",
+      "topic": "Inventory Management Tools",
+      "options": [
+        "Real-time data updates",
+        "Mobile access",
+        "Integration with other systems",
+        "Automated alerts for low stock",
+        "Physical inventory scanning capabilities"
+      ],
+      "status": "Resolved",
+      "answer": "This needs to be analyzed and discovered based on As-is process"
+    },
+    {
+      "internalId": "90da9015-ce6f-44eb-b625-fa4e04e09434",
+      "id": "Q-22",
+      "text": "How can the user interface be designed to enhance staff efficiency in inventory updates?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Simplified navigation",
+        "Visual indicators for stock levels",
+        "Customizable dashboards",
+        "Quick access to frequently used functions",
+        "Voice command integration"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "51502f97-ce05-4c83-a109-f405d9b04a4e",
+      "id": "Q-23",
+      "text": "What are the technical requirements for integrating the new inventory system with existing enterprise systems?",
+      "to": "Solution Architect",
+      "topic": "System Integration",
+      "options": [
+        "API compatibility",
+        "Database schema alignment",
+        "Real-time data synchronization",
+        "Security protocols",
+        "Scalability considerations"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "76930372-9e02-47b1-9892-1bec571b726d",
+      "id": "Q-24",
+      "text": "What are the potential technological barriers in implementing real-time inventory updates?",
+      "to": "Tech Advisor",
+      "topic": "Technology Constraints",
+      "options": [
+        "Network latency",
+        "System load capacity",
+        "Data consistency across distributed systems",
+        "Cost of technology upgrades",
+        "Training needs for staff"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "c9fd1756-2079-4296-8701-ea2db26af82c",
+      "id": "Q-25",
+      "text": "How can we ensure the accuracy of the inventory consumption data?",
+      "to": "Tech Advisor",
+      "topic": "Data Accuracy",
+      "options": [
+        "Implement real-time tracking systems",
+        "Regular manual audits",
+        "Use RFID for inventory tracking",
+        "Data validation checks",
+        "Integrate with existing fleet management systems"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "fccc37c8-f5fa-4527-a619-9763bd4a33d6",
+      "id": "Q-26",
+      "text": "What are the key metrics that stakeholders would like to see on the dashboard?",
+      "to": "Stakeholder",
+      "topic": "Dashboard Metrics",
+      "options": [
+        "Total Inventory Consumed",
+        "Consumption Rate per Mile",
+        "Variance from Expected Consumption",
+        "Route Efficiency Index",
+        "Inventory Cost Impact"
+      ],
+      "status": "Resolved",
+      "answer": "The greatest concern is the impact of overall sales compared to cost. The staff is on a union contract, so the relative cost is an somewhat known cost level. Based on these resource costs, sales needs to reach at least a level to create at least a breakeven scenario. They will need to track gross and net along with a resource and material cost factor."
+    },
+    {
+      "internalId": "17b68320-8c47-4cfa-b323-3e345e7b47ec",
+      "id": "Q-27",
+      "text": "What features would enhance the usability of the inventory consumption tracking system?",
+      "to": "UX Designer",
+      "topic": "System Usability",
+      "options": [
+        "Customizable Alerts",
+        "Historical Data Comparison",
+        "Route-specific Reports",
+        "Interactive Route Maps",
+        "Predictive Consumption Widget"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "0547ad3a-560c-4964-a8ee-3353f949a841",
+      "id": "Q-31",
+      "text": "What platforms should the documentation system be accessible from?",
+      "to": "Stakeholder",
+      "topic": "Accessibility",
+      "options": [
+        "Web-based only",
+        "Mobile app",
+        "Desktop application",
+        "API access",
+        "All of the above"
+      ],
+      "status": "Resolved",
+      "answer": "Traditional Word document and maybe Sharepoint site"
+    },
+    {
+      "internalId": "b047175c-d8c1-401b-9ac3-976c4b87a11d",
+      "id": "Q-32",
+      "text": "How should we categorize the documentation to ensure it's both comprehensive and easily navigable?",
+      "to": "UX Designer",
+      "topic": "Categorization",
+      "options": [
+        "By department",
+        "By project",
+        "By technology",
+        "By role",
+        "Combination of the above"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "7143bc1c-5f81-45b1-84cf-6deb3db0e86a",
+      "id": "Q-33",
+      "text": "What are the key performance indicators (KPIs) for measuring the effectiveness of the documentation?",
+      "to": "Tech Advisor",
+      "topic": "Effectiveness Measurement",
+      "options": [
+        "Time to onboard new hires",
+        "User engagement metrics",
+        "Error rate in documentation-related tasks",
+        "Frequency of documentation updates",
+        "User feedback scores"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "9f05a53a-3cc6-4595-9134-18da353b9216",
+      "id": "Q-34",
+      "text": "What are the current manual processes staff use to manage inventory?",
+      "to": "Stakeholder",
+      "topic": "Current Inventory Management",
+      "options": [
+        "Manual counting",
+        "Excel spreadsheets",
+        "Third-party inventory software",
+        "Paper-based tracking",
+        "No formal process"
+      ],
+      "status": "Resolved",
+      "answer": "This needs to be discovered, there should be an established SOP from the third party vendor Aramark that handles the procurement, logistics, and inventory management of the physical inventory for the 11 commissaries."
+    },
+    {
+      "internalId": "385fe4a8-ded2-4f19-854f-6735e4480a8f",
+      "id": "Q-35",
+      "text": "How can the user experience be improved to make inventory management more intuitive?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Simplified navigation",
+        "Drag-and-drop functionality",
+        "Voice commands",
+        "Mobile app integration",
+        "Enhanced search capabilities"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "29071ba6-c1e7-4468-8734-fc4bb78f0f9e",
+      "id": "Q-36",
+      "text": "What technology stack would best support real-time inventory updates across multiple locations?",
+      "to": "Solution Architect",
+      "topic": "Technology Stack",
+      "options": [
+        "Microservices architecture",
+        "Event-driven architecture",
+        "Cloud-based solutions",
+        "Hybrid cloud",
+        "Serverless computing"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "0cec7c70-0e62-4ff5-b698-41171d90da31",
+      "id": "Q-37",
+      "text": "What are the potential technical challenges in integrating the inventory management system with existing ERP systems?",
+      "to": "Tech Advisor",
+      "topic": "System Integration",
+      "options": [
+        "Data format compatibility",
+        "API limitations",
+        "Real-time data synchronization",
+        "Security protocols",
+        "Legacy system support"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "43db24d3-62ed-4116-9286-d2a9d280db8c",
+      "id": "Q-38",
+      "text": "What are the preferred methods for stakeholders to receive alerts (e.g., email, push notifications, SMS)?",
+      "to": "Stakeholder",
+      "topic": "Alert Preferences",
+      "options": [
+        "Email",
+        "Push Notifications",
+        "SMS",
+        "In-App Notifications",
+        "A combination of the above"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "0aff9590-9aed-4099-a84a-6f77d75105a5",
+      "id": "Q-39",
+      "text": "How should the dashboard handle data from different sales channels (e.g., online, in-store, wholesale)?",
+      "to": "Solution Architect",
+      "topic": "Data Integration",
+      "options": [
+        "Unified Dashboard View",
+        "Separate Views for Each Channel",
+        "Aggregated Data with Drill-Down Capabilities",
+        "Real-time Sync Across Channels",
+        "Customizable Views by User Role"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "b624b39a-8760-488b-84c8-6cb7e74f7ec2",
+      "id": "Q-40",
+      "text": "What level of historical data should be available on the dashboard for trend analysis?",
+      "to": "Tech Advisor",
+      "topic": "Data Retention",
+      "options": [
+        "Last 30 days",
+        "Last 3 months",
+        "Last 6 months",
+        "Last 12 months",
+        "Indefinite with customizable range"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "7c070368-7e42-4165-a0f8-2d2639047b6c",
+      "id": "Q-41",
+      "text": "What are the specific user roles and permissions required for accessing and editing the documentation on SharePoint?",
+      "to": "UX Designer",
+      "topic": "Access Control",
+      "options": [
+        "Read-only access for all employees, edit access for team leads",
+        "Role-based access control with varying permissions",
+        "Single sign-on integration with enterprise authentication",
+        "Dynamic permissions based on project involvement",
+        "Full edit access for all users"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "0f6fd8c1-fe1b-4b18-9bb3-31c4ebef4c53",
+      "id": "Q-42",
+      "text": "What features should the SharePoint site include to enhance document management?",
+      "to": "Solution Architect",
+      "topic": "Feature Set",
+      "options": [
+        "Version control and rollback",
+        "Automated document review workflows",
+        "Integration with Microsoft Office Suite",
+        "Custom metadata for document categorization",
+        "User notifications for document changes"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "e289958e-b451-4d68-a8fa-b98dd1e73c4b",
+      "id": "Q-43",
+      "text": "What are the bandwidth requirements for accessing the SharePoint site effectively?",
+      "to": "Tech Advisor",
+      "topic": "Technical Specifications",
+      "options": [
+        "1 Mbps for basic access, 5 Mbps for optimal experience",
+        "Minimum of 10 Mbps for all users",
+        "No specific bandwidth requirement, depends on network quality",
+        "2 Mbps minimum with occasional spikes up to 5 Mbps",
+        "Bandwidth requirement varies based on document size and complexity"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "ea99afd2-f7d2-4259-8c6c-53bbad387bad",
+      "id": "Q-44",
+      "text": "How does the current third-party inventory management system handle integration with external applications?",
+      "to": "Tech Advisor",
+      "topic": "System Integration",
+      "options": [
+        "API available for integration",
+        "Web services provided",
+        "Manual data export/import required",
+        "No integration capabilities",
+        "Integration through middleware"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "c2f1bfe6-ecaf-449e-8c04-f55a0237905a",
+      "id": "Q-45",
+      "text": "What are the specific pain points or inefficiencies in the current manual inventory processes?",
+      "to": "Stakeholder",
+      "topic": "Current Processes",
+      "options": [
+        "Time-consuming manual counts",
+        "Frequent errors in data entry",
+        "Difficulty in tracking stock levels",
+        "Delay in restocking",
+        "Lack of real-time data"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "afb08f93-7a58-46b2-be39-1d945e4db784",
+      "id": "Q-46",
+      "text": "What are the expectations for the user experience when interacting with inventory data in the new system?",
+      "to": "UX Designer",
+      "topic": "User Experience",
+      "options": [
+        "Intuitive interface for inventory management",
+        "Real-time data visualization",
+        "Mobile access for inventory checks",
+        "Customizable alerts and notifications",
+        "Seamless integration with existing workflows"
+      ],
+      "status": "Open"
+    }
+  ],
+  "stoppedTopics": [
+    "Alert Preferences"
+  ],
+  "promptHistory": []
+}

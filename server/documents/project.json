@@ -4,874 +4,926 @@
   "requirements": [
     {
       "id": "R-1",
-      "text": "The system shall allow a user to create a personal account by providing an email address and password."
+      "text": "The system shall allow a user to create a personal account by providing an email address and password.",
+      "questions": [
+        {
+          "id": "Q-R-1-1",
+          "text": "What information should be required to create a personal account?",
+          "to": "Stakeholder",
+          "topic": "user management",
+          "status": "Resolved",
+          "answer": "full name, gender, email, phone, zipcode"
+        },
+        {
+          "id": "Q-R-1-2",
+          "text": "Should users be able to have multiple family memberships?",
+          "to": "Stakeholder",
+          "topic": "user management",
+          "status": "Resolved",
+          "answer": "yes, there should be direct and in-direct family members, there maybe features in the future that act differently based on this status"
+        },
+        {
+          "id": "Q-R-1-3",
+          "text": "How should the application handle the validation and format of the email and phone number fields?",
+          "to": "Tech Advisor",
+          "topic": "Data Validation",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-4",
+          "text": "What user interface elements should be used to collect the required personal information?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-5",
+          "text": "How should the application ensure the security and privacy of the collected personal data?",
+          "to": "Solution Architect",
+          "topic": "Data Security",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-6",
+          "text": "Should the application allow users to update their personal information after account creation?",
+          "to": "Stakeholder",
+          "topic": "Account Management",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-7",
+          "text": "How should the user interface differentiate between direct and indirect family members?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-8",
+          "text": "What should be the default priority setting for a new chore if the user does not specify one?",
+          "to": "Tech Advisor",
+          "topic": "Default Settings",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-9",
+          "text": "How should the categorization of chores be implemented in the user interface?",
+          "to": "UX Designer",
+          "topic": "UI Design",
+          "options": [
+            "Dropdown menu for category selection",
+            "Tag system for multiple category assignments",
+            "Hierarchical tree view",
+            "Searchable list of categories",
+            "Customizable category creation by users"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-10",
+          "text": "What is the best way to visually represent the list of chores to enhance user engagement and usability?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Simple list view",
+            "Grid layout",
+            "Kanban board",
+            "Calendar view",
+            "Interactive checklist"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-11",
+          "text": "How should the user interface handle the setting and display of family member limits?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Dropdown menu for selecting limit",
+            "Slider to adjust limit",
+            "Input field for manual entry",
+            "Display current limit and total members",
+            "No specific UI for limits"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-12",
+          "text": "What are the potential impacts of setting family member limits on system performance and user experience?",
+          "to": "Tech Advisor",
+          "topic": "System Performance",
+          "options": [
+            "Increased load on database queries",
+            "Potential for user frustration if limits are too strict",
+            "Need for efficient caching mechanisms",
+            "Impact on data integrity and consistency",
+            "Minimal impact if limits are set reasonably"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-13",
+          "text": "How should the user interface handle the display of an unlimited number of 'immediately' or 'soon' chores?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Implement a scrollable list for these chores.",
+            "Use pagination to manage the list of chores.",
+            "Show only a fixed number of chores and hide the rest.",
+            "Implement a collapsible section for these chores.",
+            "Allow users to filter and sort these chores."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-14",
+          "text": "What impact might an unlimited number of 'immediately' or 'soon' chores have on system performance?",
+          "to": "Tech Advisor",
+          "topic": "System Performance",
+          "options": [
+            "Negligible impact as long as the database is optimized.",
+            "Significant impact due to increased memory usage.",
+            "Moderate impact, requiring load balancing solutions.",
+            "High impact on server response time.",
+            "Depends on the number of users and their usage patterns."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-15",
+          "text": "How should the user interface manage the display of an unlimited list of immediate or soon chores?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Implement a scrollable list with infinite scrolling",
+            "Use pagination to limit visible items",
+            "Show a 'view all' button to expand the list",
+            "Prioritize chores with a sorting mechanism",
+            "Allow users to filter or search for chores"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-16",
+          "text": "How should the user interface handle a large number of chores set to 'immediately' or 'soon' without overwhelming the user?",
+          "to": "UX Designer",
+          "topic": "User Interface Design",
+          "options": [
+            "Implement a scrollable list with clear priority indicators.",
+            "Use pagination to manage the display of chores.",
+            "Offer a filter or search function to manage visibility.",
+            "Display a warning when the number of high-priority chores exceeds a threshold.",
+            "Allow users to group or categorize chores for better organization."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-17",
+          "text": "What user interface elements should be included to help users manage a high number of 'immediately' or 'soon' chores?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "A filter or search function to quickly locate specific chores.",
+            "A visual indicator when the number of chores approaches the practical limit.",
+            "A collapsible list or accordion view for better organization.",
+            "A bulk edit feature to manage multiple chores at once.",
+            "A notification system to alert users when chores are added or completed."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-18",
+          "text": "What user interface elements should be designed to manage a large number of 'immediately' or 'soon' chores?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "A dedicated section for 'immediately' and 'soon' chores.",
+            "A filter option to view only 'immediately' and 'soon' chores.",
+            "A collapsible list to manage the display of many chores.",
+            "A dashboard showing summary statistics of chore statuses.",
+            "An alert system for when chores are added to 'immediately' or 'soon'."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-19",
+          "text": "Should there be any system notifications or alerts when the number of 'immediately' or 'soon' chores is high?",
+          "to": "Stakeholder",
+          "topic": "Notifications",
+          "options": [
+            "Yes, alert when the number exceeds 50.",
+            "Yes, alert when the number exceeds 100.",
+            "Yes, but only for 'immediately' chores when exceeding 25.",
+            "No, let the user manage without system interference.",
+            "Yes, customizable by the user."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-20",
+          "text": "What user interface elements should be designed to manage a large number of high-priority chores effectively?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Implement a collapsible list for high-priority chores.",
+            "Use color coding to differentiate priority levels.",
+            "Provide filters and search functionality for chores.",
+            "Design a dashboard to overview high-priority chores.",
+            "Include pagination for long lists of chores."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-21",
+          "text": "How should the user interface adapt to a large number of chores set to 'immediately' or 'soon'?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "options": [
+            "Implement a scrollable list for chores.",
+            "Use pagination to manage large lists of chores.",
+            "Provide filters to help users manage their chores.",
+            "Show a summary view with the option to expand.",
+            "Keep the current design as it is sufficient."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-2",
-      "text": "The system shall allow a user to create a family by providing a family name."
+      "text": "The system shall allow a user to create a family by providing a family name.",
+      "questions": [
+        {
+          "id": "Q-R-2-1",
+          "text": "How should the invitation process be designed to ensure user experience?",
+          "to": "UX Designer",
+          "topic": "family management",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-2",
+          "text": "Should there be a limit on the number of family members?",
+          "to": "Stakeholder",
+          "topic": "family management",
+          "status": "Resolved",
+          "answer": "Give me options"
+        },
+        {
+          "id": "Q-R-2-3",
+          "text": "What are the potential future features that will depend on the distinction between direct and indirect family members?",
+          "to": "Stakeholder",
+          "topic": "Future Features",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-4",
+          "text": "What is the expected impact on the database schema to accommodate direct and indirect family memberships?",
+          "to": "Solution Architect",
+          "topic": "Database Design",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-5",
+          "text": "What are the technical considerations for implementing and maintaining different types of family memberships?",
+          "to": "Tech Advisor",
+          "topic": "Technical Implementation",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-6",
+          "text": "How should the application handle attempts to add more than 200 family members?",
+          "to": "Solution Architect",
+          "topic": "Error Handling",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-7",
+          "text": "What visual or textual feedback should be provided to users when they reach the family member limit?",
+          "to": "UX Designer",
+          "topic": "User Feedback",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-8",
+          "text": "Should there be different limits for different types of family members (e.g., immediate vs. extended family)?",
+          "to": "Stakeholder",
+          "topic": "Policy",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-9",
+          "text": "What are the different types of limits that could be applied to family members?",
+          "to": "Stakeholder",
+          "topic": "Family Member Limits",
+          "options": [
+            "Total number of family members",
+            "Number of adult family members",
+            "Number of minor family members",
+            "Number of family members per household",
+            "No limits"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-2-10",
+          "text": "What are the technical considerations for implementing and enforcing family member limits?",
+          "to": "Solution Architect",
+          "topic": "Technical Implementation",
+          "options": [
+            "Database schema adjustments",
+            "Real-time validation on member addition",
+            "API endpoints for limit management",
+            "Error handling for limit exceedance",
+            "Scalability considerations"
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-3",
-      "text": "The system shall allow a user to invite other users to join their family by sending an invitation via email."
+      "text": "The system shall allow a user to invite other users to join their family by sending an invitation via email.",
+      "questions": []
     },
     {
       "id": "R-4",
-      "text": "The system shall allow a user to accept or decline an invitation to join a family."
+      "text": "The system shall allow a user to accept or decline an invitation to join a family.",
+      "questions": []
     },
     {
       "id": "R-5",
-      "text": "The system shall restrict access to family information to only members of that family."
+      "text": "The system shall restrict access to family information to only members of that family.",
+      "questions": [
+        {
+          "id": "Q-R-5-1",
+          "text": "Are there any technical limitations or considerations that might affect the application's ability to handle up to 200 'immediately' or 'soon' chores?",
+          "to": "Tech Advisor",
+          "topic": "Technical Limitations",
+          "options": [
+            "Server capacity and scalability might be a concern.",
+            "Database performance could degrade with high numbers of entries.",
+            "Network latency might impact real-time updates.",
+            "Memory usage could become an issue with many active chores.",
+            "There might be limitations in the chosen programming framework or libraries."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-6",
-      "text": "The system shall allow a user to log a chore with a name, description, and estimated time to complete."
+      "text": "The system shall allow a user to log a chore with a name, description, and estimated time to complete.",
+      "questions": [
+        {
+          "id": "Q-R-6-1",
+          "text": "What level of detail should be required when logging a chore?",
+          "to": "Stakeholder",
+          "topic": "chore management",
+          "status": "Resolved",
+          "answer": "A chore should be part of a category, a type (household, family, friends), has a value or benefit (saves time, convenance), who its assigned (a family member or group), description, details, expectations, status, updates"
+        },
+        {
+          "id": "Q-R-6-2",
+          "text": "Should users be able to prioritize chores?",
+          "to": "Stakeholder",
+          "topic": "chore management",
+          "status": "Resolved",
+          "answer": "yes, it should be time boxed, either by an actual time (simple hours:mins), in the next (15 mins, 2 hours, left you select quick buttons), let user select an interval mins/hours, and add to it by mins/hours), by end of day, by a given date and time, immediately, soon. User should be able to confirm what options they want"
+        },
+        {
+          "id": "Q-R-6-3",
+          "text": "What are the most common household chores that should be included in the initial list?",
+          "to": "Stakeholder",
+          "topic": "common chores",
+          "status": "Resolved",
+          "answer": "give me a list of 25 suggestions"
+        },
+        {
+          "id": "Q-R-6-4",
+          "text": "Should users be able to categorize chores (e.g., daily, weekly, monthly)?",
+          "to": "Stakeholder",
+          "topic": "common chores",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-6-5",
+          "text": "How should the application handle overlapping time priorities for different chores?",
+          "to": "Solution Architect",
+          "topic": "Time Management",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-6-6",
+          "text": "What visual cues should be used to differentiate between different time priority options?",
+          "to": "UX Designer",
+          "topic": "User Interface",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-6-7",
+          "text": "Should there be a limit to the number of chores that can be set to 'immediately' or 'soon'?",
+          "to": "Stakeholder",
+          "topic": "Chore Management",
+          "status": "Resolved",
+          "answer": "No there should be no limit, practical limit would be 100-200, we shouldn't limit the user however."
+        },
+        {
+          "id": "Q-R-6-8",
+          "text": "What technology should be used to manage real-time updates of chore statuses?",
+          "to": "Tech Advisor",
+          "topic": "Technology Stack",
+          "options": [
+            "WebSocket for real-time communication",
+            "Server-Sent Events (SSE) for one-way updates",
+            "Polling with RESTful API",
+            "GraphQL subscriptions for efficient data fetching",
+            "MQTT for lightweight messaging"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-6-9",
+          "text": "How should the application handle the storage and retrieval of the chore list data?",
+          "to": "Solution Architect",
+          "topic": "Data Management",
+          "options": [
+            "Local storage on the device",
+            "Cloud storage with synchronization",
+            "Database on a server",
+            "Hybrid approach with local and cloud storage",
+            "External API integration for data management"
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-7",
-      "text": "The system shall allow a user to request assistance with a chore by specifying the chore name and any additional details."
+      "text": "The system shall allow a user to request assistance with a chore by specifying the chore name and any additional details.",
+      "questions": []
     },
     {
       "id": "R-8",
-      "text": "The system shall allow a user to assign a chore to another family member."
+      "text": "The system shall allow a user to assign a chore to another family member.",
+      "questions": []
     },
     {
       "id": "R-9",
-      "text": "The system shall allow a user to mark a chore as completed."
+      "text": "The system shall allow a user to mark a chore as completed.",
+      "questions": []
     },
     {
       "id": "R-10",
-      "text": "The system shall allow a user to view a list of all chores assigned to them."
+      "text": "The system shall allow a user to view a list of all chores assigned to them.",
+      "questions": [
+        {
+          "id": "Q-R-10-1",
+          "text": "How should the value or benefit of chores be quantified or described within the application?",
+          "to": "Stakeholder",
+          "topic": "Feature Definition",
+          "options": [
+            "Using a numerical scale (e.g., 1-10) for time saved",
+            "Descriptive text input for convenience",
+            "Predefined categories of benefits (e.g., time, money, health)",
+            "User-defined tags for custom benefits",
+            "A combination of quantitative and qualitative measures"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-10-2",
+          "text": "Should the list of household chores be customizable by the user, or should it be fixed with the initial 25 suggestions?",
+          "to": "Stakeholder",
+          "topic": "Customization",
+          "options": [
+            "Fully customizable by the user",
+            "Fixed list with no customization",
+            "Fixed list with the option to add custom chores",
+            "Fixed list with the option to remove unwanted chores",
+            "Fixed list with options to add, remove, and reorder chores"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-10-3",
+          "text": "What are the technical considerations for integrating a list of 25 household chores into the application?",
+          "to": "Tech Advisor",
+          "topic": "Technical Integration",
+          "options": [
+            "Direct integration into the app's code",
+            "Use of a configuration file for the list",
+            "Dynamic loading from a database",
+            "API endpoint for chore list management",
+            "Third-party service for chore list management"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-10-4",
+          "text": "Should there be any visual cues or notifications when the number of 'immediately' or 'soon' chores exceeds a certain threshold?",
+          "to": "Stakeholder",
+          "topic": "User Experience",
+          "options": [
+            "Yes, with a notification icon",
+            "Yes, with a color change or visual alert",
+            "No, users should manage their own list",
+            "Only for critical chores",
+            "Let users set their own notification thresholds"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-10-5",
+          "text": "Should there be any notifications or alerts when the number of high-priority chores reaches a certain threshold?",
+          "to": "Stakeholder",
+          "topic": "User Experience",
+          "options": [
+            "Yes, notify users when the number exceeds 50.",
+            "Yes, notify users when the number exceeds 100.",
+            "Yes, but only if the user opts in for notifications.",
+            "No, users should manage their chores without system alerts.",
+            "Yes, but only for critical chores."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-10-6",
+          "text": "What technical considerations should be made to support a large number of chores set to 'immediately' or 'soon'?",
+          "to": "Tech Advisor",
+          "topic": "Technical Considerations",
+          "options": [
+            "Increase server capacity to handle high volumes.",
+            "Implement caching mechanisms to improve performance.",
+            "Use load balancing to distribute the workload.",
+            "Optimize data storage and retrieval for chores.",
+            "No additional technical considerations needed."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-11",
-      "text": "The system shall allow a user to view a list of all chores assigned to other family members."
+      "text": "The system shall allow a user to view a list of all chores assigned to other family members.",
+      "questions": []
     },
     {
       "id": "R-12",
-      "text": "The system shall allow a user to create a custom chore list for their family."
+      "text": "The system shall allow a user to create a custom chore list for their family.",
+      "questions": []
     },
     {
       "id": "R-13",
-      "text": "The system shall allow a user to add, edit, or delete chores from the custom chore list."
+      "text": "The system shall allow a user to add, edit, or delete chores from the custom chore list.",
+      "questions": []
     },
     {
       "id": "R-14",
-      "text": "The system shall allow a user to view and manage their family's custom chore list."
+      "text": "The system shall allow a user to view and manage their family's custom chore list.",
+      "questions": []
     },
     {
       "id": "R-15",
-      "text": "The system shall allow the app to function offline, storing data locally until it can be synced."
+      "text": "The system shall allow the app to function offline, storing data locally until it can be synced.",
+      "questions": [
+        {
+          "id": "Q-R-15-1",
+          "text": "What should be the default behavior for offline data syncing?",
+          "to": "Solution Architect",
+          "topic": "data handling",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-15-2",
+          "text": "How long should data be stored locally before being synced?",
+          "to": "Tech Advisor",
+          "topic": "data handling",
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-16",
-      "text": "The system shall allow the app to automatically sync data with the server when an internet connection is available."
+      "text": "The system shall allow the app to automatically sync data with the server when an internet connection is available.",
+      "questions": []
     },
     {
       "id": "R-17",
-      "text": "The system shall provide a list of common household chores for users to select from when logging or requesting a chore."
+      "text": "The system shall provide a list of common household chores for users to select from when logging or requesting a chore.",
+      "questions": []
     },
     {
       "id": "R-18",
-      "text": "The system shall allow a user to log their progress on a chore."
+      "text": "The system shall allow a user to log their progress on a chore.",
+      "questions": []
     },
     {
       "id": "R-19",
-      "text": "The system shall allow a user to set reminders for chores."
+      "text": "The system shall allow a user to set reminders for chores.",
+      "questions": []
     },
     {
       "id": "R-20",
-      "text": "The system shall allow a user to view the completion status of all chores."
+      "text": "The system shall allow a user to view the completion status of all chores.",
+      "questions": []
     },
     {
       "id": "R-21",
-      "text": "The application must collect and store the following user information: full name, gender, email, phone, and zipcode."
+      "text": "The application must collect and store the following user information: full name, gender, email, phone, and zipcode.",
+      "questions": [
+        {
+          "id": "Q-R-21-1",
+          "text": "What database schema should be used to store the detailed attributes of chores?",
+          "to": "Solution Architect",
+          "topic": "Database Design",
+          "options": [
+            "Relational database with multiple tables linked by foreign keys",
+            "Document-based NoSQL database for flexible attribute storage",
+            "Graph database to represent relationships between chores and assignees",
+            "Column-family NoSQL database for scalability",
+            "Hybrid approach combining SQL and NoSQL elements"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-21-2",
+          "text": "How should the application architecture be designed to support an unlimited number of 'immediately' or 'soon' chores?",
+          "to": "Solution Architect",
+          "topic": "Application Architecture",
+          "options": [
+            "Use a scalable database solution.",
+            "Implement caching mechanisms for frequently accessed chores.",
+            "Design a microservices architecture to handle different chore types.",
+            "Use asynchronous processing for chore management.",
+            "Implement load balancing to distribute the workload."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-21-3",
+          "text": "How should the application architecture be designed to accommodate an unlimited number of 'immediately' or 'soon' chores?",
+          "to": "Solution Architect",
+          "topic": "Architecture",
+          "options": [
+            "Use a microservices architecture to scale individual components.",
+            "Implement a queue system for processing 'immediately' and 'soon' chores.",
+            "Design a scalable database schema to handle large volumes of chores.",
+            "Use cloud services for dynamic scaling based on load.",
+            "Implement a load balancer to distribute requests evenly."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-22",
-      "text": "The application must support two types of family memberships: direct and indirect."
+      "text": "The application must support two types of family memberships: direct and indirect.",
+      "questions": [
+        {
+          "id": "Q-R-22-1",
+          "text": "What technical considerations are necessary to support an unlimited number of high-priority chores?",
+          "to": "Solution Architect",
+          "topic": "System Architecture",
+          "options": [
+            "Implement efficient data structures to manage large lists of chores.",
+            "Use database indexing to optimize query performance for high-priority chores.",
+            "Design a scalable backend to handle potential load increases.",
+            "Implement caching mechanisms to improve response times.",
+            "Consider using asynchronous processing for chore management."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-22-2",
+          "text": "What architectural considerations should be made to support a potentially large number of high-priority chores?",
+          "to": "Solution Architect",
+          "topic": "Architecture",
+          "options": [
+            "Design a scalable backend service.",
+            "Implement microservices for chore management.",
+            "Use event-driven architecture for chore updates.",
+            "Consider using a distributed system for chore handling.",
+            "Plan for horizontal scaling of the application."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-23",
-      "text": "The application must store the type of family membership (direct or indirect) as an attribute of the user's profile."
+      "text": "The application must store the type of family membership (direct or indirect) as an attribute of the user's profile.",
+      "questions": []
     },
     {
       "id": "R-24",
-      "text": "The application must enforce a limit of 200 family members per user account."
+      "text": "The application must enforce a limit of 200 family members per user account.",
+      "questions": []
     },
     {
       "id": "R-25",
-      "text": "The application must allow users to assign priority to chores with various time-based options."
+      "text": "The application must allow users to assign priority to chores with various time-based options.",
+      "questions": []
     },
     {
       "id": "R-26",
-      "text": "Users can select from predefined time intervals (15 minutes, 2 hours) or manually enter a custom time in hours and minutes."
+      "text": "Users can select from predefined time intervals (15 minutes, 2 hours) or manually enter a custom time in hours and minutes.",
+      "questions": []
     },
     {
       "id": "R-27",
-      "text": "Users can set chores to be completed by the end of the day, by a specific date and time, immediately, or soon."
+      "text": "Users can set chores to be completed by the end of the day, by a specific date and time, immediately, or soon.",
+      "questions": [
+        {
+          "id": "Q-R-27-1",
+          "text": "What architectural changes are needed to accommodate unlimited immediate and soon chores?",
+          "to": "Solution Architect",
+          "topic": "System Architecture",
+          "options": [
+            "Adopt a microservices architecture",
+            "Implement event-driven processing",
+            "Enhance the existing system with new modules",
+            "Consider a distributed database solution",
+            "Review and possibly redesign the data model"
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-28",
-      "text": "The application must confirm the user's selected time options before finalizing the chore priority."
+      "text": "The application must confirm the user's selected time options before finalizing the chore priority.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "The application must include a categorization system for chores."
+      "text": "The application must include a categorization system for chores.",
+      "questions": []
     },
     {
       "id": "R-2",
-      "text": "The application must allow for the assignment of chores to individuals or groups."
+      "text": "The application must allow for the assignment of chores to individuals or groups.",
+      "questions": []
     },
     {
       "id": "R-3",
-      "text": "The application must track the status and updates of chores."
+      "text": "The application must track the status and updates of chores.",
+      "questions": []
     },
     {
       "id": "R-4",
-      "text": "The application must support the logging of detailed descriptions and expectations for each chore."
+      "text": "The application must support the logging of detailed descriptions and expectations for each chore.",
+      "questions": []
     },
     {
       "id": "R-5",
-      "text": "The application must allow for the specification of the type of chore (household, family, friends)."
+      "text": "The application must allow for the specification of the type of chore (household, family, friends).",
+      "questions": []
     },
     {
       "id": "R-6",
-      "text": "The application must include a feature to record the value or benefit of completing a chore."
+      "text": "The application must include a feature to record the value or benefit of completing a chore.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "The application must include a feature to manage a list of household chores, with the ability to add, edit, and delete chores from the list."
+      "text": "The application must include a feature to manage a list of household chores, with the ability to add, edit, and delete chores from the list.",
+      "questions": []
     },
     {
       "id": "R-2",
-      "text": "The application should allow users to prioritize and categorize chores within the list."
+      "text": "The application should allow users to prioritize and categorize chores within the list.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "The application must include a feature to set and manage limits on the number of family members that can be registered or associated within the system."
+      "text": "The application must include a feature to set and manage limits on the number of family members that can be registered or associated within the system.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "The application must allow an unlimited number of chores to be set to 'immediately' or 'soon'."
+      "text": "The application must allow an unlimited number of chores to be set to 'immediately' or 'soon'.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "Ensure the application can handle an unlimited number of chores with 'immediately' or 'soon' status without performance degradation."
+      "text": "Ensure the application can handle an unlimited number of chores with 'immediately' or 'soon' status without performance degradation.",
+      "questions": [
+        {
+          "id": "Q-R-1-1",
+          "text": "What performance considerations should be taken into account with a maximum of 200 family members?",
+          "to": "Tech Advisor",
+          "topic": "Performance",
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-2",
+          "text": "What performance optimizations are necessary to support an unlimited number of chores?",
+          "to": "Tech Advisor",
+          "topic": "Performance",
+          "options": [
+            "Implement lazy loading for chores",
+            "Use database indexing for quick retrieval",
+            "Consider caching mechanisms",
+            "Optimize query operations",
+            "Assess server scalability"
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-3",
+          "text": "Are there any performance implications of setting a high number of chores to 'immediately' or 'soon'?",
+          "to": "Tech Advisor",
+          "topic": "Performance",
+          "options": [
+            "No significant impact, as long as the system is properly optimized.",
+            "Potential for increased server load and slower response times.",
+            "May cause memory issues if not managed properly.",
+            "Could lead to increased battery drain on mobile devices.",
+            "Might result in user experience degradation due to slower app performance."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-4",
+          "text": "How should the application handle performance when the number of 'immediately' or 'soon' chores approaches the practical limit of 100-200?",
+          "to": "Solution Architect",
+          "topic": "Performance",
+          "options": [
+            "Implement a priority queue to manage high-priority chores efficiently.",
+            "Optimize database queries to handle large numbers of chores.",
+            "Use caching mechanisms to improve response times.",
+            "Implement load balancing to distribute the workload.",
+            "Consider asynchronous processing for chore management."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-5",
+          "text": "How should the application handle performance when the number of 'immediately' or 'soon' chores approaches or exceeds the practical limit?",
+          "to": "Tech Advisor",
+          "topic": "Performance",
+          "options": [
+            "Implement a warning message to the user when nearing the limit.",
+            "Optimize the database to handle high volumes of data efficiently.",
+            "Use caching mechanisms to improve response times.",
+            "Implement pagination or lazy loading for chore lists.",
+            "Limit functionality beyond the practical limit to maintain performance."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-6",
+          "text": "How should the application handle performance when a large number of chores are set to 'immediately' or 'soon'?",
+          "to": "Tech Advisor",
+          "topic": "Performance",
+          "options": [
+            "Implement batch processing for chores.",
+            "Use asynchronous task handling.",
+            "Optimize database queries for high volumes.",
+            "Implement a queue system for chore execution.",
+            "Monitor and scale server resources dynamically."
+          ],
+          "status": "Open"
+        },
+        {
+          "id": "Q-R-1-7",
+          "text": "How should the application handle performance when a user sets a high number of chores to 'immediately' or 'soon'?",
+          "to": "Solution Architect",
+          "topic": "Performance",
+          "options": [
+            "Implement batch processing for high volumes of chores.",
+            "Use asynchronous processing to handle chores.",
+            "Optimize database queries for large numbers of chores.",
+            "Implement a warning or notification when nearing the practical limit.",
+            "No special handling needed, the system can handle it."
+          ],
+          "status": "Open"
+        }
+      ]
     },
     {
       "id": "R-1",
-      "text": "The application must support setting an unlimited number of chores with 'immediately' or 'soon' priority, with a practical limit of 100-200 chores."
+      "text": "The application must support setting an unlimited number of chores with 'immediately' or 'soon' priority, with a practical limit of 100-200 chores.",
+      "questions": []
     },
     {
       "id": "R-2",
-      "text": "The application should be designed to handle up to 200 chores set to 'immediately' or 'soon' without any artificial limit imposed by the system."
+      "text": "The application should be designed to handle up to 200 chores set to 'immediately' or 'soon' without any artificial limit imposed by the system.",
+      "questions": []
     },
     {
       "id": "R-3",
-      "text": "The application must support setting an unlimited number of chores with the status 'immediately' or 'soon', with a practical limit of 100-200 chores."
+      "text": "The application must support setting an unlimited number of chores with the status 'immediately' or 'soon', with a practical limit of 100-200 chores.",
+      "questions": []
     },
     {
       "id": "R-4",
-      "text": "The application must support setting a large number of chores (up to 100-200) with the priority 'immediately' or 'soon' without imposing a hard limit."
+      "text": "The application must support setting a large number of chores (up to 100-200) with the priority 'immediately' or 'soon' without imposing a hard limit.",
+      "questions": []
     },
     {
       "id": "R-1",
-      "text": "The application must allow users to set any number of chores to 'immediately' or 'soon' status, with a practical limit of 100-200 chores."
-    }
-  ],
-  "questions": [
-    {
-      "id": "Q-1",
-      "text": "What information should be required to create a personal account?",
-      "to": "Stakeholder",
-      "topic": "user management",
-      "status": "Resolved",
-      "answer": "full name, gender, email, phone, zipcode"
-    },
-    {
-      "id": "Q-2",
-      "text": "Should users be able to have multiple family memberships?",
-      "to": "Stakeholder",
-      "topic": "user management",
-      "status": "Resolved",
-      "answer": "yes, there should be direct and in-direct family members, there maybe features in the future that act differently based on this status"
-    },
-    {
-      "id": "Q-3",
-      "text": "How should the invitation process be designed to ensure user experience?",
-      "to": "UX Designer",
-      "topic": "family management",
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "Should there be a limit on the number of family members?",
-      "to": "Stakeholder",
-      "topic": "family management",
-      "status": "Resolved",
-      "answer": "Give me options"
-    },
-    {
-      "id": "Q-5",
-      "text": "What level of detail should be required when logging a chore?",
-      "to": "Stakeholder",
-      "topic": "chore management",
-      "status": "Resolved",
-      "answer": "A chore should be part of a category, a type (household, family, friends), has a value or benefit (saves time, convenance), who its assigned (a family member or group), description, details, expectations, status, updates"
-    },
-    {
-      "id": "Q-6",
-      "text": "Should users be able to prioritize chores?",
-      "to": "Stakeholder",
-      "topic": "chore management",
-      "status": "Resolved",
-      "answer": "yes, it should be time boxed, either by an actual time (simple hours:mins), in the next (15 mins, 2 hours, left you select quick buttons), let user select an interval mins/hours, and add to it by mins/hours), by end of day, by a given date and time, immediately, soon. User should be able to confirm what options they want"
-    },
-    {
-      "id": "Q-7",
-      "text": "What should be the default behavior for offline data syncing?",
-      "to": "Solution Architect",
-      "topic": "data handling",
-      "status": "Open"
-    },
-    {
-      "id": "Q-8",
-      "text": "How long should data be stored locally before being synced?",
-      "to": "Tech Advisor",
-      "topic": "data handling",
-      "status": "Open"
-    },
-    {
-      "id": "Q-9",
-      "text": "What are the most common household chores that should be included in the initial list?",
-      "to": "Stakeholder",
-      "topic": "common chores",
-      "status": "Resolved",
-      "answer": "give me a list of 25 suggestions"
-    },
-    {
-      "id": "Q-10",
-      "text": "Should users be able to categorize chores (e.g., daily, weekly, monthly)?",
-      "to": "Stakeholder",
-      "topic": "common chores",
-      "status": "Open"
-    },
-    {
-      "id": "Q-11",
-      "text": "How should the application handle the validation and format of the email and phone number fields?",
-      "to": "Tech Advisor",
-      "topic": "Data Validation",
-      "status": "Open"
-    },
-    {
-      "id": "Q-12",
-      "text": "What user interface elements should be used to collect the required personal information?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "status": "Open"
-    },
-    {
-      "id": "Q-13",
-      "text": "How should the application ensure the security and privacy of the collected personal data?",
-      "to": "Solution Architect",
-      "topic": "Data Security",
-      "status": "Open"
-    },
-    {
-      "id": "Q-14",
-      "text": "Should the application allow users to update their personal information after account creation?",
-      "to": "Stakeholder",
-      "topic": "Account Management",
-      "status": "Open"
-    },
-    {
-      "id": "Q-15",
-      "text": "How should the user interface differentiate between direct and indirect family members?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "status": "Open"
-    },
-    {
-      "id": "Q-16",
-      "text": "What are the potential future features that will depend on the distinction between direct and indirect family members?",
-      "to": "Stakeholder",
-      "topic": "Future Features",
-      "status": "Open"
-    },
-    {
-      "id": "Q-17",
-      "text": "What is the expected impact on the database schema to accommodate direct and indirect family memberships?",
-      "to": "Solution Architect",
-      "topic": "Database Design",
-      "status": "Open"
-    },
-    {
-      "id": "Q-18",
-      "text": "What are the technical considerations for implementing and maintaining different types of family memberships?",
-      "to": "Tech Advisor",
-      "topic": "Technical Implementation",
-      "status": "Open"
-    },
-    {
-      "id": "Q-19",
-      "text": "How should the application handle attempts to add more than 200 family members?",
-      "to": "Solution Architect",
-      "topic": "Error Handling",
-      "status": "Open"
-    },
-    {
-      "id": "Q-20",
-      "text": "What visual or textual feedback should be provided to users when they reach the family member limit?",
-      "to": "UX Designer",
-      "topic": "User Feedback",
-      "status": "Open"
-    },
-    {
-      "id": "Q-21",
-      "text": "What performance considerations should be taken into account with a maximum of 200 family members?",
-      "to": "Tech Advisor",
-      "topic": "Performance",
-      "status": "Open"
-    },
-    {
-      "id": "Q-22",
-      "text": "Should there be different limits for different types of family members (e.g., immediate vs. extended family)?",
-      "to": "Stakeholder",
-      "topic": "Policy",
-      "status": "Open"
-    },
-    {
-      "id": "Q-23",
-      "text": "How should the application handle overlapping time priorities for different chores?",
-      "to": "Solution Architect",
-      "topic": "Time Management",
-      "status": "Open"
-    },
-    {
-      "id": "Q-24",
-      "text": "What visual cues should be used to differentiate between different time priority options?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "status": "Open"
-    },
-    {
-      "id": "Q-25",
-      "text": "Should there be a limit to the number of chores that can be set to 'immediately' or 'soon'?",
-      "to": "Stakeholder",
-      "topic": "Chore Management",
-      "status": "Resolved",
-      "answer": "No there should be no limit, practical limit would be 100-200, we shouldn't limit the user however."
-    },
-    {
-      "id": "Q-26",
-      "text": "What should be the default priority setting for a new chore if the user does not specify one?",
-      "to": "Tech Advisor",
-      "topic": "Default Settings",
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "How should the categorization of chores be implemented in the user interface?",
-      "to": "UX Designer",
-      "topic": "UI Design",
-      "options": [
-        "Dropdown menu for category selection",
-        "Tag system for multiple category assignments",
-        "Hierarchical tree view",
-        "Searchable list of categories",
-        "Customizable category creation by users"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "What database schema should be used to store the detailed attributes of chores?",
-      "to": "Solution Architect",
-      "topic": "Database Design",
-      "options": [
-        "Relational database with multiple tables linked by foreign keys",
-        "Document-based NoSQL database for flexible attribute storage",
-        "Graph database to represent relationships between chores and assignees",
-        "Column-family NoSQL database for scalability",
-        "Hybrid approach combining SQL and NoSQL elements"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "What technology should be used to manage real-time updates of chore statuses?",
-      "to": "Tech Advisor",
-      "topic": "Technology Stack",
-      "options": [
-        "WebSocket for real-time communication",
-        "Server-Sent Events (SSE) for one-way updates",
-        "Polling with RESTful API",
-        "GraphQL subscriptions for efficient data fetching",
-        "MQTT for lightweight messaging"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "How should the value or benefit of chores be quantified or described within the application?",
-      "to": "Stakeholder",
-      "topic": "Feature Definition",
-      "options": [
-        "Using a numerical scale (e.g., 1-10) for time saved",
-        "Descriptive text input for convenience",
-        "Predefined categories of benefits (e.g., time, money, health)",
-        "User-defined tags for custom benefits",
-        "A combination of quantitative and qualitative measures"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "Should the list of household chores be customizable by the user, or should it be fixed with the initial 25 suggestions?",
-      "to": "Stakeholder",
-      "topic": "Customization",
-      "options": [
-        "Fully customizable by the user",
-        "Fixed list with no customization",
-        "Fixed list with the option to add custom chores",
-        "Fixed list with the option to remove unwanted chores",
-        "Fixed list with options to add, remove, and reorder chores"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "What is the best way to visually represent the list of chores to enhance user engagement and usability?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Simple list view",
-        "Grid layout",
-        "Kanban board",
-        "Calendar view",
-        "Interactive checklist"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "How should the application handle the storage and retrieval of the chore list data?",
-      "to": "Solution Architect",
-      "topic": "Data Management",
-      "options": [
-        "Local storage on the device",
-        "Cloud storage with synchronization",
-        "Database on a server",
-        "Hybrid approach with local and cloud storage",
-        "External API integration for data management"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "What are the technical considerations for integrating a list of 25 household chores into the application?",
-      "to": "Tech Advisor",
-      "topic": "Technical Integration",
-      "options": [
-        "Direct integration into the app's code",
-        "Use of a configuration file for the list",
-        "Dynamic loading from a database",
-        "API endpoint for chore list management",
-        "Third-party service for chore list management"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "What are the different types of limits that could be applied to family members?",
-      "to": "Stakeholder",
-      "topic": "Family Member Limits",
-      "options": [
-        "Total number of family members",
-        "Number of adult family members",
-        "Number of minor family members",
-        "Number of family members per household",
-        "No limits"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "How should the user interface handle the setting and display of family member limits?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Dropdown menu for selecting limit",
-        "Slider to adjust limit",
-        "Input field for manual entry",
-        "Display current limit and total members",
-        "No specific UI for limits"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "What are the technical considerations for implementing and enforcing family member limits?",
-      "to": "Solution Architect",
-      "topic": "Technical Implementation",
-      "options": [
-        "Database schema adjustments",
-        "Real-time validation on member addition",
-        "API endpoints for limit management",
-        "Error handling for limit exceedance",
-        "Scalability considerations"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "What are the potential impacts of setting family member limits on system performance and user experience?",
-      "to": "Tech Advisor",
-      "topic": "System Performance",
-      "options": [
-        "Increased load on database queries",
-        "Potential for user frustration if limits are too strict",
-        "Need for efficient caching mechanisms",
-        "Impact on data integrity and consistency",
-        "Minimal impact if limits are set reasonably"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "How should the user interface handle the display of an unlimited number of 'immediately' or 'soon' chores?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Implement a scrollable list for these chores.",
-        "Use pagination to manage the list of chores.",
-        "Show only a fixed number of chores and hide the rest.",
-        "Implement a collapsible section for these chores.",
-        "Allow users to filter and sort these chores."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "What impact might an unlimited number of 'immediately' or 'soon' chores have on system performance?",
-      "to": "Tech Advisor",
-      "topic": "System Performance",
-      "options": [
-        "Negligible impact as long as the database is optimized.",
-        "Significant impact due to increased memory usage.",
-        "Moderate impact, requiring load balancing solutions.",
-        "High impact on server response time.",
-        "Depends on the number of users and their usage patterns."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "How should the application architecture be designed to support an unlimited number of 'immediately' or 'soon' chores?",
-      "to": "Solution Architect",
-      "topic": "Application Architecture",
-      "options": [
-        "Use a scalable database solution.",
-        "Implement caching mechanisms for frequently accessed chores.",
-        "Design a microservices architecture to handle different chore types.",
-        "Use asynchronous processing for chore management.",
-        "Implement load balancing to distribute the workload."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "How should the user interface manage the display of an unlimited list of immediate or soon chores?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Implement a scrollable list with infinite scrolling",
-        "Use pagination to limit visible items",
-        "Show a 'view all' button to expand the list",
-        "Prioritize chores with a sorting mechanism",
-        "Allow users to filter or search for chores"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "What performance optimizations are necessary to support an unlimited number of chores?",
-      "to": "Tech Advisor",
-      "topic": "Performance",
-      "options": [
-        "Implement lazy loading for chores",
-        "Use database indexing for quick retrieval",
-        "Consider caching mechanisms",
-        "Optimize query operations",
-        "Assess server scalability"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "Should there be any visual cues or notifications when the number of 'immediately' or 'soon' chores exceeds a certain threshold?",
-      "to": "Stakeholder",
-      "topic": "User Experience",
-      "options": [
-        "Yes, with a notification icon",
-        "Yes, with a color change or visual alert",
-        "No, users should manage their own list",
-        "Only for critical chores",
-        "Let users set their own notification thresholds"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "What architectural changes are needed to accommodate unlimited immediate and soon chores?",
-      "to": "Solution Architect",
-      "topic": "System Architecture",
-      "options": [
-        "Adopt a microservices architecture",
-        "Implement event-driven processing",
-        "Enhance the existing system with new modules",
-        "Consider a distributed database solution",
-        "Review and possibly redesign the data model"
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "How should the user interface handle a large number of chores set to 'immediately' or 'soon' without overwhelming the user?",
-      "to": "UX Designer",
-      "topic": "User Interface Design",
-      "options": [
-        "Implement a scrollable list with clear priority indicators.",
-        "Use pagination to manage the display of chores.",
-        "Offer a filter or search function to manage visibility.",
-        "Display a warning when the number of high-priority chores exceeds a threshold.",
-        "Allow users to group or categorize chores for better organization."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "What technical considerations are necessary to support an unlimited number of high-priority chores?",
-      "to": "Solution Architect",
-      "topic": "System Architecture",
-      "options": [
-        "Implement efficient data structures to manage large lists of chores.",
-        "Use database indexing to optimize query performance for high-priority chores.",
-        "Design a scalable backend to handle potential load increases.",
-        "Implement caching mechanisms to improve response times.",
-        "Consider using asynchronous processing for chore management."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "Are there any performance implications of setting a high number of chores to 'immediately' or 'soon'?",
-      "to": "Tech Advisor",
-      "topic": "Performance",
-      "options": [
-        "No significant impact, as long as the system is properly optimized.",
-        "Potential for increased server load and slower response times.",
-        "May cause memory issues if not managed properly.",
-        "Could lead to increased battery drain on mobile devices.",
-        "Might result in user experience degradation due to slower app performance."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-4",
-      "text": "How should the application handle performance when the number of 'immediately' or 'soon' chores approaches the practical limit of 100-200?",
-      "to": "Solution Architect",
-      "topic": "Performance",
-      "options": [
-        "Implement a priority queue to manage high-priority chores efficiently.",
-        "Optimize database queries to handle large numbers of chores.",
-        "Use caching mechanisms to improve response times.",
-        "Implement load balancing to distribute the workload.",
-        "Consider asynchronous processing for chore management."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-5",
-      "text": "What user interface elements should be included to help users manage a high number of 'immediately' or 'soon' chores?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "A filter or search function to quickly locate specific chores.",
-        "A visual indicator when the number of chores approaches the practical limit.",
-        "A collapsible list or accordion view for better organization.",
-        "A bulk edit feature to manage multiple chores at once.",
-        "A notification system to alert users when chores are added or completed."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-6",
-      "text": "Are there any technical limitations or considerations that might affect the application's ability to handle up to 200 'immediately' or 'soon' chores?",
-      "to": "Tech Advisor",
-      "topic": "Technical Limitations",
-      "options": [
-        "Server capacity and scalability might be a concern.",
-        "Database performance could degrade with high numbers of entries.",
-        "Network latency might impact real-time updates.",
-        "Memory usage could become an issue with many active chores.",
-        "There might be limitations in the chosen programming framework or libraries."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-7",
-      "text": "How should the application handle performance when the number of 'immediately' or 'soon' chores approaches or exceeds the practical limit?",
-      "to": "Tech Advisor",
-      "topic": "Performance",
-      "options": [
-        "Implement a warning message to the user when nearing the limit.",
-        "Optimize the database to handle high volumes of data efficiently.",
-        "Use caching mechanisms to improve response times.",
-        "Implement pagination or lazy loading for chore lists.",
-        "Limit functionality beyond the practical limit to maintain performance."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-8",
-      "text": "What user interface elements should be designed to manage a large number of 'immediately' or 'soon' chores?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "A dedicated section for 'immediately' and 'soon' chores.",
-        "A filter option to view only 'immediately' and 'soon' chores.",
-        "A collapsible list to manage the display of many chores.",
-        "A dashboard showing summary statistics of chore statuses.",
-        "An alert system for when chores are added to 'immediately' or 'soon'."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-9",
-      "text": "Should there be any system notifications or alerts when the number of 'immediately' or 'soon' chores is high?",
-      "to": "Stakeholder",
-      "topic": "Notifications",
-      "options": [
-        "Yes, alert when the number exceeds 50.",
-        "Yes, alert when the number exceeds 100.",
-        "Yes, but only for 'immediately' chores when exceeding 25.",
-        "No, let the user manage without system interference.",
-        "Yes, customizable by the user."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-10",
-      "text": "How should the application architecture be designed to accommodate an unlimited number of 'immediately' or 'soon' chores?",
-      "to": "Solution Architect",
-      "topic": "Architecture",
-      "options": [
-        "Use a microservices architecture to scale individual components.",
-        "Implement a queue system for processing 'immediately' and 'soon' chores.",
-        "Design a scalable database schema to handle large volumes of chores.",
-        "Use cloud services for dynamic scaling based on load.",
-        "Implement a load balancer to distribute requests evenly."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-11",
-      "text": "How should the application handle performance when a large number of chores are set to 'immediately' or 'soon'?",
-      "to": "Tech Advisor",
-      "topic": "Performance",
-      "options": [
-        "Implement batch processing for chores.",
-        "Use asynchronous task handling.",
-        "Optimize database queries for high volumes.",
-        "Implement a queue system for chore execution.",
-        "Monitor and scale server resources dynamically."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-12",
-      "text": "What user interface elements should be designed to manage a large number of high-priority chores effectively?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Implement a collapsible list for high-priority chores.",
-        "Use color coding to differentiate priority levels.",
-        "Provide filters and search functionality for chores.",
-        "Design a dashboard to overview high-priority chores.",
-        "Include pagination for long lists of chores."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-13",
-      "text": "What architectural considerations should be made to support a potentially large number of high-priority chores?",
-      "to": "Solution Architect",
-      "topic": "Architecture",
-      "options": [
-        "Design a scalable backend service.",
-        "Implement microservices for chore management.",
-        "Use event-driven architecture for chore updates.",
-        "Consider using a distributed system for chore handling.",
-        "Plan for horizontal scaling of the application."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-14",
-      "text": "Should there be any notifications or alerts when the number of high-priority chores reaches a certain threshold?",
-      "to": "Stakeholder",
-      "topic": "User Experience",
-      "options": [
-        "Yes, notify users when the number exceeds 50.",
-        "Yes, notify users when the number exceeds 100.",
-        "Yes, but only if the user opts in for notifications.",
-        "No, users should manage their chores without system alerts.",
-        "Yes, but only for critical chores."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-1",
-      "text": "How should the application handle performance when a user sets a high number of chores to 'immediately' or 'soon'?",
-      "to": "Solution Architect",
-      "topic": "Performance",
-      "options": [
-        "Implement batch processing for high volumes of chores.",
-        "Use asynchronous processing to handle chores.",
-        "Optimize database queries for large numbers of chores.",
-        "Implement a warning or notification when nearing the practical limit.",
-        "No special handling needed, the system can handle it."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-2",
-      "text": "How should the user interface adapt to a large number of chores set to 'immediately' or 'soon'?",
-      "to": "UX Designer",
-      "topic": "User Interface",
-      "options": [
-        "Implement a scrollable list for chores.",
-        "Use pagination to manage large lists of chores.",
-        "Provide filters to help users manage their chores.",
-        "Show a summary view with the option to expand.",
-        "Keep the current design as it is sufficient."
-      ],
-      "status": "Open"
-    },
-    {
-      "id": "Q-3",
-      "text": "What technical considerations should be made to support a large number of chores set to 'immediately' or 'soon'?",
-      "to": "Tech Advisor",
-      "topic": "Technical Considerations",
-      "options": [
-        "Increase server capacity to handle high volumes.",
-        "Implement caching mechanisms to improve performance.",
-        "Use load balancing to distribute the workload.",
-        "Optimize data storage and retrieval for chores.",
-        "No additional technical considerations needed."
-      ],
-      "status": "Open"
+      "text": "The application must allow users to set any number of chores to 'immediately' or 'soon' status, with a practical limit of 100-200 chores.",
+      "questions": []
     }
   ],
   "stoppedTopics": [],

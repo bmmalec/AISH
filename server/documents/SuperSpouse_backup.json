@@ -1,0 +1,195 @@
+{
+  "projectName": "SuperSpouse",
+  "vision": "create a mobile app called SuperSpouse, that allow couples to help and support each other in running a household or a family. System should allow a family member to basically start a family and invite family members to join, this will limit the visibility to who can access the family information. App should support offline use. App should make it easy to either log or request assistance with common household chores. Create an initial list of common household chores",
+  "scope": "Create requirements for becoming a member, creating a family, adding members, logging or requesting chores and assigning, allow for the management of their own custom chore list\n\n",
+  "requirements": [
+    {
+      "internalId": "12e7f7f3-34b8-494f-a642-9d2be54845cf",
+      "id": "R-1",
+      "text": "User must register an account with email and password to become a member.",
+      "benefit": "Ensures privacy and secure access to family data.",
+      "objective": "Secure user authentication.",
+      "value": "Protects family data from unauthorized access.",
+      "process": "Registration",
+      "entity": "User",
+      "useCase": "User registers to use the app.",
+      "epic": "test"
+    },
+    {
+      "internalId": "d67ee9b2-6beb-4096-a927-8f825045a50a",
+      "id": "R-2",
+      "text": "User can create a family, setting a family name, and invite members via email.",
+      "benefit": "Reduces the time to setup a family group by 50%.",
+      "objective": "Simplify family creation.",
+      "value": "Enhances family connectivity.",
+      "process": "Family Creation",
+      "entity": "Family",
+      "useCase": "New family setup.",
+      "epic": "test"
+    },
+    {
+      "internalId": "fed4a647-031d-40f8-8a99-cf478c704eeb",
+      "id": "R-3",
+      "text": "Family members can be added or removed by the family creator or admin.",
+      "benefit": "Allows for dynamic family changes without app intervention.",
+      "objective": "Manage family membership.",
+      "value": "Adapts to changes in family structure.",
+      "process": "Member Management",
+      "entity": "Family Member",
+      "useCase": "Family structure changes.",
+      "epic": "test"
+    },
+    {
+      "internalId": "57870cf2-a38f-44c2-a535-21191152f3cc",
+      "id": "R-4",
+      "text": "Users can log chores with details like Chore Name, Description, and Due Date.",
+      "benefit": "Reduces task assignment time by 20%.",
+      "objective": "Streamline task logging.",
+      "value": "Improves household efficiency.",
+      "process": "Chore Logging",
+      "entity": "Chore",
+      "useCase": "Logging a household chore.",
+      "epic": "test"
+    },
+    {
+      "internalId": "79fa6d32-58b1-479d-b600-ab8aed2caf83",
+      "id": "R-5",
+      "text": "Users can request assistance for chores, specifying the chore and time frame.",
+      "benefit": "Increases the likelihood of chore completion by 30%.",
+      "objective": "Enable chore delegation.",
+      "value": "Promotes shared responsibility.",
+      "process": "Chore Request",
+      "entity": "Chore",
+      "useCase": "Requesting help with chores.",
+      "epic": "test"
+    },
+    {
+      "internalId": "a1d53eaf-96a6-4ffa-8f25-ca1948f6318c",
+      "id": "R-6",
+      "text": "Family members can assign chores to one another, with an option for acceptance.",
+      "benefit": "Reduces time spent on chore negotiation by 40%.",
+      "objective": "Facilitate task assignment.",
+      "value": "Enhances family coordination.",
+      "process": "Chore Assignment",
+      "entity": "Chore",
+      "useCase": "Assigning chores within the family.",
+      "epic": "test"
+    },
+    {
+      "internalId": "94b21775-7558-42ff-a3a0-b1548e58231b",
+      "id": "R-7",
+      "text": "App supports offline use, syncing data when online.",
+      "benefit": "Maintains app usability in areas with poor connectivity.",
+      "objective": "Ensure continuous access.",
+      "value": "Improves user experience and accessibility.",
+      "process": "Offline Sync",
+      "entity": "App",
+      "useCase": "Using the app in offline mode.",
+      "epic": "test"
+    },
+    {
+      "internalId": "a9cfacf6-2b43-4177-896d-2531b8c83375",
+      "id": "R-8",
+      "text": "Users can manage their own custom chore list, adding, editing, or deleting chores.",
+      "benefit": "Allows for personalization, potentially increasing user satisfaction by 25%.",
+      "objective": "Allow for chore personalization.",
+      "value": "Caters to individual needs within the family.",
+      "process": "Custom Chore Management",
+      "entity": "Chore",
+      "useCase": "Creating a personalized chore list.",
+      "epic": "test"
+    },
+    {
+      "internalId": "792063c5-261e-4b41-ac72-00ef1314229b",
+      "id": "R-9",
+      "text": "Visibility of family information is limited to invited members.",
+      "benefit": "Protects family privacy and reduces information overload.",
+      "objective": "Control information access.",
+      "value": "Maintains privacy and security.",
+      "process": "Information Sharing",
+      "entity": "Family",
+      "useCase": "Viewing family chores.",
+      "epic": "test"
+    }
+  ],
+  "questions": [
+    {
+      "internalId": "dce5326d-6d4e-49bd-89c8-0b4f7935c61a",
+      "id": "Q-1",
+      "text": "What are the criteria for allowing or denying family membership?",
+      "to": "Stakeholder",
+      "topic": "User Management",
+      "options": [
+        "Approval by family creator",
+        "Automatic acceptance with email verification",
+        "Manual approval process",
+        "Require familial relation proof",
+        "Open access with no restrictions"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "ff31d64c-c837-4b43-8389-db9f8387c5d9",
+      "id": "Q-2",
+      "text": "How should the app handle the removal of a family member?",
+      "to": "Solution Architect",
+      "topic": "User Management",
+      "options": [
+        "Remove all data associated with the member",
+        "Archive member data",
+        "Keep member data for future reference",
+        "Notify all family members",
+        "Allow member to export their data before removal"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "ef25e5a1-990c-4951-9fab-8fd3c4a1571b",
+      "id": "Q-3",
+      "text": "What kind of offline data handling is required for the app?",
+      "to": "Tech Advisor",
+      "topic": "Data Handling",
+      "options": [
+        "Sync data upon reconnection",
+        "Allow read-only access offline",
+        "Enable editing with later sync",
+        "Data caching for performance",
+        "No offline capabilities"
+      ],
+      "status": "Open"
+    },
+    {
+      "internalId": "89b2069a-1274-4a35-a978-229414983f93",
+      "id": "Q-4",
+      "text": "What security measures are necessary for offline data?",
+      "to": "Solution Architect",
+      "topic": "Data Handling",
+      "options": [
+        "Local encryption of data",
+        "No offline data storage",
+        "Data protection via device security",
+        "Implement secure sync protocols",
+        "User authentication required for data access"
+      ],
+      "status": "Open"
+    }
+  ],
+  "stoppedTopics": [],
+  "promptHistory": [],
+  "epics": [
+    {
+      "name": "test",
+      "requirementIds": [
+        "12e7f7f3-34b8-494f-a642-9d2be54845cf",
+        "d67ee9b2-6beb-4096-a927-8f825045a50a",
+        "fed4a647-031d-40f8-8a99-cf478c704eeb",
+        "57870cf2-a38f-44c2-a535-21191152f3cc",
+        "79fa6d32-58b1-479d-b600-ab8aed2caf83",
+        "a1d53eaf-96a6-4ffa-8f25-ca1948f6318c",
+        "94b21775-7558-42ff-a3a0-b1548e58231b",
+        "a9cfacf6-2b43-4177-896d-2531b8c83375",
+        "792063c5-261e-4b41-ac72-00ef1314229b"
+      ]
+    }
+  ]
+}
